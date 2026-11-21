@@ -1,0 +1,63 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'EValue' was built under R version 4.4.3 
+Confidence interval crosses the true value, so its E-value is 1.
+Confidence interval crosses the true value, so its E-value is 1.
+================ E-value 表 ================
+                                           finding                   spec
+                                            <char>                 <char>
+               CRP main effect, per 5% weight loss         unweighted CR1
+               CRP main effect, per 5% weight loss survey-weighted svyglm
+               WBC main effect, per 5% weight loss         unweighted CR1
+               WBC main effect, per 5% weight loss survey-weighted svyglm
+        Neutrophil main effect, per 5% weight loss         unweighted CR1
+        Neutrophil main effect, per 5% weight loss survey-weighted svyglm
+              SHBG main effect, per 5% weight loss         unweighted CR1
+              SHBG main effect, per 5% weight loss survey-weighted svyglm
+               ALT main effect, per 5% weight loss         unweighted CR1
+               ALT main effect, per 5% weight loss survey-weighted svyglm
+ Fatty liver index main effect, per 5% weight loss         unweighted CR1
+ Fatty liver index main effect, per 5% weight loss survey-weighted svyglm
+           WBC x PFAS interaction (continuous DiD)         unweighted CR1
+            PFAS -> WBC, among non-losers (w5 = 0)           simple slope
+         PFAS -> WBC, among weight losers (w5 = 1)           simple slope
+    Neutrophil x PFAS interaction (continuous DiD)         unweighted CR1
+     PFAS -> Neutrophil, among non-losers (w5 = 0)           simple slope
+  PFAS -> Neutrophil, among weight losers (w5 = 1)           simple slope
+                   RR E-value E-value(CI)
+               <char>   <num>       <num>
+ 0.871 (0.854, 0.888)    1.56        1.50
+ 0.871 (0.853, 0.888)    1.56        1.50
+ 0.991 (0.986, 0.995)    1.11        1.08
+ 0.991 (0.985, 0.996)    1.11        1.07
+ 0.989 (0.984, 0.995)    1.12        1.08
+ 0.989 (0.983, 0.996)    1.12        1.07
+ 1.047 (1.031, 1.063)    1.27        1.21
+ 1.044 (1.024, 1.063)    1.26        1.18
+ 0.966 (0.960, 0.971)    1.23        1.20
+ 0.964 (0.957, 0.972)    1.23        1.20
+ 0.866 (0.860, 0.872)    1.58        1.56
+ 0.864 (0.856, 0.873)    1.58        1.56
+ 1.017 (1.005, 1.029)    1.15        1.08
+ 0.990 (0.984, 0.996)    1.11        1.06
+ 1.007 (0.996, 1.019)    1.09        1.00
+ 1.018 (1.001, 1.036)    1.15        1.03
+ 0.976 (0.968, 0.984)    1.18        1.14
+ 0.994 (0.978, 1.010)    1.09        1.00
+
+================ 一句话结论（可直接写进正文）================
+WBC 交互（RRR = 1.017）：E-value = 1.15（CI 界 1.08）
+WBC 主效应（RR = 0.991）：E-value = 1.11
+CRP 主效应（RR = 0.871）：E-value = 1.56（CI 界 1.50）
+FLI 主效应（RR = 0.866）：E-value = 1.58
+SHBG 主效应（RR = 1.047）：E-value = 1.27
+
+解释模板：要把 WBC 交互完全解释掉，未测量混杂必须与 PFAS 暴露和 WBC 结局
+同时达到 RR ≥ 1.15（且已调整 12 个协变量之外的额外混杂）。
+
+✅ V19 完成 → verification/evalue_table.csv

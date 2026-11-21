@@ -1,0 +1,51 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+矩阵: 36591 基因 x 125 样本×细胞类型
+
+=== ① 巨噬细胞活化表型（log10 CPM 基因均值） ===
+M1 markers             Obese=1.265  WL=1.150  Lean=1.202 | WL-Obese P=0.0624  WL-Lean P=0.5287  WL-Obese%=-23.3
+M2 markers             Obese=2.298  WL=2.235  Lean=2.245 | WL-Obese P=0.1792  WL-Lean P=0.8518  WL-Obese%=-13.5
+M1 - M2                Obese=-1.033  WL=-1.085  Lean=-1.043 | WL-Obese P=0.4736  WL-Lean P=0.6548  WL-Obese%=-11.3
+
+=== ② 巨噬细胞促炎输出（配体/炎症小体，log10 CPM） ===
+Inflammatory output    Obese=1.227  WL=0.974  Lean=1.301 | WL-Obese P=0.0107  WL-Lean P=0.0041  WL-Obese%=-44.1
+
+单基因（WL vs Obese，%）：
+  IL6      Obese=0.904 WL=0.059   -85.7%  P=0.001
+  CCL2     Obese=1.373 WL=1.716  +120.0%  P=0.079
+  TNF      Obese=0.567 WL=0.566    -0.2%  P=0.994
+  IL1B     Obese=0.796 WL=0.309   -67.5%  P=0.011
+  CCL3     Obese=1.467 WL=1.218   -43.6%  P=0.028
+  CCL4     Obese=1.473 WL=0.871   -75.0%  P=0.005
+  CXCL8    Obese=1.150 WL=0.359   -83.8%  P=0.001
+  NLRP3    Obese=2.423 WL=1.623   -84.1%  P=0.000
+  CASP1    Obese=1.230 WL=1.536  +102.4%  P=0.000
+  PYCARD   Obese=0.881 WL=1.479  +297.0%  P=0.001
+
+=== ③ 配体-受体活性（WL vs Obese） ===
+                 pair        dir obese    wl  lean   pct       p   p_bh
+               <char>     <char> <num> <num> <num> <num>   <num>  <num>
+ 1:       IL6 -> IL6R mac->adipo  1.48  1.00  1.33 -66.8 0.00057 0.0074
+ 2:     IL1B -> IL1R1 mac->adipo  1.31  0.92  1.26 -59.4 0.00250 0.0170
+ 3:      SPP1 -> CD44 mac->adipo  1.94  1.59  1.41 -54.8 0.00410 0.0180
+ 4:     CSF1 -> CSF1R adipo->mac  1.92  2.00  1.85  20.2 0.01400 0.0460
+ 5:   TGFB1 -> TGFBR1 mac->adipo  1.98  1.90  1.99 -17.2 0.02000 0.0520
+ 6:   CXCL12 -> CXCR4 adipo->mac  1.57  1.37  1.27 -37.6 0.09900 0.2100
+ 7:       C3 -> C3AR1 adipo->mac  1.79  1.86  1.78  17.1 0.24000 0.3800
+ 8: ADIPOQ -> ADIPOR1 adipo->mac  2.20  2.16  2.14  -8.3 0.25000 0.3800
+ 9:      CCL2 -> CCR2 adipo->mac  0.66  0.56  0.70 -19.8 0.26000 0.3800
+10:   TNF -> TNFRSF1A mac->adipo  1.27  1.22  1.35 -10.6 0.53000 0.6500
+11:       LEP -> LEPR adipo->mac  2.09  2.07  2.01  -4.4 0.55000 0.6500
+12:       LIF -> LIFR adipo->mac  0.81  0.84  1.06   6.6 0.82000 0.8800
+13:      RETN -> CAP1 adipo->mac  1.09  1.09  1.03  -0.2 0.98000 0.9800
+
+=== 配体与受体分别的变化（%） ===
+Error in .checkTypos(e, names_x) : 
+  Object 'lig_pct' not found amongst [pair, ligand, receptor]
+Calls: print ... <Anonymous> -> .checkTypos -> stopf -> raise_condition -> signal
+Execution halted

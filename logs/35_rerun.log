@@ -1,0 +1,27 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'ggplot2' was built under R version 4.4.3 
+3: package 'patchwork' was built under R version 4.4.3 
+4: package 'scales' was built under R version 4.4.3 
+Warning message:
+`geom_errorbarh()` was deprecated in ggplot2 4.0.0.
+i Please use the `orientation` argument of `geom_errorbar()` instead. 
+   pfas_t      med     ge10      dbmi     N
+   <fctr>    <num>    <num>     <num> <int>
+1:    Mid 9.090909 42.77180 -2.668156   837
+2:    Low 9.850951 48.92601 -2.851598   838
+3:   High 8.333333 36.39618 -2.421854   838
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+`height` was translated to `width`.
+✅ 图 9-12 已输出

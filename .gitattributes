@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+*.png binary
+*.pdf binary
+*.docx binary
+*.pdb binary
+*.sdf binary
+*.npy binary
+*.npz binary
+
+*.R   text
+*.py  text
+*.sh  text
+*.csv text
+*.md  text

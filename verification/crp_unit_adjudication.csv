@@ -1,0 +1,6 @@
+file,var,n,p25,median,p75,implied_unit,median_mgL
+CRP_D,LBXCRP,8172,0.04,0.12,0.38,mg/dL（1 mg/dL = 10 mg/L）,1.2
+CRP_F,LBXCRP,8299,0.04,0.13,0.35,mg/dL（1 mg/dL = 10 mg/L）,1.3
+HSCRP_I,LBXHSCRP,7867,0.4,1.2,3.6,mg/L,1.2
+HSCRP_J,LBXHSCRP,7250,0.56,1.355,3.59,mg/L,1.355
+HSCRP_L,LBXHSCRP,7282,0.6,1.45,3.65,mg/L,1.45

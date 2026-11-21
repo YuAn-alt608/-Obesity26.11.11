@@ -1,0 +1,25 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'ggplot2' was built under R version 4.4.3 
+3: package 'patchwork' was built under R version 4.4.3 
+4: package 'scales' was built under R version 4.4.3 
+5: package 'viridisLite' was built under R version 4.4.3 
+Warning message:
+Removed 2569 rows containing non-finite outside the scale range
+(`stat_boxplot()`). 
+f1 ok
+f2 ok
+f3 ok
+f4 ok
+f5 ok
+f6 ok
+figures written:
+[1] "fig1_exposure.png"             "fig2_ate.png"                 
+[3] "fig3_cate.png"                 "fig4_testosterone_surface.png"
+[5] "fig5_mortality.png"            "fig6_robustness.png"          
+[7] "fig7_singlecell.png"          

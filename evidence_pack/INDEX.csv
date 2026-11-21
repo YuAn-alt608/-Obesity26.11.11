@@ -1,0 +1,158 @@
+﻿id,act,section,claim,file,origin,source_script,key_number
+E1-01,1,§1,数据可得性核查：8 周期 200 个 XPT 的结构与行数（DNAm 数据不存在、PCB/OCP 仅 2003-04）,01_feasibility/E1-01_xpt_structure.csv,verification/xpt_structure.csv,code/verify/V02_xpt_structure.R; code/verify/V15_ledger.R,"200 文件 / 1,549,371 行"
+E1-02,1,§1,"变量字典：183 个 XPT、4,532 个变量的名称/标签/非缺失数",01_feasibility/E1-02_vars_all.csv,data/meta/vars_all.csv,code/04_dump_vars.R,任何变量映射可回查
+E1-03,1,§2.1,各周期 N 与暴露可得性（ΣPFAS / PCB / OCP / PFOS 分列）,01_feasibility/E1-03_qc_pop.csv,results/qc_pop.csv,code/06_build_pop.R,"C 周期 10,122 人；PFAS 子样本 2,094"
+E1-04,1,§2.1,分析样本 S0–S4 的构建质控（排除规则逐条计数）,01_feasibility/E1-04_qc_build_core.csv,results/qc_build_core.csv,code/05_build.R,"S0 28,342 → S1 9,656"
+E1-05,1,§3.1,"表 1：减重组 vs 未减重组基线（N=7,779 / 1,877）",01_feasibility/E1-05_table1_baseline.csv,results/table1_baseline.csv,code/17_tables.R,全部主分析样本
+E1-06,1,附,"S1 全样本个体级数据（9,656 人 × 关键变量），可脱离脚本直接复算",01_feasibility/E1-06_S1_subject_level.csv,results/S1_subject_level.csv,code/09_prep_analysis.R,1.1 MB，审稿人复核入口
+E1-07,1,§1 / 第一幕,"★ 样本量漏斗：82,096 → 45,739 → 16,778 → 13,162 → 12,775（主分析域）",01_feasibility/E1-07_cohort_flow.csv,results/cohort_flow.csv,code/verify/V20_story_frames.R,11 步；每步注明筛选条件，跨 branch 不算百分比
+E2-01,2,§3.2/3.9,PhenoAge 对全因死亡的预测力：每加速 1 年 RR=1.032,02_main_effects/E2-01_mort_phenoage.csv,results/mort_phenoage.csv,code/13_mortality.R; code/16_figures.R,"RR 1.032 (1.029–1.036), P=5.3e-69"
+E2-02,2,§3.2,PhenoAge 判别力 AUC=0.857，与实足年龄 0.856 等价,02_main_effects/E2-02_13_mort.log,logs/13_mort.log,code/13_mortality.R,⚠ 仅日志有，未落盘 CSV（见 INDEX 备注）
+E2-03,2,§3.3–3.5,主效应与交互总表（5 个模型：PFAS/PCB/OCP/睾酮/游离睾酮）,02_main_effects/E2-03_table2_main.csv,results/table2_main.csv,code/17_tables.R,"PhenoAge×PFAS b2=0.35, P=0.116"
+E2-04,2,§3.4,参数化剂量-反应：转折点、过零点、联合 Wald,02_main_effects/E2-04_param_interaction.csv,results/param_interaction.csv,code/11_param.R; code/16_figures.R; code/17_tables.R,b2 联合检验 P=0.116（未确证）
+E2-05,2,§3.4,剂量曲面网格（ΔW × PFAS z 的拟合面与置信带原料）,02_main_effects/E2-05_surface_grid.csv,results/surface_grid.csv,code/12_surface.R,417 KB，供图 3 复现
+E2-06,2,§3.10,稳健性：分周期复现,02_main_effects/E2-06_robust_bycycle.csv,results/robust_bycycle.csv,code/15_robust.R; code/16_figures.R,8 周期逐一同规格
+E2-07,2,§3.10,稳健性：阈值/对照组重定义,02_main_effects/E2-07_robust_threshold.csv,results/robust_threshold.csv,code/15_robust.R,≥5%/≥10%/稳定体重对照
+E2-08,2,§3.9,硬终点：减重 × PFAS 对死亡率的放大（阴性）,02_main_effects/E2-08_mort_w5_pfas.csv,results/mort_w5_pfas.csv,code/13_mortality.R; code/16_figures.R,RR 1.233 (0.996–1.527) 跨零
+E2-09,2,§3.7.1,雄激素轴八结局：每 5% 减重的效应,02_main_effects/E2-09_androgen_per5.csv,results/androgen_per5.csv,code/22_androgen_axis.R; code/26_fig_androgen.R; code/28_table3.R; code/verify/V20_story_frames.R,TT +4.0%、SHBG +4.8%、%游离 −2.3%、游离 +1.6% (P=0.17)
+E2-10,2,§3.7.3,雄激素：PFAS 三分位交互（三种设定）,02_main_effects/E2-10_androgen_tertile.csv,results/androgen_tertile.csv,code/22_androgen_axis.R; code/28_table3.R,八结局全部阴性
+E2-11,2,§3.7.2,脱钩检验：总睾酮与 SHBG 的阻尼是否成比例（配对聚类自助法）,02_main_effects/E2-11_androgen_decouple.csv,results/androgen_decouple.csv,code/22_androgen_axis.R; code/28_table3.R; code/verify/V20_story_frames.R,阻尼成比例 → 不支持结合位点竞争
+E2-12,2,§3.7.4,雄激素：单味同系物模型（PFOA/PFOS/PFHxS/PFNA）,02_main_effects/E2-12_androgen_congener.csv,results/androgen_congener.csv,code/22_androgen_axis.R; code/26_fig_androgen.R; code/28_table3.R,无亲和力梯度
+E2-13,2,§3.7.4,雄激素：多同系物互调（互斥共线性诊断）,02_main_effects/E2-13_androgen_congener_multi.csv,results/androgen_congener_multi.csv,code/22_androgen_axis.R,交互仍阴性
+E2-14,2,§3.8,雄激素主表（已排除六类药物的主分析样本）,02_main_effects/E2-14_androgen_axis.csv,results/androgen_axis.csv,code/22_androgen_axis.R; code/26_fig_androgen.R; code/28_table3.R; code/verify/V20_story_frames.R,"S3 2,244 → 清洁样本"
+E2-15,2,§3.8,同一模型的全样本版本（不排除药物）——用于展示药物混杂的量级,02_main_effects/E2-15_androgen_axis_allsample.csv,results/androgen_axis_allsample.csv,code/22_androgen_axis.R,与 E2-14 并读，差异即药物效应
+E2-16,2,§3.7,表 3（雄激素轴）/ 表 4（同系物）投稿版,02_main_effects/E2-16_table3_androgen_axis.csv,results/table3_androgen_axis.csv,code/28_table3.R,配套 table4_congener.csv（见 E2-17）
+E2-17,2,§3.7.4,表 4：四味同系物的完整估计,02_main_effects/E2-17_table4_congener.csv,results/table4_congener.csv,code/28_table3.R,
+E2-18,2,§3.13.1,肝-脂九结局：每 5% 减重（本研究最强信号）,02_main_effects/E2-18_liver_per5.csv,results/liver_per5.csv,code/30_liver_analysis.R; code/35_fig_breakthroughs.R,ALT −3.4%、GGT −3.1%、AST −1.3%
+E2-19,2,§3.13.1,肝-脂：PFAS 三分位交互（表面显著的那一版）,02_main_effects/E2-19_liver_tertile.csv,results/liver_tertile.csv,code/30_liver_analysis.R; code/35_fig_breakthroughs.R,拆解前
+E2-20,2,§3.13.1,肝-脂：四个临床二分类终点（FLI≥60 的 OR=0.226 等）,02_main_effects/E2-20_liver_binary.csv,results/liver_binary.csv,code/30_liver_analysis.R,临床可解释性
+E2-21,2,§3.13.2,肝-脂：二次剂量-反应与联合 Wald,02_main_effects/E2-21_liver_quad.csv,results/liver_quad.csv,code/30_liver_analysis.R,
+E2-22,2,§3.13.3,肝-脂：分层分析,02_main_effects/E2-22_liver_strat.csv,results/liver_strat.csv,code/30_liver_analysis.R,
+E2-23,2,§3.13.2,★ 评分拆解：纯肝脏部分 vs BMI 部分（把假交互拆开的关键一步）,02_main_effects/E2-23_liver_decomp.csv,results/liver_decomp.csv,code/31_liver_decomp.R; code/35_fig_breakthroughs.R,HSI 肝部分 P=0.68、FLI 肝部分 P=0.14
+E2-24,2,§3.13.3,★ 剂量构成诊断：PFAS 是否修饰减重幅度本身,02_main_effects/E2-24_liver_weight_diag.csv,results/liver_weight_diag.csv,code/31_liver_decomp.R,ΔW1y 中位 9.9% vs 8.3%，交互 P=0.49–0.98
+E2-25,2,§3.14.1,★ 炎症十结局主效应（修正截距后的权威规格）,02_main_effects/E2-25_inflam_clean_primary.csv,results/inflam_clean_primary.csv,code/36_inflam_clean.R; code/verify/V15_ledger.R,CRP −12.9%、WBC −0.9%、SII −1.0%
+E2-26,2,§3.14.2,炎症：三分位交互（三档口径）,02_main_effects/E2-26_inflam_clean_tertile.csv,results/inflam_clean_tertile.csv,code/36_inflam_clean.R,WBC −2.3%/+0.6%/+0.5%，联合 P=0.127
+E2-27,2,§3.14.1,炎症：连续剂量（每 5%）与置换 P,02_main_effects/E2-27_inflam_clean_dose.csv,results/inflam_clean_dose.csv,code/36_inflam_clean.R,
+E2-28,2,§3.14.2,炎症：总睾酮式脱钩检验（WBC vs 单核的阻尼是否成比例）,02_main_effects/E2-28_inflam_decouple.csv,results/inflam_decouple.csv,code/34_sysinflammation.R,
+E2-29,2,§3.14.2,炎症：剂量构成诊断（PFAS 不修饰减重幅度）,02_main_effects/E2-29_inflam_weight_diag.csv,results/inflam_weight_diag.csv,code/34_sysinflammation.R,排除“剂量差异”这一非生物学解释
+E2-30,2,§3.14,ΔBMI 实测剂量交互（与自报剂量对照）,02_main_effects/E2-30_inflam_dbmi_interaction.csv,results/inflam_dbmi_interaction.csv,code/34_sysinflammation.R; code/35_fig_breakthroughs.R,
+E2-31,2,§3.14,v3 旧规格的炎症结果（CRP/WBC 等，无截距误设前）——保留仅供对照，已被 E2-25 取代,02_main_effects/E2-31_inflam_per5.csv,results/inflam_per5.csv,code/34_sysinflammation.R; code/35_fig_breakthroughs.R,⚠ 不得作为主报依据
+E2-32,2,§3.3,因果森林主输出：校准检验、ATE、十分位 CATE（ATE=−0.33 年的来源）,02_main_effects/E2-32_10_cf.log,logs/10_cf.log,code/10_causal_forest.R,ATE −0.33 (SE 0.14)；CATE(P90)−CATE(P10)=+0.71 (P=0.082)
+E2-33,2,§3.7 / 第四幕,★ 雄激素轴：总量 vs 生物利用度（TT +4.0% 而 %游离 −2.3%）,02_main_effects/E2-33_androgen_bioavailability.csv,results/androgen_bioavailability.csv,code/verify/V20_story_frames.R,TT +4.02%、SHBG +4.78%、%游离 −2.31%、T:E2 +5.55%；白蛋白 +0.20% (ns)
+E3-01,3,§3.12,突破口一：高敏亚组的实测效应（PFOS +26.8%、PFOA +24.2%，符号与假说相反）,03_modification/E3-01_subgroup_highsens.csv,results/subgroup_highsens.csv,code/32_subgroup_highsens.R; code/35_fig_breakthroughs.R,n=56，处理组
+E3-02,3,§3.12,★ 突破口一的功效量化：80% 功效下 MDE=±35.7%,03_modification/E3-02_subgroup_power.csv,results/subgroup_power.csv,code/32_subgroup_highsens.R; code/35_fig_breakthroughs.R,任何小于 MDE 的点估计不得解释为“无效应”
+E3-03,3,§3.5,★ 森林异质性检验的种子稳定性（只改种子重跑 5 次）,03_modification/E3-03_forest_seed_stability.csv,results/forest_seed_stability.csv,code/25_seed_stability.R; code/26_fig_androgen.R; code/28_table3.R,单一 P 值不足以支撑“异质性真实”
+E3-04,3,§3.5,PhenoAge 侧森林的种子稳定性,03_modification/E3-04_forest_seed_phenoage.csv,results/forest_seed_phenoage.csv,code/27_seed_phenoage.R,
+E3-05,3,§3.14.2,★ 突破口二判决：系数级随机化检验（PFAS 在“周期×性别”层内打乱）,03_modification/E3-05_permutation_pop_clean.csv,verification/permutation_pop_clean.csv,code/36_inflam_clean.R,WBC 置换 P=0.011/0.020；30 次检验唯一存活
+E3-06,3,§3.14.2,★ 置换零分布诊断：随机暴露下估计量本身有偏（需位置校正）,03_modification/E3-06_permutation_pop_null.csv,verification/permutation_pop_null.csv,code/verify/V08_permutation_pop.R,位置校正 P 的口径依据
+E3-07,3,§3.14.2,系数稳定性诊断（10 结局 × 3 估计量的稳定性矩阵）,03_modification/E3-07_coef_stability_diag.csv,verification/coef_stability_diag.csv,code/36_inflam_clean.R,
+E3-08,3,§3.13.2,突破口三：肝酶反跳的表面交互与拆解后归零,03_modification/E3-08_liver_decomp.csv,results/liver_decomp.csv,code/31_liver_decomp.R; code/35_fig_breakthroughs.R,与 E2-23 同一文件，两处引用
+E3-09,3,§3.13.2,突破口三：BMI 项产生假交互的机制（剂量构成差异）,03_modification/E3-09_liver_weight_diag.csv,results/liver_weight_diag.csv,code/31_liver_decomp.R,与 E2-24 同一文件
+E3-10,3,§3.6,PCB/OCP 双轴：参数化交互（P10 −0.98 → P90 +0.45 年）,03_modification/E3-10_param_interaction.csv,results/param_interaction.csv,code/11_param.R; code/16_figures.R; code/17_tables.R,与 E2-04 同一文件；两条轴互斥不可合并
+E3-11,3,§3.8,规格敏感性：纳入/排除药物的两套结果并列,03_modification/E3-11_specification_sensitivity.csv,verification/specification_sensitivity.csv,code/36_inflam_clean.R,不隐藏任何一套
+E3-12,3,§3.8,药物标志的原始比对样本（含/不含用药者的激素数据切片）,03_modification/E3-12__horm_sample.csv,verification/_horm_sample.csv,code/verify/V06_export_horm.R; code/verify/V06_vermeulen_bisect.py,配套 _horm_full.csv（全量）
+E3-13,3,§3.14,★ 混合暴露：qgcomp 联合效应（整体/未减重/减重三层）,03_modification/E3-13_qgcomp_mixture.csv,verification/qgcomp_mixture.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,WBC −1.62% vs +0.14%
+E3-14,3,§3.14,★ 混合暴露：符号化权重（哪一味在驱动）,03_modification/E3-14_qgcomp_weights.csv,verification/qgcomp_weights.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,WBC 由 PFNA/PFHxS 主导；CRP 由 PFNA +0.94 主导
+E3-15,3,§3.14,★ 混合暴露：Δψ + 置换 + 6 df 联合 χ²（含不一致的披露）,03_modification/E3-15_qgcomp_interaction.csv,verification/qgcomp_interaction.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,Δψ=+0.0178，置换 P=0.020，联合 P=0.206
+E4-01,4,§4.2,组成：巨噬细胞占比 25.3% → 13.5%,04_singlecell/E4-01_geo_composition.csv,results/geo_composition.csv,code/14_geo.R; code/18_fig_geo.R; code/19_geo_post.R; code/21_geo_burden.R; code/33_singlecell_lr.R; code/35_fig_breakthroughs.R; code/verify/V09_permutation_sc.R; code/verify/V11a_lopo_pool.R; code/verify/V11b_cluster_ari.R; code/verify/V20_story_frames.R,18 池 × 7 类
+E4-02,4,§4.3,脂肪细胞功能模块（脂解/脂滴/AHR/SASP…）,04_singlecell/E4-02_geo_adipocyte_modules.csv,results/geo_adipocyte_modules.csv,code/14_geo.R; code/19_geo_post.R,配套检验表见 E4-03
+E4-03,4,§4.3,模块检验（Welch t + BH）,04_singlecell/E4-03_geo_adipocyte_module_tests.csv,results/geo_adipocyte_module_tests.csv,code/19_geo_post.R,
+E4-04,4,§4.3/4.4,★ 通路子评分（把脂解酶与脂滴结构蛋白分开，避免相互抵消）,04_singlecell/E4-04_geo_adipocyte_subscores.csv,results/geo_adipocyte_subscores.csv,code/18_fig_geo.R; code/20_geo_subscores.R; code/21_geo_burden.R,
+E4-05,4,§4.4,★ 子评分检验 + 脂解–外排耦合相关,04_singlecell/E4-05_geo_adipocyte_subscore_tests.csv,results/geo_adipocyte_subscore_tests.csv,code/18_fig_geo.R; code/20_geo_subscores.R,耦合不成立 → 假说核心前提不成立
+E4-06,4,§4.5,关键基因 log₂FC（WL/Obese，BH 校正）,04_singlecell/E4-06_geo_key_genes.csv,results/geo_key_genes.csv,code/14_geo.R; code/18_fig_geo.R; code/19_geo_post.R; code/35_fig_breakthroughs.R,LIPE +0.63、MGLL +0.62
+E4-07,4,§4.5,关键基因的检验表,04_singlecell/E4-07_geo_key_gene_tests.csv,results/geo_key_gene_tests.csv,code/19_geo_post.R,
+E4-08,4,§4.7.3,M1/M2 极化（不变，P=0.47）,04_singlecell/E4-08_sc_m1m2.csv,results/sc_m1m2.csv,code/33_singlecell_lr.R; code/35_fig_breakthroughs.R; code/verify/V09_permutation_sc.R; code/verify/V11a_lopo_pool.R,
+E4-09,4,§4.7.2,★ 净炎症负荷 = 占比 × 每细胞评分（不变，P=0.19）,04_singlecell/E4-09_sc_burden.csv,results/sc_burden.csv,code/33_singlecell_lr.R,0.032 vs 0.039
+E4-10,4,§4.8,配体-受体：三条关闭、一条打开,04_singlecell/E4-10_sc_lr_pairs.csv,results/sc_lr_pairs.csv,code/33_singlecell_lr.R; code/35_fig_breakthroughs.R; code/verify/V11a_lopo_pool.R,IL6→IL6R −66.8%、CSF1→CSF1R +20.2%
+E4-11,4,§4.8,配体/受体覆盖率（通讯分析的可检出性边界）,04_singlecell/E4-11_sc_lig_rec_pct.csv,results/sc_lig_rec_pct.csv,code/33_singlecell_lr.R,
+E4-12,4,§4.2,细胞类型均值矩阵（fig7 与假体 bulk 的原料）,04_singlecell/E4-12_cell_means.csv,results/cell_means.csv,code/12_surface.R,
+E4-13,4,§4.6,★ 外部背靠背：GSE199063 个体配对纵向（50/49/38 + 28 对照）,04_singlecell/E4-13_ext_gse199063_paired.csv,results/ext_gse199063_paired.csv,code/verify/V12_external_GSE199063.R; code/verify/V15_ledger.R,mac −1.18/−1.58 SD，P≤2e-14
+E4-14,4,§4.6,外部：与对照组比较,04_singlecell/E4-14_ext_gse199063_vs_control.csv,results/ext_gse199063_vs_control.csv,code/verify/V12_external_GSE199063.R,
+E4-15,4,§4.6,外部：逐样本模块评分,04_singlecell/E4-15_ext_gse199063_scores.csv,results/ext_gse199063_scores.csv,code/verify/V12_external_GSE199063.R,
+E4-16,4,§4.7.1 / 第二幕,★ 选择性耗竭：7 类细胞逐一比较（只有巨噬显著下降，其余 6 类 ns）,04_singlecell/E4-16_geo_composition_selectivity.csv,results/geo_composition_selectivity.csv,code/verify/V20_story_frames.R,"macrophage −46.5% (BH-P=0.035, d=−2.07)；adipocyte +40.7% 属分母效应"
+E4-17,4,§5.3.1 / 第四幕,★ 口袋电荷对比：SHBG 净 −1（仅 Asp65）vs 白蛋白 +14（6 Arg + 1 Lys）,04_singlecell/E4-17_t3_pocket_charge.csv,struct_pfas/t3_pocket_charge.csv,（历史/中间产物，无单一生成脚本）,解释 PFAS 头基（−1）在 SHBG 被排斥、在白蛋白被吸引
+E4-18,4,§5.3.1 / 第四幕,配体形状：PFOA vdW 体积 221 Å³ < DHT 237 Å³，排除「位阻装不下」,04_singlecell/E4-18_t1_ligand_shape.csv,struct_pfas/t1_ligand_shape.csv,（历史/中间产物，无单一生成脚本）,PFOA 最粗半径 3.64 Å、PFOS 3.59 Å、DHT 3.90 Å
+E4-19,4,§5.3.1 / 第四幕,SHBG 口袋沿长轴 20 个切片的可用半径剖面（最窄 4.17 Å）,04_singlecell/E4-19_t2_pocket_profile.csv,struct_pfas/t2_pocket_profile.csv,（历史/中间产物，无单一生成脚本）,配体最粗半径全部低于最窄处
+E4-20,4,§5.3.1 / 第四幕,★ 占据率敏感性：56 种组合，需 Kd ≤ 30 nM 才够 4% 占据,04_singlecell/E4-20_t4_occupancy.csv,struct_pfas/t4_occupancy.csv,（历史/中间产物，无单一生成脚本）,Kd=3nM→1.6%；100nM→0.05%；1μM→0.005%
+E4-21,4,§5.3.1 / 第四幕,结构分析方法学与 AF3 作业包的判读标准（含三条硬限制）,04_singlecell/E4-21_README.md,struct_pfas/README.md,（历史/中间产物，无单一生成脚本）,先定判据再看结果；AF3 只能给 pose，给不了 Kd
+E5-01,5,C.1,L1 全部原始文件的 SHA256 指纹清单,05_verification/E5-01_sha256_manifest.csv,verification/sha256_manifest.csv,code/verify/V01_hash_manifest.py; code/verify/V15_ledger.R,208 文件
+E5-02,5,C.1,★ L1 与 CDC 官方逐字节比对：200/200 完全一致、0 字节差异,05_verification/E5-02_official_bytewise_comparison.csv,verification/official_bytewise_comparison.csv,code/verify/V01b_rehash_vs_cdc.py; code/verify/V15_ledger.R,机读可核
+E5-03,5,C.1,L1 跨周期单位一致性（量级跳跃检测）,05_verification/E5-03_unit_distribution.csv,verification/unit_distribution.csv,code/verify/V03_units_sentinels.R; code/verify/V15_ledger.R,
+E5-04,5,C.1,L1 缺失值哨兵拦截（9999/7777/999 等）,05_verification/E5-04_sentinel_audit.csv,verification/sentinel_audit.csv,code/verify/V03_units_sentinels.R; code/verify/V15_ledger.R,
+E5-05,5,C.1,★ L1 CRP 两代变量单位裁定（mg/dL vs mg/L 的 10 倍断裂）,05_verification/E5-05_crp_unit_adjudication.csv,verification/crp_unit_adjudication.csv,code/verify/V03_units_sentinels.R; code/verify/V15_ledger.R,E-1 勘误的证据
+E5-06,5,C.1,"L1 自报体重史哨兵拦截（4,135 个哨兵）",05_verification/E5-06_whq_sentinel_interception.csv,verification/whq_sentinel_interception.csv,code/verify/V03_units_sentinels.R; code/verify/V15_ledger.R,
+E5-07,5,C.1,L1 人体测量学边界（32–227 kg）,05_verification/E5-07_anthropometric_bounds.csv,verification/anthropometric_bounds.csv,code/verify/V03_units_sentinels.R,
+E5-08,5,C.1,L1 SEQN 跨文件链接（孤儿 SEQN 数）,05_verification/E5-08_seqn_linkage.csv,verification/seqn_linkage.csv,code/verify/V02_xpt_structure.R; code/verify/V15_ledger.R,
+E5-09,5,C.2,L2 主键唯一性（各数据集 SEQN 重复数）,05_verification/E5-09_key_integrity.csv,verification/key_integrity.csv,code/verify/V04_key_fanout.R; code/verify/V15_ledger.R,
+E5-10,5,C.2,L2 连接扇出（无行数膨胀）,05_verification/E5-10_join_fanout.csv,verification/join_fanout.csv,code/verify/V04_key_fanout.R; code/verify/V15_ledger.R,
+E5-11,5,C.2,★ L2 金标准锚点 9/9 命中（文献可查的量级基准）,05_verification/E5-11_anchor_benchmarks.csv,verification/anchor_benchmarks.csv,code/verify/V05_anchors.R; code/verify/V15_ledger.R,
+E5-12,5,C.2,L2 金标准锚点明细,05_verification/E5-12_anchor_detail.csv,verification/anchor_detail.csv,code/verify/V05_anchors.R,
+E5-13,5,C.2,★ L2 Vermeulen 游离睾酮公式独立复算（最大偏差）,05_verification/E5-13_vermeulen_check.csv,verification/vermeulen_check.csv,code/verify/V06_vermeulen_bisect.py; code/verify/V15_ledger.R,逐人复算，非抽样
+E5-14,5,C.2,L2 跨脚本时序审计（产物是否早于脚本 = 是否伪造）,05_verification/E5-14_audit_trail.csv,verification/audit_trail.csv,code/verify/V07_audit_trail.R; code/verify/V15_ledger.R,撕裂数 0
+E5-15,5,C.2,L2 CDC 官方单位表比对,05_verification/E5-15_official_units.csv,verification/official_units.csv,code/verify/V03_units_sentinels.R,
+E5-16,5,C.3,★ L3 系数级随机化检验（人群侧，修正规格后）,05_verification/E5-16_permutation_pop_clean.csv,verification/permutation_pop_clean.csv,code/36_inflam_clean.R,与 E3-05 同一文件
+E5-17,5,C.3,"★ L3 单细胞精确置换（12 池，C(12,6)=924 全枚举）",05_verification/E5-17_permutation_sc_exact12.csv,verification/permutation_sc_exact12.csv,code/verify/V09_permutation_sc.R; code/verify/V15_ledger.R,p=0.0065 等
+E5-18,5,C.3,"★ L3 单细胞精确置换（18 池，C(18,6)=18,564 全枚举）",05_verification/E5-18_permutation_sc.csv,verification/permutation_sc.csv,code/verify/V09_permutation_sc.R; code/verify/V15_ledger.R,p=0.080（如实报告不再显著）
+E5-19,5,C.3,★ L3 R vs Python 双语言复算（最大 |Δβ|/|ΔSE|/ΔP）,05_verification/E5-19_python_vs_r.csv,verification/python_vs_r.csv,code/verify/V10b_python_crosscheck.py; code/verify/V15_ledger.R,机器精度内一致
+E5-20,5,C.3,L3 双语言复算的原始两侧结果,05_verification/E5-20_python_crosscheck.csv,verification/python_crosscheck.csv,code/verify/V10b_python_crosscheck.py,配套 python_crosscheck_r.csv
+E5-21,5,C.4,★ L4 Leave-One-Pool-Out（18 池，0 次方向逆转）,05_verification/E5-21_lopo_pool_level.csv,verification/lopo_pool_level.csv,code/verify/V11a_lopo_pool.R; code/verify/V15_ledger.R,
+E5-22,5,C.4,L4 单池驱动力（rel_drop>0.5 的仅有本已不显著项）,05_verification/E5-22_lopo_influence.csv,verification/lopo_influence.csv,code/verify/V11a_lopo_pool.R; code/verify/V15_ledger.R,
+E5-23,5,C.4,★ L4 无监督聚类 vs 标记基因分群（ARI）,05_verification/E5-23_cluster_ari.csv,verification/cluster_ari.csv,code/verify/V11b_cluster_ari.R; code/verify/V15_ledger.R,KMeans 0.406 / Louvain 0.240
+E5-24,5,C.4,L4 聚类纯度（巨噬 0.847）,05_verification/E5-24_cluster_purity.csv,verification/cluster_purity.csv,code/verify/V11b_cluster_ari.R,
+E5-25,5,C.4,L4 子样本代表性（126 单元，max 0.19 pp）,05_verification/E5-25_label_reproduction.csv,verification/label_reproduction.csv,code/verify/V11b_cluster_ari.R; code/verify/V15_ledger.R,
+E5-26,5,C.4,L4 Marker DotPlot 特异度（38/38）,05_verification/E5-26_dotplot_specificity.csv,verification/dotplot_specificity.csv,code/verify/V11b_cluster_ari.R; code/verify/V15_ledger.R,
+E5-27,5,C.5,外部数据完整性（54 个 gzip，0 损坏）,05_verification/E5-27_geo_extracted_integrity.csv,verification/geo_extracted_integrity.csv,code/verify/V01_hash_manifest.py,
+E5-28,5,C.7,① 加权：8 周期合并设计框架（119 层 × 242 PSU，223 百万）,05_verification/E5-28_survey_design_summary.csv,verification/survey_design_summary.csv,code/verify/V15_ledger.R; code/verify/V16_survey_weighted.R; code/verify/V20_story_frames.R,
+E5-29,5,C.7.3,① 加权：手算 Kish 设计效应（DEFF 2.04–4.61）,05_verification/E5-29_survey_deff.csv,verification/survey_deff.csv,code/verify/V15_ledger.R; code/verify/V16_survey_weighted.R,有效 N 仅名义的 1/3–1/2
+E5-30,5,C.7.4,★ ① 加权：31 项逐项比对（0 方向翻转；WBC 交互 P 0.0056→0.072）,05_verification/E5-30_survey_weighted_sensitivity.csv,verification/survey_weighted_sensitivity.csv,code/verify/V15_ledger.R; code/verify/V16_survey_weighted.R; code/verify/V19_evalue.R,Supplementary Table S1
+E5-31,5,C.8,② LOD：逐周期 %<LOD + 支链段删失（双口径，最大偏差 1.72 pp）,05_verification/E5-31_lod_audit.csv,verification/lod_audit.csv,code/verify/V15_ledger.R; code/verify/V17_lod_audit.R,PFUnDA 全周期 >30%
+E5-32,5,C.8.3,② LOD：实测 <2LOD 取值（据此反推 LOD）,05_verification/E5-32_lod_imputation_values.csv,verification/lod_imputation_values.csv,code/verify/V15_ledger.R,
+E5-33,5,C.8.5,★ ② LOD：三方案替换 + 逐同系物（点估计偏移 ≤1.1%）,05_verification/E5-33_lod_substitution_sensitivity.csv,verification/lod_substitution_sensitivity.csv,code/verify/V15_ledger.R; code/verify/V17_lod_audit.R,PFUnDA 单独建模失效（P=0.35）
+E5-34,5,C.9,③ 混合物：ψ（见 E3-13）,05_verification/E5-34_qgcomp_mixture.csv,verification/qgcomp_mixture.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,同 E3-13
+E5-35,5,C.9,③ 混合物：权重（见 E3-14）,05_verification/E5-35_qgcomp_weights.csv,verification/qgcomp_weights.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,同 E3-14
+E5-36,5,C.9,③ 混合物：Δψ（见 E3-15）,05_verification/E5-36_qgcomp_interaction.csv,verification/qgcomp_interaction.csv,code/verify/V15_ledger.R; code/verify/V18_qgcomp_mixture.R,同 E3-15
+E5-37,5,C.10,★ ④ E-value：18 项（WBC 交互 1.15、CRP 1.56、FLI 1.58）,05_verification/E5-37_evalue_table.csv,verification/evalue_table.csv,code/verify/V15_ledger.R; code/verify/V19_evalue.R,
+E5-38,5,C.0.1,★ 总台账：256 条记录，每行 = 一个数字 + 一个来源 CSV,05_verification/E5-38_verification_ledger.csv,verification/verification_ledger.csv,code/verify/V15_ledger.R,layer 字段 L1–L4 / V16–V19 / EXT
+E5-39,5,C.0.1,总台账的人读版（Markdown 表格）,05_verification/E5-39_VERIFICATION_SUMMARY.md,verification/VERIFICATION_SUMMARY.md,code/verify/V15_ledger.R,
+E6-01,6,图 1,暴露与体重变化分布（含“整数化”堆积）,06_figures/E6-01_fig1_exposure.png,figures/fig1_exposure.png,code/16_figures.R,
+E6-02,6,图 2,主效应 ATE 森林,06_figures/E6-02_fig2_ate.png,figures/fig2_ate.png,code/16_figures.R,
+E6-03,6,图 3,CATE 曲面与剂量-反应,06_figures/E6-03_fig3_cate.png,figures/fig3_cate.png,code/16_figures.R,
+E6-04,6,图 4,睾酮轴剂量曲面,06_figures/E6-04_fig4_testosterone_surface.png,figures/fig4_testosterone_surface.png,code/16_figures.R,
+E6-05,6,图 5,死亡随访与 PhenoAge 效度,06_figures/E6-05_fig5_mortality.png,figures/fig5_mortality.png,code/16_figures.R,
+E6-06,6,图 6,稳健性（分周期/阈值/置换）,06_figures/E6-06_fig6_robustness.png,figures/fig6_robustness.png,code/16_figures.R,
+E6-07,6,图 7,单细胞四面板（组成/通路/关键基因/耦合）,06_figures/E6-07_fig7_singlecell.png,figures/fig7_singlecell.png,code/18_fig_geo.R,
+E6-07,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-07_fig7_singlecell.pdf,figures/fig7_singlecell.pdf,code/16_figures.R 等,投稿排版用
+E6-08,6,图 8,雄激素轴四面板（含药物筛查 8d）,06_figures/E6-08_fig8_androgen_axis.png,figures/fig8_androgen_axis.png,code/26_fig_androgen.R,
+E6-08,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-08_fig8_androgen_axis.pdf,figures/fig8_androgen_axis.pdf,code/16_figures.R 等,投稿排版用
+E6-09,6,图 9,肝-脂轴（含拆解与剂量构成）,06_figures/E6-09_fig9_liver_axis.png,figures/fig9_liver_axis.png,code/35_fig_breakthroughs.R,
+E6-09,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-09_fig9_liver_axis.pdf,figures/fig9_liver_axis.pdf,code/16_figures.R 等,投稿排版用
+E6-10,6,图 10,高敏亚组功效演示,06_figures/E6-10_fig10_subgroup_power.png,figures/fig10_subgroup_power.png,code/35_fig_breakthroughs.R,
+E6-10,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-10_fig10_subgroup_power.pdf,figures/fig10_subgroup_power.pdf,code/16_figures.R 等,投稿排版用
+E6-11,6,图 11,免疫重塑与细胞通讯,06_figures/E6-11_fig11_scrna_remodel.png,figures/fig11_scrna_remodel.png,code/35_fig_breakthroughs.R,
+E6-11,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-11_fig11_scrna_remodel.pdf,figures/fig11_scrna_remodel.pdf,code/16_figures.R 等,投稿排版用
+E6-12,6,图 12,系统炎症与髓系钝化（含加权/混合物对照）,06_figures/E6-12_fig12_inflammation.png,figures/fig12_inflammation.png,code/35_fig_breakthroughs.R,
+E6-12,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-12_fig12_inflammation.pdf,figures/fig12_inflammation.pdf,code/16_figures.R 等,投稿排版用
+E6-13,6,图 13,Marker DotPlot（38 基因 × 7 类）,06_figures/E6-13_fig13_dotplot_markers.png,figures/fig13_dotplot_markers.png,code/verify/V11c_dotplot_fig.R,
+E6-13,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-13_fig13_dotplot_markers.pdf,figures/fig13_dotplot_markers.pdf,code/16_figures.R 等,投稿排版用
+E6-14,6,图 14,PFAS × SHBG 结构不相容性：四面板（形状 / 口袋剖面 / 电荷 / 占据率）,06_figures/E6-14_fig14_pfas_shbg_structure.png,figures/fig14_pfas_shbg_structure.png,（历史/中间产物，无单一生成脚本）,最窄 4.17 Å vs 配体 3.59–3.64 Å
+E6-14,6,图（矢量版）,同编号 PNG 的 PDF 矢量版,06_figures/E6-14_fig14_pfas_shbg_structure.pdf,figures/fig14_pfas_shbg_structure.pdf,code/16_figures.R 等,投稿排版用
+E7-01,7,§2/§3.1,人群构建与样本定义（S0–S4）,07_code/E7-01_06_build_pop.R,code/06_build_pop.R,code/06_build_pop.R,
+E7-02,7,§2.1,分析数据集与个体级导出,07_code/E7-02_09_prep_analysis.R,code/09_prep_analysis.R,code/09_prep_analysis.R,
+E7-03,7,§3.2–3.5,因果森林主流程,07_code/E7-03_10_causal_forest.R,code/10_causal_forest.R,code/10_causal_forest.R,
+E7-04,7,§3.4,参数化剂量-反应交互,07_code/E7-04_11_param.R,code/11_param.R,code/11_param.R,
+E7-05,7,§3.9,死亡随访（泊松率模型）,07_code/E7-05_13_mortality.R,code/13_mortality.R,code/13_mortality.R,
+E7-06,7,§3.10,稳健性全套,07_code/E7-06_15_robust.R,code/15_robust.R,code/15_robust.R,
+E7-07,7,§3.7–3.8,雄激素轴全套（八结局/三分位/自助法/同系物）,07_code/E7-07_22_androgen_axis.R,code/22_androgen_axis.R,code/22_androgen_axis.R,
+E7-08,7,§3.8,处方药标志构建（rx_flags）,07_code/E7-08_23_rx_flags.R,code/23_rx_flags.R,code/23_rx_flags.R,
+E7-09,7,§3.13,肝-脂轴九结局,07_code/E7-09_30_liver_analysis.R,code/30_liver_analysis.R,code/30_liver_analysis.R,
+E7-10,7,§3.13.2,★ 评分拆解与剂量诊断（本报告最关键的一步）,07_code/E7-10_31_liver_decomp.R,code/31_liver_decomp.R,code/31_liver_decomp.R,
+E7-11,7,§3.12,亚组功效量化,07_code/E7-11_32_subgroup_highsens.R,code/32_subgroup_highsens.R,code/32_subgroup_highsens.R,
+E7-12,7,§4.7–4.8,单细胞极化与配体-受体,07_code/E7-12_33_singlecell_lr.R,code/33_singlecell_lr.R,code/33_singlecell_lr.R,
+E7-13,7,§3.14,★ 系统炎症修正规格（权威交互表）,07_code/E7-13_36_inflam_clean.R,code/36_inflam_clean.R,code/36_inflam_clean.R,
+E7-14,7,§4,单细胞主流程,07_code/E7-14_14_geo.R,code/14_geo.R,code/14_geo.R,
+E7-15,7,§4.4,通路子评分与耦合检验,07_code/E7-15_20_geo_subscores.R,code/20_geo_subscores.R,code/20_geo_subscores.R,
+E7-16,7,C.1–C.6,四层校验脚本 V01–V12（目录整体，含 V01b/V10a/V10b 变体）,07_code/（目录内全部文件，前缀 E7-16_）,code/verify/,code/verify/,
+E7-17,7,C.7–C.10,四问补检脚本 V16–V19（目录整体）,07_code/（目录内全部文件，前缀 E7-17_）,code/verify/,code/verify/,
+E7-18,7,C.0.1,台账生成器 V15,07_code/E7-18_V15_ledger.R,code/verify/V15_ledger.R,code/verify/V15_ledger.R,
+E8-01,8,全文,主报告（v4，含 §0–§8 与可核查性附录）,08_reports/E8-01_Full_Report.md,report/Full_Report.md,（作者撰写，非脚本生成）,
+E8-02,8,附录,附录 C：可复现性与数据真实性声明（C.0–C.11）,08_reports/E8-02_Appendix_C_Reproducibility.md,report/Appendix_C_Reproducibility.md,（作者撰写，非脚本生成）,

@@ -1,0 +1,33 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'grf' was built under R version 4.4.3 
+=== 全样本 ===
+       seed     N p_hetero p_blp blp_mv gap_pct
+      <num> <int>    <num> <num>  <num>   <num>
+1: 20261117  2244    0.091 0.167 -0.054    -3.4
+2:        1  2244    0.035 0.167 -0.054    -4.0
+3:        2  2244    0.012 0.153 -0.057    -4.1
+4:        3  2244    0.030 0.179 -0.052    -4.6
+5:        4  2244    0.080 0.180 -0.052    -3.9
+
+=== 清洁样本（排除药物去势/抗雄/雌激素/糖皮质激素/阿片/酮康唑）===
+       seed     N p_hetero p_blp blp_mv gap_pct
+      <num> <int>    <num> <num>  <num>   <num>
+1: 20261117  2077    0.575 0.968  0.001     0.6
+2:        1  2077    0.383 0.992  0.000     0.8
+3:        2  2077    0.586 0.933 -0.003     0.1
+4:        3  2077    0.577 0.979 -0.001     0.3
+5:        4  2077    0.670 0.991  0.000     0.7
+
+=== 汇总 ===
+全样本   异质性 p: 0.012 – 0.091 (中位 0.035)；显著(<0.05)种子数 3/5
+清洁样本 异质性 p: 0.383 – 0.670 (中位 0.577)；显著(<0.05)种子数 0/5
+全样本   BLP p: 0.153 – 0.180；清洁 BLP p: 0.933 – 0.992
+低-高暴露 CATE 差: 全 -4.6 – -3.4 pp；清洁 0.1 – 0.8 pp
+
+✅ 完成

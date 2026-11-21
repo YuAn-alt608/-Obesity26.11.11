@@ -1,0 +1,24 @@
+item,recommendation,where addressed
+1a,Indicate the study's design in the title or abstract,"Title page (Design); Abstract, Methods"
+1b,Summarise what was done and what was found in the abstract,Abstract
+2,Explain the scientific background and rationale,"Introduction, paragraphs 1-2"
+3,"State specific objectives, including pre-specified hypotheses","Introduction, paragraph 2"
+4,Present key elements of study design early in the paper,"Methods, Data"
+5,"Describe the setting, locations and relevant dates","Methods, Data (NHANES 2003-2023)"
+6,"Give eligibility criteria, sources and methods of selection","Methods, Data; Table S1"
+7,"Clearly define all outcomes, exposures, confounders and effect modifiers","Methods, Exposure and outcomes"
+8,"For each variable, give sources of data and details of methods of assessment","Methods, Exposure and outcomes; Table S1"
+9,Describe any efforts to address potential sources of bias,"Results, Artefact 2; Discussion, limitations"
+10,Explain how the study size was arrived at,"Methods, Data; Table S1"
+11,Explain how quantitative variables were handled; describe groupings,"Methods, Estimation (per 5% weight loss)"
+12,"Describe all statistical methods, including those used to control for confounding","Methods, Estimation; Table S2"
+13,Report numbers at each stage of the study,Table S1
+14,Give characteristics of study participants and missing data,Table 1; Table S1
+15,Report numbers of outcome events or summary measures,Results
+16,"Give unadjusted and adjusted estimates, with confounders adjusted for",Results; Figures 1-2; Table 1
+17,Report other analyses done,Results; Table S7
+18,Summarise key results with reference to study objectives,"Discussion, paragraph 1"
+19,"Discuss limitations, taking into account sources of bias","Discussion, paragraph 4"
+20,Give a cautious overall interpretation considering objectives and limitations,"Discussion, paragraphs 1-3"
+21,Discuss the generalisability of the results,"Discussion, paragraph 4 (US adults, NHANES)"
+22,Give the source of funding and the role of the funders,"Title page, Funding"

@@ -1,0 +1,164 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'irlba' was built under R version 4.4.3 
+基因数: 36601 
+    group     N
+   <char> <int>
+1:  Obese     6
+2:   Lean     6
+3:     WL     6
+DotPlot 基因数: 38 
+GSM8955403 Obese [cached] sub= 799  mac=25.0%
+GSM8955404 Lean  [cached] sub= 800  mac=12.8%
+GSM8955405 WL    [cached] sub= 800  mac=13.2%
+GSM8955406 Obese [cached] sub= 800  mac=28.2%
+GSM8955407 Lean  [cached] sub= 800  mac=11.5%
+GSM8955408 WL    [cached] sub= 800  mac=13.4%
+GSM8955409 Obese [cached] sub= 799  mac=37.0%
+GSM8955410 Lean  [cached] sub= 800  mac=18.2%
+GSM8955411 WL    [cached] sub= 800  mac=10.1%
+GSM8955412 Obese [cached] sub= 800  mac=26.4%
+GSM8955413 Lean  [cached] sub= 800  mac=19.4%
+GSM8955414 WL    [cached] sub= 800  mac=18.1%
+GSM8955415 Obese [cached] sub= 800  mac=19.9%
+GSM8955416 Lean  [cached] sub= 800  mac=10.2%
+GSM8955417 WL    [cached] sub= 800  mac=10.8%
+GSM8955418 Obese [cached] sub= 800  mac=15.2%
+GSM8955419 Lean  [cached] sub= 799  mac=14.3%
+GSM8955420 WL    [cached] sub= 799  mac=15.5%
+
+================ ① 标记基因 z 打分复刻核对 ================
+比对 (池 x 细胞类型) 组合数: 126
+比例差 |diff|: 中位 0.03 pp, P90 0.06 pp, 最大 0.19 pp
+相关系数 r = 1.0000
+判定：通过（阈值：|diff| 最大 < 5 pp）
+
+合并矩阵: 36601 基因 x 14396 细胞; nnz = 25,631,860 
+            GRP
+CT           Lean Obese   WL
+  adipocyte  1412  1144 1611
+  ascell      883   786  876
+  endo        648   627  696
+  macrophage  691  1214  649
+  mast        286   259  228
+  pericyte    485   447  489
+  tcell       394   321  250
+HVG: 2000 
+PC1-30 累计方差: 100.0%
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  1643738  87.8    2753608  147.1   2753608  147.1
+Vcells 90668785 691.8  298271714 2275.7 298260250 2275.6
+Warning message:
+package 'FNN' was built under R version 4.4.3 
+Louvain 得到群数: 20 
+
+================ ② 无监督聚类 vs 标记基因 z 打分 ================
+               comparison       ari      verdict
+                   <char>     <num>       <char>
+1: KMeans(k=7) vs z-score 0.4064453 \344\270\255\347\255\211\344\270\200\350\207\264
+2:     Louvain vs z-score 0.2400327    \345\274\261\344\270\200\350\207\264
+3:      KMeans vs Louvain 0.3892730 \344\270\255\347\255\211\344\270\200\350\207\264
+
+KMeans x 标记基因 列联表：
+       km adipocyte ascell  endo macrophage  mast pericyte tcell
+   <char>     <int>  <int> <int>      <int> <int>    <int> <int>
+1:      1        34     34    78       1523    38       58    33
+2:      2        30     35    92        495    54       67    52
+3:      3        18     31    44         52   119       46   472
+4:      4      3289    215   107        129   110      212   100
+5:      5       100   1651   100         58    87      473    77
+6:      6        33     15  1248         11    25       35    19
+7:      7       663    564   302        286   340      530   212
+
+每群主导细胞类型（纯度）：
+      km   dominant  frac
+   <int>     <char> <num>
+1:     1 macrophage 0.847
+2:     2 macrophage 0.600
+3:     3      tcell 0.604
+4:     4  adipocyte 0.790
+5:     5     ascell 0.648
+6:     6       endo 0.900
+7:     7  adipocyte 0.229
+总体纯度（按群大小加权）: 0.730
+
+================ ③ Marker DotPlot（平均表达，按基因 z 标准化）================
+      gene           family adipocyte ascell   endo pericyte  tcell macrophage
+    <char>           <char>     <num>  <num>  <num>    <num>  <num>      <num>
+ 1:  CIDEC        adipocyte      2.26  -0.41 -0.394   -0.220 -0.423      -0.47
+ 2:    LEP        adipocyte      2.26  -0.46 -0.367   -0.219 -0.425      -0.47
+ 3: ADIPOQ        adipocyte      2.26  -0.42 -0.415   -0.183 -0.419      -0.50
+ 4:  PLIN1        adipocyte      2.25  -0.43 -0.460   -0.164 -0.402      -0.54
+ 5:  PLIN4        adipocyte      2.25  -0.44 -0.408   -0.118 -0.433      -0.53
+ 6:   LIPE        adipocyte      2.18  -0.55  0.165   -0.242 -0.476      -0.73
+ 7:   CAV1        adipocyte      1.77  -0.36  0.905    0.078 -0.791      -0.92
+ 8:  FABP4        adipocyte      1.49  -0.77  1.290    0.098 -0.696      -0.82
+ 9:  PTPRC tcell/macrophage     -0.88  -0.83 -0.624   -0.559  1.660       1.02
+10:    GSN           ascell      0.80   1.68 -0.029    0.255 -0.973      -0.86
+11: PECAM1             endo     -0.58  -0.59  2.175   -0.373 -0.428       0.24
+12:  ITGAM       macrophage     -0.55  -0.57 -0.521   -0.467 -0.029       2.21
+13:  CSF1R       macrophage     -0.55  -0.49 -0.306   -0.244 -0.354       2.25
+14:    DCN           ascell     -0.54   2.14 -0.448    0.372 -0.523      -0.58
+15: PDGFRB         pericyte     -0.49   0.45 -0.516    2.114 -0.538      -0.57
+16:   EMCN             endo     -0.49  -0.25  2.246   -0.139 -0.460      -0.52
+17:    LUM           ascell     -0.48   2.25 -0.400   -0.094 -0.444      -0.49
+18: PDGFRA           ascell     -0.46   2.22 -0.432    0.066 -0.476      -0.52
+19:   MRC1       macrophage     -0.46  -0.45 -0.304   -0.269 -0.401       2.26
+20:  CD163       macrophage     -0.46  -0.46 -0.343   -0.248 -0.380       2.26
+21:    LYZ       macrophage     -0.45  -0.46 -0.406   -0.294 -0.267       2.26
+22:   CD68       macrophage     -0.43  -0.34 -0.409   -0.326 -0.356       2.27
+23:   C1QA       macrophage     -0.42  -0.41 -0.346   -0.337 -0.354       2.27
+24:    VWF             endo     -0.41  -0.42  2.264   -0.280 -0.399      -0.42
+25:   CDH5             endo     -0.41  -0.41  2.265   -0.321 -0.393      -0.42
+26:   IL7R            tcell     -0.40  -0.40 -0.388   -0.341  2.267      -0.38
+27:    KIT             mast     -0.39  -0.38 -0.361   -0.377 -0.371      -0.39
+28:   NKG7            tcell     -0.39  -0.39 -0.369   -0.371  2.268      -0.38
+29:    CD2            tcell     -0.39  -0.39 -0.378   -0.364  2.268      -0.38
+30:   CPA3             mast     -0.38  -0.38 -0.377   -0.379 -0.373      -0.38
+      gene           family adipocyte ascell   endo pericyte  tcell macrophage
+    <char>           <char>     <num>  <num>  <num>    <num>  <num>      <num>
+      mast
+     <num>
+ 1: -0.349
+ 2: -0.320
+ 3: -0.323
+ 4: -0.260
+ 5: -0.316
+ 6: -0.347
+ 7: -0.678
+ 8: -0.595
+ 9:  0.217
+10: -0.874
+11: -0.453
+12: -0.067
+13: -0.310
+14: -0.418
+15: -0.452
+16: -0.387
+17: -0.343
+18: -0.402
+19: -0.378
+20: -0.377
+21: -0.390
+22: -0.408
+23: -0.402
+24: -0.324
+25: -0.307
+26: -0.351
+27:  2.268
+28: -0.369
+29: -0.370
+30:  2.268
+      mast
+     <num>
+
+标记基因特异度: 38/38 在自身细胞类型上表达最高
+Empty data.table (0 rows and 6 cols): gene,own_type,own_expr,max_other,rank,pass
+
+✅ V11b 完成 → cluster_ari.csv, cluster_purity.csv, dotplot_markers.csv,
+             dotplot_specificity.csv, label_reproduction.csv

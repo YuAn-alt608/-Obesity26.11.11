@@ -1,0 +1,64 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+== Table 3 ==
+Key: <outcome>
+     outcome              label     N per5_pct per5_lo per5_hi   per5_p
+      <char>             <char> <int>    <num>   <num>   <num>    <num>
+1:     y_alb  Albumin (control)  1232     0.20   -0.16    0.56 2.87e-01
+2:      y_e2          Estradiol  1232    -1.45   -3.37    0.52 1.49e-01
+3:     y_fai       FAI (T/SHBG)  1232    -0.72   -2.81    1.41 5.03e-01
+4:      y_ft  Free testosterone  1232     1.62   -0.65    3.94 1.62e-01
+5: y_pctfree %Free testosterone  1232    -2.31   -3.21   -1.40 8.30e-07
+6:    y_shbg               SHBG  1232     4.78    3.15    6.43 5.33e-09
+7:     y_te2         T:E2 ratio  1232     5.55    3.12    8.03 5.45e-06
+8:      y_tt Total testosterone  1232     4.02    1.70    6.39 6.06e-04
+   PFAS_interaction_P PFAS_tertile_P tertile1_pct tertile2_pct tertile3_pct
+                <num>          <num>        <num>        <num>        <num>
+1:              0.661          0.702          0.1          0.7         -0.3
+2:              0.501          0.502         -5.3          1.0         -6.3
+3:              0.222          0.869         -4.9         -1.1         -3.7
+4:              0.340          0.672          1.3          7.1          1.5
+5:              0.450          0.437         -5.9        -10.3         -7.2
+6:              0.586          0.556         13.2         20.7         13.5
+7:              0.165          0.896         13.7         18.2         16.6
+8:              0.443          0.412          7.7         19.4          9.3
+
+== Table 4 ==
+    congener            outcome   pct pct_lo pct_hi   joint_P
+      <char>             <char> <num>  <num>  <num>     <num>
+ 1:     PFOS                FAI   0.5  -11.9   14.7 0.7019379
+ 2:     PFOS  Free testosterone   1.1  -13.9   18.8 0.3718784
+ 3:     PFOS               SHBG   4.3   -9.1   19.7 0.8109090
+ 4:     PFOS Total testosterone   5.3  -12.2   26.2 0.6714243
+ 5:     PFOA                FAI   8.3   -5.6   24.3 0.3493027
+ 6:     PFOA  Free testosterone   7.7   -9.8   28.6 0.6301164
+ 7:     PFOA               SHBG  -2.6  -12.7    8.6 0.2767751
+ 8:     PFOA Total testosterone   6.2  -11.7   27.8 0.6506634
+ 9:    PFHxS                FAI   6.2   -9.9   25.0 0.7707603
+10:    PFHxS  Free testosterone   9.0  -10.8   33.3 0.6681138
+11:    PFHxS               SHBG   4.1   -5.7   14.8 0.6504825
+12:    PFHxS Total testosterone  11.5   -8.0   35.1 0.5365907
+13:     PFNA                FAI   6.5   -5.8   20.3 0.3960603
+14:     PFNA  Free testosterone   8.4   -6.1   25.1 0.3577357
+15:     PFNA               SHBG   1.8   -7.3   11.7 0.6078669
+16:     PFNA Total testosterone   9.3   -5.6   26.5 0.4923057
+
+== 脱钩检验 ==
+         contrast          est         lo         hi      p
+           <char>        <num>      <num>      <num>  <num>
+1:      TT - SHBG  0.032602397 -0.1264078 0.23814746 0.8275
+2:        FT - TT -0.033417869 -0.1066381 0.04404294 0.3375
+3:     FAI - SHBG -0.003506948 -0.2053533 0.23400611 0.9125
+4:      T:E2 - E2  0.146982742 -0.2167533 0.56357284 0.3950
+5: SHBG - albumin  0.067941743 -0.1457040 0.28600607 0.5150
+
+== 种子稳定性 ==
+   sample sample seeds p_min p_max n_sig
+   <char> <char> <int> <num> <num> <int>
+1:    all    all     5 0.012 0.091     3
+2:  clean  clean     5 0.383 0.670     0

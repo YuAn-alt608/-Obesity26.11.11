@@ -1,0 +1,3 @@
+protein,pocket,n_positive,n_negative,n_charged,net_charge,key_residues,design_logic
+SHBG,"steroid pocket (1D2S, DHT-bound)",0,1,1,-1,"ASP65 (bidentate, OD1/OD2 at 2.73/2.72 A from DHT 17-OH)",为中性 17beta-OH 设计：负电羧基当氢键受体；对阴离子头基同号相斥
+HSA,"fatty-acid sites FA1-FA7 (1E7I, stearate)",16,2,18,14,"ARG117/209/257/348/410/485, LYS525",为阴离子脂肪酸羧酸根设计：正电胍基/氨基当锚点

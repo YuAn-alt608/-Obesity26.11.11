@@ -1,0 +1,28 @@
+[
+  {
+    "name": "05_SHBG_PFBS",
+    "modelSeeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sequences": [
+      {
+        "proteinChain": {
+          "sequence": "LRPVLPTQSAHDPPAVHLSNGPGQEPIAVMTFDLTKITKTSSSFEVRTWDPEGVIFYGDTNPKDDWFMLGLRDGRPEIQLHNHWAQLTVGAGPRLDDGRWHQVEVKMEGDSVLLEVDGEEVLRLRQVSGPLTSKRHPIMRIALGGLLFPASNLRLPLVPALDGCLRRDSWLDKQAEISASAPTSLRSCDVESNPGIFLPPGTQAEFNLRDIPQPHAEPWAFSLDLGLKQAAGSGHLLALGTPENPSWLSLHLQDQKVVLSSGSGPGLDLPLVLGLPLQLKLSMSRVVLSQGSKMKALALPPLGLAPLLNLWAKPQGRLFLGALPGEDSSTSFCLNGLWAQGQRLDVDQALNRSHEIWTHSCPQSPGNGTDASH",
+          "count": 1
+        }
+      },
+      {
+        "ligand": {
+          "ligand": "[O-]S(=O)(=O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+          "count": 1
+        }
+      }
+    ],
+    "dialect": "alphafold3",
+    "version": 1
+  }
+]

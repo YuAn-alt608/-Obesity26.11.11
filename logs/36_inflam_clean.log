@@ -1,0 +1,193 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+分析样本 N = 12775  处理 = 2519  聚类 = 242  协变量 = 12 
+
+========== 0. 规格稳定性诊断（为什么旧规格不可用）==========
+          label     N kappa_X_S4_old kappa_X_S1_new kappa_V_S4 p_S4_old
+         <char> <int>          <num>          <num>      <num>    <num>
+            CRP  9734         2073.2         1732.0        3.9    0.418
+     Lymphocyte 12756         2051.8         1501.5        2.1    0.117
+            MLR 12756         2051.8         1501.5        1.9    0.379
+ Monocyte count 12756         2051.8         1501.5        2.9    0.806
+     Monocyte % 12756         2051.8         1501.5        2.6    0.722
+     Neutrophil 12756         2051.8         1501.5        2.4    0.461
+            NLR 12756         2051.8         1501.5        1.9    0.118
+            PLR 12756         2051.8         1501.5        2.0    0.106
+            SII 12756         2051.8         1501.5        1.9    0.131
+            WBC 12775         2052.0         1502.2        2.6    0.946
+ p_S1_new ratio
+    <num> <num>
+    0.360 1.160
+    0.390 0.300
+    0.623 0.608
+    0.344 2.340
+    0.742 0.974
+    0.371 1.240
+    0.510 0.232
+    0.562 0.188
+    0.444 0.294
+    0.127 7.460
+
+========== 1. 系数级随机化检验（B = 1000 ）==========
+  置换：PFAS 在 周期×性别 层内打乱，保持层结构与边缘分布
+  三个估计量：
+    tert = w5:pfas_tT3  （DiD 型，三档）
+    cont = w5:mv        （DiD 型，连续，每 +1 SD）
+    dose = dw5:mv       （剂量-反应交互，每 5% 减重 x 每 +1 SD PFAS）
+    置换 200 / 1000  [202s]
+    置换 400 / 1000  [421s]
+    置换 600 / 1000  [632s]
+    置换 800 / 1000  [850s]
+    置换 1000 / 1000  [1053s]
+
+-- 零分布形态诊断（null_mean 应为 0；|offset_sd| > 0.5 说明该规格有偏）--
+          label                        contrast null_mean null_sd offset_sd
+         <char>                          <char>     <num>   <num>     <num>
+            CRP                  T3 vs T1 (DiD)  0.006650 0.06730      0.10
+     Lymphocyte                  T3 vs T1 (DiD) -0.009730 0.01830     -0.53
+            MLR                  T3 vs T1 (DiD)  0.003020 0.02110      0.14
+ Monocyte count                  T3 vs T1 (DiD) -0.006650 0.01750     -0.38
+     Monocyte %                  T3 vs T1 (DiD) -0.008500 0.01660     -0.51
+     Neutrophil                  T3 vs T1 (DiD)  0.007860 0.01990      0.39
+            NLR                  T3 vs T1 (DiD)  0.017600 0.02490      0.71
+            PLR                  T3 vs T1 (DiD)  0.007040 0.02100      0.34
+            SII                  T3 vs T1 (DiD)  0.015000 0.02940      0.51
+            WBC                  T3 vs T1 (DiD)  0.001450 0.01490      0.10
+            CRP             continuous per 1 SD  0.002610 0.02810      0.09
+     Lymphocyte             continuous per 1 SD -0.003430 0.00741     -0.46
+            MLR             continuous per 1 SD  0.001050 0.00843      0.12
+ Monocyte count             continuous per 1 SD -0.002360 0.00693     -0.34
+     Monocyte %             continuous per 1 SD -0.003440 0.00661     -0.52
+     Neutrophil             continuous per 1 SD  0.003300 0.00807      0.41
+            NLR             continuous per 1 SD  0.006730 0.01010      0.66
+            PLR             continuous per 1 SD  0.002400 0.00853      0.28
+            SII             continuous per 1 SD  0.005730 0.01200      0.48
+            WBC             continuous per 1 SD  0.000873 0.00602      0.14
+            CRP dose-response (per 5% x per SD)  0.000951 0.00660      0.14
+     Lymphocyte dose-response (per 5% x per SD) -0.000215 0.00172     -0.12
+            MLR dose-response (per 5% x per SD) -0.000635 0.00189     -0.34
+ Monocyte count dose-response (per 5% x per SD) -0.000845 0.00169     -0.50
+     Monocyte % dose-response (per 5% x per SD) -0.001490 0.00157     -0.94
+     Neutrophil dose-response (per 5% x per SD)  0.001210 0.00198      0.61
+            NLR dose-response (per 5% x per SD)  0.001420 0.00237      0.60
+            PLR dose-response (per 5% x per SD)  0.000186 0.00195      0.10
+            SII dose-response (per 5% x per SD)  0.001400 0.00279      0.50
+            WBC dose-response (per 5% x per SD)  0.000640 0.00150      0.43
+          label                        contrast null_mean null_sd offset_sd
+         <char>                          <char>     <num>   <num>     <num>
+
+-- 主报结果（S1 规格，CR1 名义 P vs 随机化 P）--
+          label                        contrast     N      coef      se   p_cr1
+         <char>                          <char> <int>     <num>   <num>   <num>
+            CRP                  T3 vs T1 (DiD)  9734  0.072400 0.06580 0.27100
+     Lymphocyte                  T3 vs T1 (DiD) 12756 -0.000233 0.01810 0.99000
+            MLR                  T3 vs T1 (DiD) 12756  0.018700 0.02000 0.35000
+ Monocyte count                  T3 vs T1 (DiD) 12756  0.018100 0.01670 0.27900
+     Monocyte %                  T3 vs T1 (DiD) 12756 -0.012000 0.01610 0.45400
+     Neutrophil                  T3 vs T1 (DiD) 12756  0.028100 0.02130 0.18600
+            NLR                  T3 vs T1 (DiD) 12756  0.028300 0.02580 0.27400
+            PLR                  T3 vs T1 (DiD) 12756  0.012400 0.02300 0.59100
+            SII                  T3 vs T1 (DiD) 12756  0.039900 0.03170 0.20800
+            WBC                  T3 vs T1 (DiD) 12775  0.028200 0.01570 0.07150
+            CRP             continuous per 1 SD  9734  0.028400 0.02840 0.31700
+     Lymphocyte             continuous per 1 SD 12756  0.007470 0.00668 0.26300
+            MLR             continuous per 1 SD 12756  0.001650 0.00778 0.83200
+ Monocyte count             continuous per 1 SD 12756  0.009030 0.00681 0.18500
+     Monocyte %             continuous per 1 SD 12756 -0.009290 0.00629 0.14000
+     Neutrophil             continuous per 1 SD 12756  0.018100 0.00877 0.03900
+            NLR             continuous per 1 SD 12756  0.010600 0.01030 0.30300
+            PLR             continuous per 1 SD 12756 -0.002460 0.00839 0.77000
+            SII             continuous per 1 SD 12756  0.015500 0.01230 0.20800
+            WBC             continuous per 1 SD 12775  0.017000 0.00614 0.00564
+            CRP dose-response (per 5% x per SD)  9734  0.001420 0.00684 0.83600
+     Lymphocyte dose-response (per 5% x per SD) 12756  0.001700 0.00166 0.30500
+            MLR dose-response (per 5% x per SD) 12756 -0.001230 0.00198 0.53700
+ Monocyte count dose-response (per 5% x per SD) 12756  0.000452 0.00172 0.79300
+     Monocyte % dose-response (per 5% x per SD) 12756 -0.004500 0.00156 0.00380
+     Neutrophil dose-response (per 5% x per SD) 12756  0.005560 0.00212 0.00860
+            NLR dose-response (per 5% x per SD) 12756  0.003850 0.00250 0.12300
+            PLR dose-response (per 5% x per SD) 12756  0.000205 0.00206 0.92000
+            SII dose-response (per 5% x per SD) 12756  0.005720 0.00304 0.05990
+            WBC dose-response (per 5% x per SD) 12775  0.004260 0.00150 0.00446
+          label                        contrast     N      coef      se   p_cr1
+         <char>                          <char> <int>     <num>   <num>   <num>
+ p_perm z_perm reliability
+  <num>  <num>      <char>
+ 0.3050   0.98          ok
+ 0.5970   0.52          ok
+ 0.4470   0.74          ok
+ 0.1590   1.41          ok
+ 0.8300  -0.21          ok
+ 0.3120   1.02          ok
+ 0.6810   0.43          ok
+ 0.7950   0.25          ok
+ 0.4080   0.85          ok
+ 0.0699   1.80          ok
+ 0.3700   0.92          ok
+ 0.1400   1.47          ok
+ 0.9480   0.07          ok
+ 0.0999   1.64          ok
+ 0.3730  -0.89          ok
+ 0.0659   1.83          ok
+ 0.7100   0.38          ok
+ 0.5920  -0.57          ok
+ 0.4100   0.82          ok
+ 0.0110   2.68          ok
+ 0.9470   0.07          ok
+ 0.2580   1.11          ok
+ 0.7410  -0.31          ok
+ 0.4340   0.77          ok
+ 0.0549  -1.92  UNRELIABLE
+ 0.0310   2.19    marginal
+ 0.2990   1.03          ok
+ 0.9930   0.01          ok
+ 0.1200   1.55          ok
+ 0.0200   2.41    marginal
+ p_perm z_perm reliability
+  <num>  <num>      <char>
+
+========== 2. 各 PFAS 档位的减重效应（S1：y ~ w5*pfas_t）==========
+          label     N      T1      T2      T3 spread \350\201\224\345\220\210P
+         <char> <int>  <char>  <char>  <char> <char>  <char>
+            CRP  9734 -21.85% -22.66% -15.98%  +5.87   0.360
+            WBC 12775  -2.27%  +0.58%  +0.53%  +2.80   0.127
+     Neutrophil 12756  -2.28%  +0.02%  +0.51%  +2.79   0.371
+     Lymphocyte 12756  -1.68%  +0.75%  -1.70%  -0.02   0.390
+ Monocyte count 12756  -3.26%  -0.71%  -1.49%  +1.77   0.344
+     Monocyte % 12756  -0.41%  -1.22%  -1.60%  -1.19   0.742
+            NLR 12756  -0.61%  -0.72%  +2.24%  +2.85   0.510
+            MLR 12756  -1.61%  -1.45%  +0.24%  +1.85   0.623
+            PLR 12756  +0.26%  -1.12%  +1.51%  +1.25   0.562
+            SII 12756  -2.02%  -1.10%  +1.97%  +3.99   0.444
+
+========== 3. 处理组内剂量规格（S2：w5==1，y ~ dw1*pfas_t）==========
+          label     N      p
+         <char> <int> <char>
+            CRP  1900 0.5864
+            WBC  2519 0.1326
+     Neutrophil  2517 0.0949
+     Lymphocyte  2517 0.0583
+ Monocyte count  2517 0.5768
+     Monocyte %  2517 0.6860
+            NLR  2517 0.1243
+            MLR  2517 0.2455
+            PLR  2517 0.0536
+            SII  2517 0.0847
+
+================ 结论摘要 ================
+在连续暴露尺度上通过随机化检验（p_perm < 0.05）的结局：
+  label  coef z_perm p_perm
+ <char> <num>  <num>  <num>
+    WBC 0.017   2.68  0.011
+
+CR1 名义 P 与随机化 P 相差 >10 倍的组合（名义 P 不可信）： 1 / 30 
+      label                        contrast  p_cr1 p_perm
+     <char>                          <char>  <num>  <num>
+ Monocyte % dose-response (per 5% x per SD) 0.0038 0.0549
+
+✅ 36 完成

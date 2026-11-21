@@ -1,0 +1,44 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+C: n= 6990  ALT=6489 AST=6488 GGT=6491 PLT=6613
+D: n= 6980  ALT=6349 AST=6349 GGT=6432 PLT=6500
+F: n= 7369  ALT=6859 AST=6858 GGT=6859 PLT=6936
+G: n= 6549  ALT=5972 AST=5969 GGT=5974 PLT=6166
+H: n= 6979  ALT=6551 AST=6551 GGT=6552 PLT=6644
+I: n= 6744  ALT=6256 AST=6256 GGT=6256 PLT=6306
+J: n= 6401  ALT=5902 AST=5882 GGT=5902 PLT=6058
+L: n= 7199  ALT=6321 AST=6308 GGT=6327 PLT=6721
+
+合并后实验室记录: 55211 
+D = 45739  并入后 = 45739 
+alt      nm=39414  med=  20.00  q10=  12.00  q90=  40.00
+ast      nm=39384  med=  22.00  q10=  16.00  q90=  34.00
+ggt      nm=39496  med=  20.00  q10=  11.00  q90=  51.00
+tb       nm=39478  med=   0.60  q10=   0.30  q90=   1.00
+fib4     nm=39293  med=   0.99  q10=   0.46  q90=   2.08
+ast_alt  nm=39384  med=   1.10  q10=   0.73  q90=   1.57
+fli      nm=37468  med=  56.18  q10=   8.50  q90=  96.03
+hsi      nm=38852  med=  37.09  q10=  29.08  q90=  48.85
+plt      nm=40366  med= 240.00  q10= 173.00  q90= 331.00
+
+FLI>=60（脂肪肝）比例: 47.2 %
+FIB-4>2.67（高纤维化风险）比例: 4.15 %
+
+肝分析样本 N = 12737  处理组 = 2513 
+    cycle     N   trt   alt   ggt
+   <char> <int> <int> <num> <num>
+1:      C  1360   229    21    20
+2:      D  1329   242    21    20
+3:      F  1778   313    21    20
+4:      G  1493   304    20    19
+5:      H  1541   314    20    19
+6:      I  1569   337    21    20
+7:      J  1553   348    18    21
+8:      L  2114   426    18    20
+
+✅ liver.rds 已保存

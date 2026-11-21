@@ -1,0 +1,146 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+========== A. % < LOD（注释码口径）==========
+Key: <analyte>
+ analyte     C     D     F     G     H     I     J     L
+  <char> <num> <num> <num> <num> <num> <num> <num> <num>
+    PFDA 72.35 23.40  5.37 14.92 20.99 33.87 11.30 55.70
+   PFHxS  2.29  4.10  0.58  1.58  1.15  1.56  0.67  2.00
+    PFNA  1.72  0.94  0.22  0.74  1.25  1.25  7.52  5.37
+    PFOA  0.43  0.42  0.22  0.47  0.87  0.80  0.21  0.74
+    PFOS  0.14  0.14  0.18  0.37  0.97  0.55  0.26  0.59
+  PFUnDA 91.69 69.01 30.36 37.61 56.50 62.32 33.96 74.28
+
+========== A2. % < LOD（分析样本内口径，N=12,775）==========
+Key: <analyte>
+ analyte     C     D     F     G     H     I     J     L
+  <char> <num> <num> <num> <num> <num> <num> <num> <num>
+    PFDA 68.79 21.41  5.12 12.64 18.36 30.22 10.38 50.89
+   PFHxS  1.83  3.33  0.68  1.61  1.49  1.86  0.77  2.12
+    PFNA  1.83  1.04  0.28  0.80  1.56  1.47  7.05  4.66
+    PFOA  0.44  0.59  0.28  0.54  0.97  0.96  0.19  0.85
+    PFOS  0.15  0.22  0.23  0.47  1.17  0.64  0.26  0.66
+  PFUnDA 89.60 62.67 27.01 33.11 50.75 57.81 30.81 70.95
+
+========== A3. 反推 LOD 区间（ng/mL）==========
+  cycle analyte n_lod_levels lod_min lod_max    subst_values
+ <char>  <char>        <int>   <num>   <num>          <char>
+      C    PFDA            2 0.14140 0.28280     0.1/    0.2
+      D    PFDA            1 0.19800 0.19800            0.14
+      F    PFDA            1 0.09899 0.09899            0.07
+      G    PFDA            1 0.09899 0.09899            0.07
+      H    PFDA            1 0.09899 0.09899            0.07
+      I    PFDA            1 0.09899 0.09899            0.07
+      J    PFDA            1 0.09899 0.09899            0.07
+      L    PFDA            1 0.09899 0.09899            0.07
+      C   PFHxS            1 0.28280 0.28280             0.2
+      D   PFHxS            1 0.09899 0.09899            0.07
+      F   PFHxS            1 0.09899 0.09899            0.07
+      G   PFHxS            1 0.09899 0.09899            0.07
+      H   PFHxS            1 0.09899 0.09899            0.07
+      I   PFHxS            1 0.09899 0.09899            0.07
+      J   PFHxS            1 0.09899 0.09899            0.07
+      L   PFHxS            1 0.09899 0.09899            0.07
+      D    PFNA            1 0.09899 0.09899            0.07
+      F    PFNA            1 0.08202 0.08202           0.058
+      G    PFNA            1 0.08485 0.08485            0.06
+      H    PFNA            1 0.09899 0.09899            0.07
+      I    PFNA            1 0.09899 0.09899            0.07
+      J    PFNA            1 0.09899 0.09899            0.07
+      L    PFNA            1 0.09899 0.09899            0.07
+      D    PFOA            1 0.09899 0.09899            0.07
+      F    PFOA            1 0.09899 0.09899            0.07
+      G    PFOA            1 0.09899 0.09899            0.07
+      H    PFOA            1 0.19800 0.19800            0.14
+      I    PFOA            1 0.19800 0.19800            0.14
+      J    PFOA            1 0.19800 0.19800            0.14
+      L    PFOA            1 0.19800 0.19800            0.14
+      C    PFOS            1 0.42430 0.42430             0.3
+      D    PFOS            1 0.19800 0.19800            0.14
+      F    PFOS            1 0.19800 0.19800            0.14
+      G    PFOS            1 0.19800 0.19800            0.14
+      H    PFOS            1 0.19800 0.19800            0.14
+      I    PFOS            1 0.19800 0.19800            0.14
+      J    PFOS            1 0.19800 0.19800            0.14
+      L    PFOS            1 0.19800 0.19800            0.14
+      C  PFUnDA            2 0.14140 0.28280     0.1/    0.2
+      D  PFUnDA            1 0.19800 0.19800            0.14
+      F  PFUnDA            1 0.09899 0.09899            0.07
+      G  PFUnDA            1 0.09899 0.09899            0.07
+      H  PFUnDA            1 0.09899 0.09899            0.07
+      I  PFUnDA            1 0.09899 0.09899            0.07
+      J  PFUnDA            1 0.09899 0.09899            0.07
+      L  PFUnDA            1 0.09899 0.09899            0.07
+  cycle analyte n_lod_levels lod_min lod_max    subst_values
+ <char>  <char>        <int>   <num>   <num>          <char>
+
+========== B. 双口径交叉验证（注释码 vs 质量点）==========
+最大偏差 = 1.72 pp
+偏差 > 1 pp 的组合： 1 个
+  cycle analyte pct_below pct_imputed flag_vs_mass_diff_pp
+ <char>  <char>     <num>       <num>                <num>
+      C    PFNA      1.72           0                 1.72
+
+========== 删失率 > 30% 的同系物×周期 ==========
+  cycle analyte pct_below lod_min
+ <char>  <char>     <num>   <num>
+      C    PFDA     72.35 0.14140
+      I    PFDA     33.87 0.09899
+      L    PFDA     55.70 0.09899
+      C  PFUnDA     91.69 0.14140
+      D  PFUnDA     69.01 0.19800
+      F  PFUnDA     30.36 0.09899
+      G  PFUnDA     37.61 0.09899
+      H  PFUnDA     56.50 0.09899
+      I  PFUnDA     62.32 0.09899
+      J  PFUnDA     33.96 0.09899
+      L  PFUnDA     74.28 0.09899
+
+涉及周期： C, D, F, G, H, I, J, L 
+涉及同系物： PFDA, PFUnDA 
+
+支链段单独删失率（2013 起 PFOA/PFOS 拆分为线性+支链）：
+  cycle analyte branch_censored
+ <char>  <char>           <num>
+      H    PFOA           81.27
+      I    PFOA           97.99
+      J    PFOA           90.05
+      L    PFOA           89.81
+      H    PFOS            1.69
+      I    PFOS            1.15
+      J    PFOS            0.83
+      L    PFOS            2.47
+
+========== C/D. 替换值与周期敏感性（WBC 连续 DiD 交互）==========
+                                          scenario     N n_cycle     beta
+                                            <char> <int>   <int>    <num>
+                       subst = LOD/sqrt2 (current) 12775       8 0.016990
+                               subst = LOD (upper) 12775       8 0.016810
+                             subst = LOD/2 (lower) 12775       8 0.017140
+ only 4 low-censoring congeners (drop PFDA/PFUnDA) 12775       8 0.017150
+             single congener: PFOA (max %=<LOD 1%) 12775       8 0.016090
+             single congener: PFOS (max %=<LOD 1%) 12775       8 0.016440
+            single congener: PFHxS (max %=<LOD 4%) 12925       8 0.014670
+             single congener: PFNA (max %=<LOD 8%) 12925       8 0.019450
+            single congener: PFDA (max %=<LOD 72%) 12925       8 0.015820
+          single congener: PFUnDA (max %=<LOD 92%) 12925       8 0.005483
+       se       p    rel
+    <num>   <num> <char>
+ 0.006138 0.00564  +0.0%
+ 0.006154 0.00630  -1.1%
+ 0.006125 0.00513  +0.9%
+ 0.006111 0.00502  +0.9%
+ 0.006140 0.00880  -5.3%
+ 0.006116 0.00718  -3.2%
+ 0.006412 0.02210 -13.6%
+ 0.006271 0.00192 +14.5%
+ 0.005828 0.00665  -6.9%
+ 0.005817 0.34600 -67.7%
+
+点估计最大相对偏差 = 67.7% ；P 值范围 = 0.00192 ~ 0.346 
+✅ V17 完成 → verification/lod_audit.csv, lod_substitution_sensitivity.csv

@@ -1,0 +1,9 @@
+outcome,label,N,per5_pct,per5_lo,per5_hi,per5_p,PFAS_interaction_P,PFAS_tertile_P,tertile1_pct,tertile2_pct,tertile3_pct
+y_alb,Albumin (control),1232,0.2,-0.16,0.56,0.287,0.661,0.702,0.1,0.7,-0.3
+y_e2,Estradiol,1232,-1.45,-3.37,0.52,0.149,0.501,0.502,-5.3,1,-6.3
+y_fai,FAI (T/SHBG),1232,-0.72,-2.81,1.41,0.503,0.222,0.869,-4.9,-1.1,-3.7
+y_ft,Free testosterone,1232,1.62,-0.65,3.94,0.162,0.34,0.672,1.3,7.1,1.5
+y_pctfree,%Free testosterone,1232,-2.31,-3.21,-1.4,8.3e-07,0.45,0.437,-5.9,-10.3,-7.2
+y_shbg,SHBG,1232,4.78,3.15,6.43,5.33e-09,0.586,0.556,13.2,20.7,13.5
+y_te2,T:E2 ratio,1232,5.55,3.12,8.03,5.45e-06,0.165,0.896,13.7,18.2,16.6
+y_tt,Total testosterone,1232,4.02,1.7,6.39,0.000606,0.443,0.412,7.7,19.4,9.3

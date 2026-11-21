@@ -1,0 +1,55 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+死亡记录: 70163  死亡: 4824 
+    cycle     N deaths    fu
+   <char> <int>  <int> <num>
+1:      C 10122   1420    16
+2:      D 10348   1027    14
+3:      F 10537    861    10
+4:      G  9756    628     8
+5:      H 10175    467     6
+6:      I  9971    276     4
+7:      J  9254    145     2
+
+可分析成人: 37853  死亡: 4785 
+
+=== 1) PhenoAge 加速 -> 全因死亡 ===
+每 1 年加速的率比 RR = 1.032 (95%CI 1.029-1.036) p=<2e-16 
+按加速五分位的率比(以Q1为参照):
+       dec2  dec3  dec4  dec5 
+1.000 1.058 1.197 1.428 2.117 
+AUC(实足年龄) = 0.856  AUC(PhenoAge) = 0.857 
+
+=== 2) 减重 × ΣPFAS -> 全因死亡 ===
+N = 10646  死亡 = 1289  处理组死亡 = 294 
+   pfas_z    RR    lo    hi
+    <num> <num> <num> <num>
+1:  -1.14 1.233 0.996 1.527
+2:   0.16 1.163 1.015 1.332
+3:   1.30 1.104 0.915 1.332
+交互项 p = 0.463 
+
+=== 3) 2003-2004: 减重 × PCB -> 16 年死亡 (logistic) ===
+N = 1212  死亡 = 338 
+   pcb_z    OR    lo    hi
+   <num> <num> <num> <num>
+1: -0.79 0.962 0.295 3.134
+2:  0.47 1.076 0.615 1.881
+3:  1.56 1.185 0.662 2.120
+交互项 p = 0.777 
+
+=== 4) 减重组死因构成 (2003-2004, 前三位) ===
+     ucod     N
+   <char> <int>
+1:    010    20
+2:    001    18
+3:    002    14
+4:    007     4
+5:    003     4
+6:    006     2
+done

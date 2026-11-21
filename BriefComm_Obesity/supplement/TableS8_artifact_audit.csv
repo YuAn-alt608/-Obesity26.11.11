@@ -1,0 +1,6 @@
+artefact,mechanism,uncontrolled,controlled,shift,direction
+Confounding,"People who lose weight are sicker, poorer and heavier at baseline",PhenoAge +1.87 years,-0.33 years (causal forest); -0.52 years (parametric),"2.20 years, sign reversed",towards harm
+Indication (prescribing),"167 of 2,244 men (7.4%) on GnRH agonists, antiandrogens, oestrogens, glucocorticoids, opioids or ketoconazole",interaction P=0.012-0.091; decile gradient -3.4 to -4.6 pp,P=0.383-0.670; gradient +0.1 to +0.8 pp,interaction removed,towards harm
+Formula (BMI-bearing score),Hepatic Steatosis Index and Fatty Liver Index both contain body mass,HSI P=1.2e-6; FLI P=0.017,HSI 0.68; FLI 0.14; log ALT 0.61,interaction removed,towards harm
+Model specification,zero-inflated collinear interaction term; intercept dropped,5 of 30 estimates P<0.05,3 of 30 after coefficient-level randomisation; 0 of 30 after weighting,dissipated,towards harm
+Residual signal,not an artefact,-,total testosterone +4.0% vs %free -2.3%; free T +1.6% (ns),-,not attributable to pollutants

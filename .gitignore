@@ -1,0 +1,30 @@
+# Data that is downloaded, not deposited (see README section 1)
+data/raw/
+data/derived/
+data/external/
+data/meta/*.html
+
+# Binary model objects and large matrices
+*.rds
+*.rda
+*.RData
+*.csv.gz
+*.h5ad
+*.npz
+
+# Working directories that never produced a deposited number
+code/scratch/
+code/verify/_scratch/
+verification/_tmp/
+verification/before_crpfix/
+verification/_codebook/
+
+# Office and system cruft
+~$*
+.~lock.*
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

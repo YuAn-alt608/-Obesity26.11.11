@@ -1,0 +1,57 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+PFAS C N = 2368  完整6项 = 2094 
+PFAS D N = 2323  完整6项 = 2120 
+PFAS F N = 2432  完整6项 = 2233 
+PFAS G N = 2177  完整6项 = 1904 
+PFAS H N = 2339  完整6项 = 1954 
+PFAS I N = 2170  完整6项 = 1993 
+PFAS J N = 2133  完整6项 = 1929 
+PFAS L N = 3618  完整6项 = 2551 
+Warning messages:
+1: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFOA', but this column does not exist to remove
+2: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFOS', but this column does not exist to remove
+3: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFHxS', but this column does not exist to remove
+4: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFNA', but this column does not exist to remove
+5: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFDA', but this column does not exist to remove
+6: In `[.data.table`(PFA, , `:=`(paste0("chk_", names(MW)), NULL)) :
+  Tried to assign NULL to column 'chk_PFUnDA', but this column does not exist to remove
+
+PCB(NDL) n= 26  共平面PCB n= 9  OCP n= 11 
+    cycle     N pfas6   pcb   ocp pfas_pfos
+   <char> <int> <int> <int> <int>     <int>
+1:      C 10122  2094  1898  1981      2094
+2:      D 10348  2120     0     0      2120
+3:      F 10537  2233     0     0      2233
+4:      G  9756  1904     0     0      1904
+5:      H 10175  1954     0     0      1954
+6:      I  9971  1993     0     0      1993
+7:      J  9254  1929     0     0      1929
+8:      L 11933  2551     0     0      2551
+
+=== ΣPFAS 分布 (nmol/L) ===
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.01   13.98   26.34   37.13   47.84 2930.07   65318 
+
+=== 与体重史交集 ===
+    cycle     N  pfas   pcb phenoage pfas_pheno
+   <char> <int> <int> <int>    <int>      <int>
+1:      C  4713  1366  1215     4142       1354
+2:      D  4506  1354     0     4008       1343
+3:      F  5937  1779     0     5384       1770
+4:      G  5335  1496     0        0          0
+5:      H  5555  1542     0        0          0
+6:      I  5481  1571     0     4887       1552
+7:      J  5357  1563     0     4693       1546
+8:      L  7530  2135     0     5228       2091
+done

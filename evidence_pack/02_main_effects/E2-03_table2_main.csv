@@ -1,0 +1,6 @@
+Model,N,Treated,Effect_at_mean,Interaction_b2,P_interaction,CATE_P10,CATE_P90,Turning_point,Forest_heterogeneity_P
+PhenoAge x PFAS (8 cycles),9656,1877,-0.52 y,0.35 (0.18),0.116,-0.08 y,0.12 y,-0.03,6.73e-05
+PhenoAge x PCB (2003-04),1202,221,0.08 y,-0.47 (0.50),0.567,-0.98 y,0.45 y,1.03,0.332
+PhenoAge x OCP (2003-04),1294,271,-0.42 y,-0.30 (0.23),0.195,-1.13 y,-0.35 y,0.88,0.353
+Total testosterone x PFAS (men),2244,439,+10.3%,0.01 (0.01),0.261,+12.9%,+8.2%,1.19,0.00485
+Free testosterone x PFAS (men),1337,270,+1.7%,0.01 (0.01),0.668,+3.4%,+0.8%,0.94,0.325

@@ -1,0 +1,9 @@
+left,right,n_left,n_right,n_inner,fanout,dup_inner
+inflam,analysis$D,45739,45739,45739,FALSE,FALSE
+liver,analysis$D,45739,45739,45739,FALSE,FALSE
+core,analysis$D,82096,45739,45739,FALSE,FALSE
+pop,core,82096,82096,82096,FALSE,FALSE
+horm,core,32058,82096,32058,FALSE,FALSE
+rx_flags,analysis$D,28488,45739,21967,FALSE,FALSE
+inflam,rx_flags,45739,28488,21967,FALSE,FALSE
+liver,rx_flags,45739,28488,21967,FALSE,FALSE

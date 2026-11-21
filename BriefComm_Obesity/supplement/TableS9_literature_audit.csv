@@ -1,0 +1,13 @@
+﻿pmid,first_author,year,journal,exposure,outcome,population,n,evidence_level,medication_handling,gnrh_or_opioid_screened
+41389916,NA,2026,Environ Toxicol Pharmacol,PFAS (6 congeners),low total testosterone,adult men,NA,abstract_only,none reported,no
+41453585,NA,2026,Reprod Toxicol,PFOS/PFOA/PFHxS/PFNA,estradiol and SHBG,males 6-80 y,1965,abstract_only,none reported,no
+42891401,NA,2026,Pollutants,28 EDCs incl. PFAS,6 reproductive hormones,adults,9254,abstract_only,none reported,no
+40746672,Li X,2025,Front Public Health,PBDEs,TT / free T / bioavailable T / SHBG,men >=20 y,1150,full_text,"excluded 'hormone therapy' (n=34); no named drug classes",no
+40344783,NA,2025,Ecotoxicol Environ Saf,PFAS,sex hormones and insulin,adults by sex/menopause,NA,abstract_only,none reported,no
+41465861,NA,2025,Life (Basel),PFAS (4 congeners),FSH / AMH / estradiol / progesterone,women >=18 y,612,abstract_only,none reported,no
+37098366,NA,2023,Environ Pollut,PFAS,total T / estradiol / SHBG,children 6-19 y,921,abstract_only,none reported,no
+36857915,Guo J,2023,Ecotoxicol Environ Saf,PFAS (5 congeners),sex steroids,adolescents 12-19 y,525,abstract_only,none reported,no
+33002787,Madrigal JM,2021,Int J Hyg Environ Health,organochlorine pesticides,T / SHBG / estradiol / 3-alpha-diol-G,men >=20 y,748,full_text,"excluded antiandrogens, 5-alpha-reductase inhibitors, adrenal corticosteroids; GnRH agonists and opioids not named",no
+33548847,Wang Y,2021,Environ Int,PFAS,TT / free T / estradiol / SHBG,postmenopausal women,706,abstract_only,none reported,no
+36061407,Xie X,2021,Environ Sci Eur,PFAS (5 congeners),TT / free T / estradiol / SHBG,12-80 y,NA,full_text,"contraceptive use adjusted in women only; no androgen-suppressing drugs",no
+26035660,Lewis RC,2015,Int J Environ Res Public Health,PFAS,total T / thyroid hormones,12-80 y,1682,full_text,none reported,no

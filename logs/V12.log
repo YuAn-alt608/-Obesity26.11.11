@@ -1,0 +1,97 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+平台行数: 86161  独立基因: 81497 
+
+样本: 165 
+       grp time_point     N
+    <char>     <char> <int>
+1:    RYGB   Baseline    50
+2: Control    Control    28
+3:    RYGB     2_year    49
+4:    RYGB     5_year    38
+Warning message:
+In fread(fm, sep = "\t", header = TRUE, skip = "ID_REF", quote = "") :
+  Discarded single-line footer: <<!series_matrix_table_end>>
+矩阵列示例: GSM5963483, GSM5963484, GSM5963485 
+矩阵探针 138714 个；平台可映射覆盖 86161 个（缺失 52553，37.886%）
+合并注释后: 86161 探针
+去重后基因: 81497 
+表达矩阵: 81497 基因 x 165 样本
+NA 比例: 0.0000% 
+可分析基因: 81497 
+
+各模块命中基因数:
+      mac    immune    inflam adipocyte     fibro 
+       15         8        16        12         7 
+
+================ 配对分析（术前 vs 术后）================
+     variable     to n_pair   base   post  delta    dz      p_t     p_bh
+       <char> <char>  <int>  <num>  <num>  <num> <num>    <num>    <num>
+    adipocyte 2_year     49 -0.275 -0.062  0.204  0.30 3.93e-02 3.93e-02
+        fibro 2_year     49  0.467 -0.135 -0.597 -0.94 3.66e-08 5.85e-08
+       immune 2_year     49  0.996 -0.299 -1.298 -1.74 2.67e-16 1.07e-15
+       inflam 2_year     49  0.508 -0.184 -0.697 -1.04 2.84e-09 5.68e-09
+          mac 2_year     49  0.868 -0.319 -1.181 -2.02 9.27e-19 7.42e-18
+     net_infl 2_year     49  0.508 -0.184 -0.697 -1.04 2.84e-09 5.68e-09
+ percell_infl 2_year     49 -0.360  0.135  0.484  0.77 1.93e-06 2.21e-06
+  percell_raw 2_year     49 -0.488  0.115  0.601  0.83 5.48e-07 7.31e-07
+    adipocyte 5_year     38 -0.275  0.233  0.517  0.88 3.65e-06 4.17e-06
+        fibro 5_year     38  0.467 -0.349 -0.773 -1.03 2.18e-07 2.91e-07
+       immune 5_year     38  0.996 -0.814 -1.864 -2.28 2.08e-16 1.66e-15
+       inflam 5_year     38  0.508 -0.384 -0.944 -1.19 1.08e-08 1.73e-08
+          mac 5_year     38  0.868 -0.674 -1.577 -1.95 2.44e-14 9.78e-14
+     net_infl 5_year     38  0.508 -0.384 -0.944 -1.19 1.08e-08 1.73e-08
+ percell_infl 5_year     38 -0.360  0.290  0.633  0.80 1.88e-05 1.88e-05
+  percell_raw 5_year     38 -0.488  0.430  0.920  1.22 5.51e-09 1.47e-08
+
+================ 与未手术对照的比较 ================
+     variable control baseline  year5 d_base  d_y5
+       <char>   <num>    <num>  <num>  <num> <num>
+          mac  -0.077    0.868 -0.674   0.94 -0.60
+       immune  -0.150    0.996 -0.814   1.15 -0.66
+       inflam  -0.064    0.508 -0.384   0.57 -0.32
+ percell_infl   0.013   -0.360  0.290  -0.37  0.28
+     net_infl  -0.064    0.508 -0.384   0.57 -0.32
+  percell_raw   0.086   -0.488  0.430  -0.57  0.34
+    adipocyte   0.282   -0.275  0.233  -0.56 -0.05
+        fibro  -0.125    0.467 -0.349   0.59 -0.22
+
+================ 三条预测的判定 ================
+
+[术前 -> 2_year]
+  E1 巨噬含量下降    : 支持 (delta=-1.181, P=9.27e-19) 
+  E2 每细胞炎症上升  : 支持 (delta=+0.484, P=1.933e-06) 
+  E3 净炎症负荷下降  : 支持 (delta=-0.697, P=2.839e-09) 
+  (稳健性) 泛免疫剔除: 支持 (delta=+0.601, P=5.482e-07) 
+  分解：net = mac + percell = -1.181 + +0.484 = -0.697（自洽）
+  抵消比例：若每细胞炎症不变，净负荷应降 -1.181；实测 -0.697
+            → 每细胞炎症上升抵掉了巨噬撤退效应的 41.0%
+
+[术前 -> 5_year]
+  E1 巨噬含量下降    : 支持 (delta=-1.577, P=2.445e-14) 
+  E2 每细胞炎症上升  : 支持 (delta=+0.633, P=1.877e-05) 
+  E3 净炎症负荷下降  : 支持 (delta=-0.944, P=1.084e-08) 
+  (稳健性) 泛免疫剔除: 支持 (delta=+0.920, P=5.506e-09) 
+  分解：net = mac + percell = -1.577 + +0.633 = -0.944（自洽）
+  抵消比例：若每细胞炎症不变，净负荷应降 -1.577；实测 -0.944
+            → 每细胞炎症上升抵掉了巨噬撤退效应的 40.2%
+
+效应量对照（|delta|，SD 单位）:
+Key: <variable>
+       variable     2_year     5_year
+         <char>      <num>      <num>
+1:    adipocyte  0.2039338  0.5165367
+2:        fibro -0.5968735 -0.7731200
+3:       immune -1.2982828 -1.8639817
+4:       inflam -0.6968398 -0.9436876
+5:          mac -1.1811863 -1.5767684
+6:     net_infl -0.6968398 -0.9436876
+7: percell_infl  0.4843465  0.6330808
+8:  percell_raw  0.6014430  0.9202942
+
+✅ V12 完成

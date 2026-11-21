@@ -1,0 +1,4 @@
+comparison,ari,verdict
+KMeans(k=7) vs z-score,0.406445349396553,中等一致
+Louvain vs z-score,0.240032701628744,弱一致
+KMeans vs Louvain,0.389273013522574,中等一致

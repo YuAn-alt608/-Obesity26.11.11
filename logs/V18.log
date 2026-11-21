@@ -1,0 +1,104 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+分析样本 N = 12775  处理 = 2519  周期 = 8 
+同系物 z 的相关系数矩阵（周期内标准化后）：
+         z_PFOA z_PFOS z_PFHxS z_PFNA z_PFDA z_PFUnDA
+z_PFOA     1.00   0.66    0.63   0.67   0.44     0.26
+z_PFOS     0.66   1.00    0.67   0.70   0.59     0.44
+z_PFHxS    0.63   0.67    1.00   0.45   0.25     0.16
+z_PFNA     0.67   0.70    0.45   1.00   0.72     0.56
+z_PFDA     0.44   0.59    0.25   0.72   1.00     0.76
+z_PFUnDA   0.26   0.44    0.16   0.56   0.76     1.00
+
+========== WBC  (N = 12775 ) ==========
+    perm 100 / 200 
+    perm 200 / 200 
+
+========== Neutrophil  (N = 12756 ) ==========
+    perm 100 / 200 
+    perm 200 / 200 
+
+========== CRP  (N = 9734 ) ==========
+    perm 100 / 200 
+    perm 200 / 200 
+
+========== 1. 混合物联合效应 ψ（每个分位）==========
+    outcome             stratum     N       psi       se        p     pct
+     <char>              <char> <int>     <num>    <num>    <num>  <char>
+        WBC             Overall 12775 -0.012820 0.003338 1.23e-04  -1.27%
+        WBC   Control (no loss) 10256 -0.016310 0.003652 7.94e-06  -1.62%
+        WBC Treated (>=5% loss)  2519  0.001448 0.008129 8.59e-01  +0.14%
+ Neutrophil             Overall 12756 -0.012920 0.003338 1.08e-04  -1.28%
+ Neutrophil   Control (no loss) 10239 -0.016390 0.003653 7.25e-06  -1.63%
+ Neutrophil Treated (>=5% loss)  2517  0.001197 0.008128 8.83e-01  +0.12%
+        CRP             Overall  9734 -0.099570 0.014980 3.00e-11  -9.48%
+        CRP   Control (no loss)  7834 -0.091990 0.016540 2.65e-08  -8.79%
+        CRP Treated (>=5% loss)  1900 -0.121000 0.034950 5.38e-04 -11.40%
+
+========== 2. 效应修饰 Δψ（减重组 − 未减重组）==========
+    outcome    psi_c     psi_t     dpsi       se p_delta p_perm p_joint
+     <char>    <num>     <num>    <num>    <num>   <num>  <num>   <num>
+        WBC -0.01631  0.001448  0.01776 0.008912  0.0463 0.0199  0.2060
+ Neutrophil -0.01639  0.001197  0.01759 0.008911  0.0485 0.0249  0.2140
+        CRP -0.09199 -0.121000 -0.02900 0.038670  0.4530 0.4380  0.0129
+
+========== 3. 权重（哪一味同系物在驱动）==========
+Key: <outcome, stratum>
+    outcome             stratum      PFDA      PFHxS      PFNA        PFOA
+     <char>              <char>     <num>      <num>     <num>       <num>
+        CRP   Control (no loss)        NA 0.05656196 0.9434380          NA
+        CRP             Overall        NA         NA 0.9875683          NA
+        CRP Treated (>=5% loss)        NA         NA 0.4787285          NA
+ Neutrophil   Control (no loss) 0.1053009 0.46736891 0.4273302          NA
+ Neutrophil             Overall 0.1401924 0.30290952 0.3788345 0.178063587
+ Neutrophil Treated (>=5% loss) 0.1831783 0.15490463 0.2905646 0.371352511
+        WBC   Control (no loss) 0.1392637 0.43906121 0.4211878 0.000487276
+        WBC             Overall 0.1564590 0.28861283 0.3693162 0.185611951
+        WBC Treated (>=5% loss) 0.1852061 0.15835824 0.2848025 0.371633122
+       PFOS
+      <num>
+         NA
+ 0.01243175
+ 0.52127148
+         NA
+         NA
+         NA
+         NA
+         NA
+         NA
+
+负向权重（方向相反的同系物）：
+Key: <outcome, stratum>
+    outcome             stratum       PFDA      PFHxS        PFOA       PFOS
+     <char>              <char>      <num>      <num>       <num>      <num>
+        CRP   Control (no loss) 0.00868781         NA 0.563816334 0.08630745
+        CRP             Overall 0.12792618 0.07799714 0.527992754         NA
+        CRP Treated (>=5% loss) 0.35475810 0.30742963 0.310648180         NA
+ Neutrophil   Control (no loss)         NA         NA 0.003644391 0.28657612
+ Neutrophil             Overall         NA         NA          NA 0.25683678
+ Neutrophil Treated (>=5% loss)         NA         NA          NA 0.15779491
+        WBC   Control (no loss)         NA         NA          NA 0.28998218
+        WBC             Overall         NA         NA          NA 0.26322731
+        WBC Treated (>=5% loss)         NA         NA          NA 0.17985926
+     PFUnDA
+      <num>
+ 0.34118840
+ 0.26608393
+ 0.02716408
+ 0.70977949
+ 0.74316322
+ 0.84220509
+ 0.71001782
+ 0.73677269
+ 0.82014074
+
+========== 4. 判读 ==========
+WBC：ψ(对照) = -0.0163，ψ(减重) = +0.0014，Δψ = +0.0178（P = 0.046，置换 P = 0.020，联合 P = 0.206）
+预期：Δψ > 0（纯 PFAS 混合物在减重者中把 WBC 往上抬 = 钝化减重带来的下降）
+
+✅ V18 完成 → verification/qgcomp_mixture.csv, qgcomp_weights.csv, qgcomp_interaction.csv

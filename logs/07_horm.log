@@ -1,0 +1,26 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+    cycle     N     T  SHBG    E2    FT FT_pct_median
+   <char> <int> <int> <int> <int> <int>         <num>
+1:      C   490   486   486   486   486          1.76
+2:      G  7821  6826     0     0     0            NA
+3:      H  8291  7559  6578  7269  5708          1.52
+4:      I  8021  7207  6959  7150  6033          1.50
+5:      J  7435     0  5155  5428     0            NA
+
+=== 男性总睾酮 (ng/dL) ===
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    0.1   187.9   339.0   337.0   479.0  2544.0    4852 
+
+=== 游离睾酮 (ng/dL) ===
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.001   0.204   0.561   3.476   6.544  57.985   19831 
+
+=== %游离睾酮（应约 2%）===
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.093   1.100   1.521   1.537   1.952   3.716   19831 

@@ -1,0 +1,162 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+=====WHQ_C N=6213 vars=42
+  SEQN       numeric    Respondent sequence number
+  WHD010     numeric    Current self-reported height (inches)
+  WHD020     numeric    Current self-reported weight (pounds)
+  WHQ030     numeric    How do you consider your weight
+  WHQ040     numeric    Like to weigh more, less or same
+  WHD050     numeric    Self-reported weight-1 yr ago (pounds)
+  WHQ060     numeric    Weight change intentional
+  WHQ070     numeric    Tried to lose weight in past year
+  WHD080A    numeric    Ate less food
+  WHD080B    numeric    Switched to foods with lower calories
+  WHD080C    numeric    Ate less fat
+  WHD080D    numeric    Exercised
+  WHD080E    numeric    Skipped meals
+  WHD080F    numeric    Ate diet foods or products
+  WHD080G    numeric    Used a liquid diet formula
+  WHD080H    numeric    Joined a weight loss program
+  WHD080I    numeric    Took prescription diet pills
+  WHD080J    numeric    Took non-prescription diet pills
+  WHD080K    numeric    Took laxatives or vomited
+  WHD080L    numeric    Other
+  WHD080M    numeric    Drank a lot of water
+  WHD080N    numeric    Followed a special diet
+  WHQ090     numeric    Tried not to gain weight in past year
+  WHD100A    numeric    Ate less food
+  WHD100B    numeric    Switched to foods with lower calories
+  WHD100C    numeric    Ate less fat
+  WHD100D    numeric    Exercised
+  WHD100E    numeric    Skipped meals
+  WHD100F    numeric    Ate diet foods or products
+  WHD100G    numeric    Used a liquid diet formula
+  WHD100H    numeric    Joined a weight loss program
+  WHD100I    numeric    Took prescription diet pills
+  WHD100J    numeric    Took non-prescription diet pills
+  WHD100K    numeric    Took laxatives or vomited
+  WHD100L    numeric    Other
+  WHD100M    numeric    Drank a lot of water
+  WHD100N    numeric    Followed a special diet
+  WHD110     numeric    Self-reported weight-10 yrs ago (pounds)
+  WHD120     numeric    Self-reported weight - age 25 (pounds)
+  WHD130     numeric    Self-reported height - age 25 (inches)
+  WHD140     numeric    Self-reported greatest weight(pounds)
+  WHQ150     numeric    Age when heaviest weight
+=====SSCHL_C N=490 vars=5
+  SEQN       numeric    Respondent sequence number
+  SSTESTO    numeric    Testosterone (ng/dL)
+  SSSHBG     numeric    Sex Hormone Binding Globulin (nmol/L)
+  SSSE2      numeric    estradiol (pg/mL)
+  SS3ADLG    numeric    androstanedione glucuronide (ng/mL)
+=====L28NPB_C N=2285 vars=80
+  SEQN       numeric    Respondent sequence number
+  WTSC2YR    numeric    Two-year MEC weights of subsample C
+  LBX044     numeric    PCB44 (ng/g)
+  LBX044LA   numeric    PCB44 Lipid Adj (ng/g)
+  LBD044LC   numeric    PCB44 Comment Code
+  LBX049     numeric    PCB49 (ng/g)
+  LBX049LA   numeric    PCB49 Lipid Adj (ng/g)
+  LBD049LC   numeric    PCB49 Comment Code
+  LBX052     numeric    PCB52 (ng/g)
+  LBX052LA   numeric    PCB52 Lipid Adj (ng/g)
+  LBD052LC   numeric    PCB52 Comment Code
+  LBX087     numeric    PCB87 (ng/g)
+  LBX087LA   numeric    PCB87 Lipid Adj (ng/g)
+  LBD087LC   numeric    PCB87 Comment Code
+  LBX099     numeric    PCB99 (ng/g)
+  LBX099LA   numeric    PCB99 Lipid Adj (ng/g)
+  LBD099LC   numeric    PCB99 Comment Code
+  LBX101     numeric    PCB101 (ng/g)
+  LBX101LA   numeric    PCB101 Lipid Adj (ng/g)
+  LBD101LC   numeric    PCB101 Comment Code
+  LBX110     numeric    PCB110 (ng/g)
+  LBX110LA   numeric    PCB110 Lipid Adj (ng/g)
+  LBD110LC   numeric    PCB110 Comment Code
+  LBX128     numeric    PCB128 (ng/g)
+  LBX128LA   numeric    PCB128 Lipid Adj (ng/g)
+  LBD128LC   numeric    PCB128 Comment Code
+  LBX138     numeric    PCB138 & 158 (ng/g)
+  LBX138LA   numeric    PCB138 & 158 Lipid Adj (ng/g)
+  LBD138LC   numeric    PCB138 & 158 Comment Code
+  LBX146     numeric    PCB146 (ng/g)
+  LBX146LA   numeric    PCB146 Lipid Adj (ng/g)
+  LBD146LC   numeric    PCB146 Comment Code
+  LBX149     numeric    PCB149 (ng/g)
+  LBX149LA   numeric    PCB149 Lipid Adj (ng/g)
+  LBD149LC   numeric    PCB149 Comment Code
+  LBX151     numeric    PCB151 (ng/g)
+  LBX151LA   numeric    PCB151 Lipid Adj (ng/g)
+  LBD151LC   numeric    PCB151 Comment Code
+  LBX153     numeric    PCB153 (ng/g)
+  LBX153LA   numeric    PCB153 Lipid Adj (ng/g)
+  LBD153LC   numeric    PCB153 Comment Code
+  LBX170     numeric    PCB170 (ng/g)
+  LBX170LA   numeric    PCB170 Lipid Adj (ng/g)
+  LBD170LC   numeric    PCB170 Comment Code
+  LBX172     numeric    PCB172 (ng/g)
+  LBX172LA   numeric    PCB172 Lipid Adj (ng/g)
+  LBD172LC   numeric    PCB172 Comment Code
+  LBX177     numeric    PCB177 (ng/g)
+  LBX177LA   numeric    PCB177 Lipid Adj (ng/g)
+  LBD177LC   numeric    PCB177 Comment Code
+  LBX178     numeric    PCB178 (ng/g)
+  LBX178LA   numeric    PCB178 Lipid Adj (ng/g)
+  LBD178LC   numeric    PCB178 Comment Code
+  LBX180     numeric    PCB180 (ng/g)
+  LBX180LA   numeric    PCB180 Lipid Adj (ng/g)
+  LBD180LC   numeric    PCB180 Comment Code
+  LBX183     numeric    PCB183 (ng/g)
+  LBX183LA   numeric    PCB183 Lipid Adj (ng/g)
+  LBD183LC   numeric    PCB183 Comment Code
+  LBX187     numeric    PCB187 (ng/g)
+  LBX187LA   numeric    PCB187 Lipid Adj (ng/g)
+  LBD187LC   numeric    PCB187 Comment Code
+  LBX194     numeric    PCB194 (ng/g)
+  LBX194LA   numeric    PCB194 Lipid Adj (ng/g)
+  LBD194LC   numeric    PCB194 Comment Code
+  LBX195     numeric    PCB195 (ng/g)
+  LBX195LA   numeric    PCB195 Lipid Adj (ng/g)
+  LBD195LC   numeric    PCB195 Comment Code
+  LBX196     numeric    PCB196 & 203 (ng/g)
+  LBX196LA   numeric    PCB196 & 203 Lipid Adj (ng/g)
+  LBD196LC   numeric    PCB196 & 203 Comment Code
+  LBD199     numeric    PCB199 (ng/g)
+  LBD199LA   numeric    PCB199 Lipid Adj (ng/g)
+  LBD199LC   numeric    PCB199 Comment Code
+  LBX206     numeric    PCB206 (ng/g)
+  LBX206LA   numeric    PCB206 Lipid Adj (ng/g)
+  LBD206LC   numeric    PCB206 Comment Code
+  LBX209     numeric    PCB209 (ng/g)
+  LBX209LA   numeric    PCB209 Lipid Adj (ng/g)
+  LBD209LC   numeric    PCB209 Comment Code
+=====L24PFC_C N=2368 vars=26
+  SEQN       numeric    Respondent sequence number
+  WTSA2YR    numeric    Two-year MEC weights of subsample A
+  LBXPFOA    numeric    Perfluorooctanoic acid
+  LBDPFOAL   numeric    Perfluorooctanoic acid comment
+  LBXPFOS    numeric    Perfluorooctane sulfonic acid
+  LBDPFOSL   numeric    Perfluorooctane sulfonic acid comment
+  LBXPFHS    numeric    Perfluorohexane sulfonic acid
+  LBDPFHSL   numeric    Perfluorohexane sulfonic acid comment
+  LBXEPAH    numeric    2-(N-ethyl-PFOSA) acetate
+  LBDEPAHL   numeric    2-(N-ethyl-PFOSA) acetate comment
+  LBXMPAH    numeric    2-(N-methyl-PFOSA) acetate
+  LBDMPAHL   numeric    2-(N-methyl-PFOSA) acetate comment
+  LBXPFDE    numeric    Perfluorodecanoic acid
+  LBDPFDEL   numeric    Perfluorodecanoic acid comment
+  LBXPFBS    numeric    Perfluorobutane sulfonic acid
+  LBDPFBSL   numeric    Perfluorobutane sulfonic acid comment
+  LBXPFHP    numeric    Perfluoroheptanoic acid
+  LBDPFHPL   numeric    Perfluoroheptanoic acid comment
+  LBXPFNA    numeric    Perfluorononanoic acid
+  LBDPFNAL   numeric    Perfluorononanoic acid comment
+  LBXPFSA    numeric    Perfluorooctane sulfonamide
+  LBDPFSAL   numeric    Perfluorooctane sulfonamide comment
+  LBXPFUA    numeric    Perfluoroundecanoic acid
+  LBDPFUAL   numeric    Perfluoroundecanoic acid comment
+  LBXPFDO    numeric    Perfluorododecanoic acid
+  LBDPFDOL   numeric    Perfluorododecanoic acid comment

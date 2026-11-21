@@ -1,0 +1,15 @@
+dataset,nrow,n_seqn,dup,n_na,unique_ok
+core,82096,82096,0,0,TRUE
+core_raw,82096,82096,0,0,TRUE
+pop,82096,82096,0,0,TRUE
+horm,32058,32058,0,0,TRUE
+liver,45739,45739,0,0,TRUE
+inflam,45739,45739,0,0,TRUE
+rx_flags,28488,28488,0,0,TRUE
+analysis$D,45739,45739,0,0,TRUE
+analysis$S0,28342,28342,0,0,TRUE
+analysis$S1,9656,9656,0,0,TRUE
+analysis$S2,1202,1202,0,0,TRUE
+analysis$S2b,1294,1294,0,0,TRUE
+analysis$S3,2244,2244,0,0,TRUE
+analysis$S4,1337,1337,0,0,TRUE

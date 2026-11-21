@@ -1,0 +1,55 @@
+outcome,stratum,term,weight,direction
+WBC,Overall,PFNA,0.369316167019498,positive
+WBC,Overall,PFHxS,0.288612834371331,positive
+WBC,Overall,PFOA,0.18561195135047,positive
+WBC,Overall,PFDA,0.156459047258701,positive
+WBC,Overall,PFUnDA,0.736772692535851,negative
+WBC,Overall,PFOS,0.263227307464149,negative
+WBC,Control (no loss),PFHxS,0.439061208868378,positive
+WBC,Control (no loss),PFNA,0.421187773619123,positive
+WBC,Control (no loss),PFDA,0.13926374150701,positive
+WBC,Control (no loss),PFOA,0.000487276005489721,positive
+WBC,Control (no loss),PFUnDA,0.710017820087384,negative
+WBC,Control (no loss),PFOS,0.289982179912616,negative
+WBC,Treated (>=5% loss),PFOA,0.371633121780427,positive
+WBC,Treated (>=5% loss),PFNA,0.284802523223275,positive
+WBC,Treated (>=5% loss),PFDA,0.185206112962843,positive
+WBC,Treated (>=5% loss),PFHxS,0.158358242033456,positive
+WBC,Treated (>=5% loss),PFUnDA,0.820140737067904,negative
+WBC,Treated (>=5% loss),PFOS,0.179859262932096,negative
+Neutrophil,Overall,PFNA,0.37883446721384,positive
+Neutrophil,Overall,PFHxS,0.30290951850322,positive
+Neutrophil,Overall,PFOA,0.178063586730614,positive
+Neutrophil,Overall,PFDA,0.140192427552326,positive
+Neutrophil,Overall,PFUnDA,0.743163221221729,negative
+Neutrophil,Overall,PFOS,0.256836778778271,negative
+Neutrophil,Control (no loss),PFHxS,0.467368914334425,positive
+Neutrophil,Control (no loss),PFNA,0.427330203397897,positive
+Neutrophil,Control (no loss),PFDA,0.105300882267678,positive
+Neutrophil,Control (no loss),PFUnDA,0.709779486894499,negative
+Neutrophil,Control (no loss),PFOS,0.28657612245767,negative
+Neutrophil,Control (no loss),PFOA,0.00364439064783106,negative
+Neutrophil,Treated (>=5% loss),PFOA,0.37135251108252,positive
+Neutrophil,Treated (>=5% loss),PFNA,0.290564555888118,positive
+Neutrophil,Treated (>=5% loss),PFDA,0.183178301467946,positive
+Neutrophil,Treated (>=5% loss),PFHxS,0.154904631561416,positive
+Neutrophil,Treated (>=5% loss),PFUnDA,0.842205092968175,negative
+Neutrophil,Treated (>=5% loss),PFOS,0.157794907031825,negative
+CRP,Overall,PFNA,0.987568251479701,positive
+CRP,Overall,PFOS,0.0124317485202994,positive
+CRP,Overall,PFOA,0.527992754462556,negative
+CRP,Overall,PFUnDA,0.266083932394957,negative
+CRP,Overall,PFDA,0.127926177958811,negative
+CRP,Overall,PFHxS,0.0779971351836769,negative
+CRP,Control (no loss),PFNA,0.943438040272301,positive
+CRP,Control (no loss),PFHxS,0.056561959727699,positive
+CRP,Control (no loss),PFOA,0.563816334399566,negative
+CRP,Control (no loss),PFUnDA,0.341188400925043,negative
+CRP,Control (no loss),PFOS,0.0863074548427309,negative
+CRP,Control (no loss),PFDA,0.00868780983266015,negative
+CRP,Treated (>=5% loss),PFOS,0.521271481581906,positive
+CRP,Treated (>=5% loss),PFNA,0.478728518418094,positive
+CRP,Treated (>=5% loss),PFDA,0.354758101751768,negative
+CRP,Treated (>=5% loss),PFOA,0.310648179681111,negative
+CRP,Treated (>=5% loss),PFHxS,0.307429633837923,negative
+CRP,Treated (>=5% loss),PFUnDA,0.0271640847291989,negative

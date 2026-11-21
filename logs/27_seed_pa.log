@@ -1,0 +1,13 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'grf' was built under R version 4.4.3 
+       seed     N     p_hetero    blp_mv  p_blp_mv   blp_mv2 p_blp_mv2
+      <num> <int>        <num>     <num>     <num>     <num>     <num>
+1: 20261117  9656 1.029788e-04 0.2394075 0.3347214 0.1877869 0.1880885
+2:        1  9656 1.242970e-07 0.2093427 0.4056007 0.1615938 0.2748253
+3:        2  9656 2.888711e-05 0.2458946 0.3238692 0.1555577 0.2857283

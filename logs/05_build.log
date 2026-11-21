@@ -1,0 +1,55 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+cycle C N = 10122 
+cycle D N = 10348 
+cycle F N = 10537 
+cycle G N = 9756 
+cycle H N = 10175 
+cycle I N = 9971 
+cycle J N = 9254 
+cycle L N = 11933 
+pooled N = 82096 
+    cycle     N wt_history loss5 phenoage   alb   crp   wbc   lym cotinine
+   <char> <int>      <int> <int>    <int> <int> <int> <int> <int>    <int>
+1:      C  4808       4713   873     4223  4256  4288  4326  4306     4277
+2:      D  4643       4506   860     4124  4155  4185  4200  4187     4176
+3:      F  6150       5937  1122     5572  5619  5664  5688  5680        0
+4:      G  5503       5335  1014        0  4839     0  4985  4982     4882
+5:      H  5704       5555  1104        0  5267     0  5333  5318     5283
+6:      I  5649       5481  1168     5025  5089  5073  5123  5122     5106
+7:      J  5514       5357  1156     4826  4870  4862  4981  4977     4911
+8:      L  7768       7530  1652     5353  5442  5558  5731  5721     5485
+     bmi
+   <int>
+1:  4431
+2:  4356
+3:  5926
+4:  5181
+5:  5455
+6:  5337
+7:  5120
+8:  5929
+
+=== PhenoAge 效度 ===
+r(PhenoAge, age) = 0.9499 
+mean(PhenoAge - age) = -1.06 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.858  33.425  50.075  50.585  66.510 119.946   16616 
+
+=== dw1 (%) 分布 ===
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
+-50.0000  -3.1250   0.0000  -0.0168   3.3557  50.0000     1325 
+
+=== 变量缺失率(成人) ===
+      age       bmi bmi_prior       dw1  phenoage       alb     creat   glu_bio 
+      0.0       8.8       3.7       2.9      36.3      13.6      13.6      13.6 
+      alp   crp_mgl       wbc   lym_pct       mcv       rdw        tc       hdl 
+     13.6      35.2      11.7      11.9      11.7      11.7      13.3      22.6 
+ cotinine      egfr       pir       edu    pa_any    drinks 
+     25.4      13.6      10.6       0.0      17.0      43.5 
+done

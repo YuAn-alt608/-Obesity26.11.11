@@ -1,0 +1,41 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+基因数: 36601 
+    group     N
+   <char> <int>
+1:  Obese     6
+2:   Lean     6
+3:     WL     6
+ lipolysis xenobiotic   inflamma senescence adipogenic   antioxid macrophage 
+         8         11          8          7          7          7          6 
+ adipocyte     ascell       endo      tcell   pericyte       mast 
+         7          6          5          5          5          4 
+GSM8955403 Obese  cells=9038 (keep 0%)
+GSM8955404 Lean   cells=8694 (keep 0%)
+GSM8955405 WL     cells=10726 (keep 0%)
+GSM8955406 Obese  cells=11827 (keep 0%)
+GSM8955407 Lean   cells=9869 (keep 0%)
+GSM8955408 WL     cells=1753 (keep 0%)
+GSM8955409 Obese  cells=8853 (keep 0%)
+GSM8955410 Lean   cells=5106 (keep 0%)
+GSM8955411 WL     cells=6192 (keep 0%)
+GSM8955412 Obese  cells=13596 (keep 0%)
+GSM8955413 Lean   cells=6813 (keep 0%)
+GSM8955414 WL     cells=10084 (keep 0%)
+GSM8955415 Obese  cells=35371 (keep 1%)
+GSM8955416 Lean   cells=5771 (keep 0%)
+GSM8955417 WL     cells=3347 (keep 0%)
+GSM8955418 Obese  cells=9743 (keep 0%)
+GSM8955419 Lean   cells=21024 (keep 0%)
+GSM8955420 WL     cells=8414 (keep 0%)
+
+=== 细胞组成 (%); Obese vs WL vs Lean ===
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'print': non-numeric-alike variable(s) in data frame: celltype
+Calls: print -> Math.data.frame
+Execution halted

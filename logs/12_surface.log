@@ -1,0 +1,45 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+
+##### S1 PhenoAge × PFAS三分位  (N = 9656 ) #####
+Key: <dc>
+            dc T1_low T2_mid T3_high
+        <char>  <num>  <num>   <num>
+1:   1_gain>2%   1.87   0.23   -0.74
+2:    2_stable   0.98  -1.10   -1.11
+3:  3_loss2-5%   0.14  -0.71   -1.45
+4: 4_loss5-10%   1.23  -1.13   -0.81
+5: 5_loss>=10%   0.79  -1.25   -0.78
+
+##### S2 PhenoAge × PCB三分位  (N = 1202 ) #####
+Key: <dc>
+            dc T1_low T2_mid T3_high
+        <char>  <num>  <num>   <num>
+1:   1_gain>2%  -2.08  -1.00   -2.46
+2:    2_stable  -1.75  -2.68   -2.75
+3:  3_loss2-5%  -0.97  -2.17   -1.04
+4: 4_loss5-10%  -2.97  -2.66   -2.45
+5: 5_loss>=10%  -0.86  -0.42   -0.92
+
+##### S3 log睾酮 × PFAS三分位  (N = 2244 ) #####
+Key: <dc>
+            dc T1_low T2_mid T3_high
+        <char>  <num>  <num>   <num>
+1:   1_gain>2%   5.81   5.80    5.82
+2:    2_stable   5.91   5.92    5.94
+3:  3_loss2-5%   5.87   5.97    5.97
+4: 4_loss5-10%   5.93   6.02    5.99
+5: 5_loss>=10%   6.03   6.11    5.83
+
+ S1 : 曲面拟合完成, te() p =  
+
+ S2 : 曲面拟合完成, te() p =  
+
+ S3 : 曲面拟合完成, te() p =  
+
+done

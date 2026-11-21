@@ -1,0 +1,221 @@
+file,var,sas_label,unit
+PFC_D,LBXPFOA,Perfluorooctanoic acid,""
+PFC_D,LBXPFOS,Perfluorooctane sulfonic acid,""
+PFC_D,LBXPFHS,Perfluorohexane sulfonic acid,""
+PFC_D,LBXPFNA,Perfluorononanoic acid,""
+PFC_D,LBXPFUA,Perfluoroundecanoic acid,""
+PFC_F,LBXPFOA,Perfluorooctanoic acid,""
+PFC_F,LBXPFOS,Perfluorooctane sulfonic acid,""
+PFC_F,LBXPFHS,Perfluorohexane sulfonic acid,""
+PFC_F,LBXPFNA,Perfluorononanoic acid,""
+PFC_F,LBXPFUA,Perfluoroundecanoic acid,""
+PFC_G,LBXPFOA,Perfluorooctanoic acid,""
+PFC_G,LBXPFOS,Perfluorooctane sulfonic acid,""
+PFC_G,LBXPFHS,Perfluorohexane sulfonic acid,""
+PFC_G,LBXPFNA,Perfluorononanoic acid,""
+PFC_G,LBXPFUA,Perfluoroundecanoic acid,""
+PFAS_H,LBXPFHS,Perfluorohexane sulfonic acid (ug/L),ug/L
+PFAS_H,LBXPFNA,Perfluorononanoic acid (ug/L),ug/L
+PFAS_H,LBXPFUA,Perfluoroundecanoic acid (ug/L),ug/L
+PFAS_I,LBXPFHS,Perfluorohexane sulfonic acid (ng/mL),ng/mL
+PFAS_I,LBXPFNA,Perfluorononanoic acid (ng/mL),ng/mL
+PFAS_I,LBXPFUA,Perfluoroundecanoic acid (ng/mL),ng/mL
+PFAS_J,LBXPFHS,Perfluorohexane sulfonic acid (ng/mL),ng/mL
+PFAS_J,LBXPFNA,Perfluorononanoic acid (ng/mL),ng/mL
+PFAS_J,LBXPFUA,Perfluoroundecanoic acid (ng/mL),ng/mL
+PFAS_L,LBXPFHS,Perfluorohexane sulfonic acid (ng/mL),ng/mL
+PFAS_L,LBXPFNA,Perfluorononanoic acid (ng/mL),ng/mL
+PFAS_L,LBXPFUA,Perfluoroundecanoic acid (ng/mL),ng/mL
+L24PFC_C,LBXPFOA,Perfluorooctanoic acid,""
+L24PFC_C,LBXPFOS,Perfluorooctane sulfonic acid,""
+L24PFC_C,LBXPFHS,Perfluorohexane sulfonic acid,""
+L24PFC_C,LBXPFNA,Perfluorononanoic acid,""
+L24PFC_C,LBXPFUA,Perfluoroundecanoic acid,""
+TST_G,LBXTST,Testosterone total (ng/dL),ng/dL
+TST_H,LBXTST,"Testosterone, total (ng/dL)",ng/dL
+TST_H,LBXEST,Estradiol (pg/mL),pg/mL
+TST_H,LBXSHBG,SHBG (nmol/L),nmol/L
+TST_I,LBXTST,"Testosterone, total (ng/dL)",ng/dL
+TST_I,LBXEST,Estradiol (pg/mL),pg/mL
+TST_I,LBXSHBG,SHBG (nmol/L),nmol/L
+BIOPRO_D,LBXSAL,Albumin (g/dL),g/dL
+BIOPRO_D,LBXSATSI,Alanine aminotransferase ALT (U/L),U/L
+BIOPRO_D,LBXSASSI,Aspartate aminotransferase AST (U/L),U/L
+BIOPRO_D,LBXSAPSI,Alkaline phosphotase (U/L),U/L
+BIOPRO_D,LBXSGTSI,Gamma glutamyl transferase (U/L),U/L
+BIOPRO_D,LBXSTB,Total bilirubin (mg/dL),mg/dL
+BIOPRO_D,LBXSTR,Triglycerides (mg/dL),mg/dL
+BIOPRO_F,LBXSAL,Albumin (g/dL),g/dL
+BIOPRO_F,LBXSATSI,Alanine aminotransferase ALT (U/L),U/L
+BIOPRO_F,LBXSASSI,Aspartate aminotransferase AST (U/L),U/L
+BIOPRO_F,LBXSAPSI,Alkaline phosphotase (U/L),U/L
+BIOPRO_F,LBXSGTSI,Gamma glutamyl transferase (U/L),U/L
+BIOPRO_F,LBXSTB,Total bilirubin (mg/dL),mg/dL
+BIOPRO_F,LBXSTR,Triglycerides (mg/dL),mg/dL
+BIOPRO_G,LBXSAL,Albumin (g/dL),g/dL
+BIOPRO_G,LBXSATSI,Alanine aminotransferase ALT (U/L),U/L
+BIOPRO_G,LBXSASSI,Aspartate aminotransferase AST (U/L),U/L
+BIOPRO_G,LBXSAPSI,Alkaline phosphotase (U/L),U/L
+BIOPRO_G,LBXSGTSI,Gamma glutamyl transferase (U/L),U/L
+BIOPRO_G,LBXSTB,Total bilirubin (mg/dL),mg/dL
+BIOPRO_G,LBXSTR,Triglycerides (mg/dL),mg/dL
+BIOPRO_H,LBXSAL,Albumin (g/dL),g/dL
+BIOPRO_H,LBXSAPSI,Alkaline phosphatase (IU/L),IU/L
+BIOPRO_H,LBXSASSI,Aspartate aminotransferase AST (U/L),U/L
+BIOPRO_H,LBXSATSI,Alanine aminotransferase ALT (U/L),U/L
+BIOPRO_H,LBXSGTSI,Gamma glutamyl transferase (U/L),U/L
+BIOPRO_H,LBXSTB,Total bilirubin (mg/dL),mg/dL
+BIOPRO_H,LBXSTR,"Triglycerides, refrigerated (mg/dL)",mg/dL
+BIOPRO_I,LBXSAL,"Albumin, refrigerated serum (g/dL)",g/dL
+BIOPRO_I,LBXSAPSI,Alkaline Phosphatase (ALP) (IU/L),IU/L
+BIOPRO_I,LBXSASSI,Aspartate Aminotransferase (AST) (U/L),U/L
+BIOPRO_I,LBXSATSI,Alanine Aminotransferase (ALT) (U/L),U/L
+BIOPRO_I,LBXSGTSI,Gamma Glutamyl Transferase (GGT) (U/L),U/L
+BIOPRO_I,LBXSTB,Total Bilirubin (mg/dL),mg/dL
+BIOPRO_I,LBXSTR,"Triglycerides, refrig serum (mg/dL)",mg/dL
+BIOPRO_J,LBXSATSI,Alanine Aminotransferase (ALT) (U/L),U/L
+BIOPRO_J,LBXSAL,"Albumin, refrigerated serum (g/dL)",g/dL
+BIOPRO_J,LBXSAPSI,Alkaline Phosphatase (ALP) (IU/L),IU/L
+BIOPRO_J,LBXSASSI,Aspartate Aminotransferase (AST) (U/L),U/L
+BIOPRO_J,LBXSGTSI,Gamma Glutamyl Transferase (GGT) (IU/L),IU/L
+BIOPRO_J,LBXSTB,Total Bilirubin (mg/dL),mg/dL
+BIOPRO_J,LBXSTR,"Triglycerides, refrig serum (mg/dL)",mg/dL
+BIOPRO_L,LBXSATSI,Alanine Aminotransferase (ALT) (IU/L),IU/L
+BIOPRO_L,LBXSAL,"Albumin, refrigerated serum (g/dL)",g/dL
+BIOPRO_L,LBXSAPSI,Alkaline Phosphatase (ALP) (IU/L),IU/L
+BIOPRO_L,LBXSASSI,Aspartate Aminotransferase (AST) (IU/L),IU/L
+BIOPRO_L,LBXSGTSI,Gamma Glutamyl Transferase (GGT) (IU/L),IU/L
+BIOPRO_L,LBXSTB,Total Bilirubin (mg/dL),mg/dL
+BIOPRO_L,LBXSTR,"Triglycerides, refrig serum (mg/dL)",mg/dL
+CBC_D,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_D,LBXLYPCT,Lymphocyte percent (%),%
+CBC_D,LBXMOPCT,Monocyte percent (%),%
+CBC_D,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_D,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_D,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_D,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_D,LBXPLTSI,Platelet count SI (1000 cells/uL),1000 cells/uL
+CBC_F,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_F,LBXLYPCT,Lymphocyte percent (%),%
+CBC_F,LBXMOPCT,Monocyte percent (%),%
+CBC_F,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_F,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_F,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_F,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_F,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+CBC_G,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_G,LBXLYPCT,Lymphocyte percent (%),%
+CBC_G,LBXMOPCT,Monocyte percent (%),%
+CBC_G,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_G,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_G,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_G,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_G,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+CBC_H,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_H,LBXLYPCT,Lymphocyte percent (%),%
+CBC_H,LBXMOPCT,Monocyte percent (%),%
+CBC_H,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_H,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_H,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_H,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_H,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+CBC_I,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_I,LBXLYPCT,Lymphocyte percent (%),%
+CBC_I,LBXMOPCT,Monocyte percent (%),%
+CBC_I,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_I,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_I,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_I,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_I,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+CBC_J,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_J,LBXLYPCT,Lymphocyte percent (%),%
+CBC_J,LBXMOPCT,Monocyte percent (%),%
+CBC_J,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_J,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_J,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_J,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_J,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+CBC_L,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+CBC_L,LBXLYPCT,Lymphocyte percent (%),%
+CBC_L,LBXMOPCT,Monocyte percent (%),%
+CBC_L,LBXNEPCT,Segmented neutrophils percent (%),%
+CBC_L,LBDLYMNO,Lymphocyte number (1000 cells/uL),1000 cells/uL
+CBC_L,LBDMONO,Monocyte number (1000 cells/uL),1000 cells/uL
+CBC_L,LBDNENO,Segmented neutrophils num (1000 cell/uL),1000 cell/uL
+CBC_L,LBXPLTSI,Platelet count (1000 cells/uL),1000 cells/uL
+L25_C,LBXWBCSI,White blood cell count (1000 cells/uL),1000 cells/uL
+L25_C,LBXLYPCT,Lymphocyte percent (%),%
+L25_C,LBXMOPCT,Monocyte percent (%),%
+L25_C,LBXNEPCT,Segmented neutrophils percent (%),%
+L25_C,LBDLYMNO,Lymphocyte number,""
+L25_C,LBDMONO,Monocyte number,""
+L25_C,LBDNENO,Segmented neutrophils number,""
+L25_C,LBXPLTSI,Platelet count SI (1000 cells/uL),1000 cells/uL
+CRP_D,LBXCRP,C-reactive protein(mg/dL),mg/dL
+CRP_F,LBXCRP,C-reactive protein(mg/dL),mg/dL
+HSCRP_I,LBXHSCRP,HS C-Reactive Protein (mg/L),mg/L
+HSCRP_J,LBXHSCRP,HS C-Reactive Protein (mg/L),mg/L
+HSCRP_L,LBXHSCRP,HS C-Reactive Protein (mg/L),mg/L
+BMX_C,BMXWT,Weight (kg),kg
+BMX_C,BMXHT,Standing Height (cm),cm
+BMX_C,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_C,BMXWAIST,Waist Circumference (cm),cm
+BMX_D,BMXWT,Weight (kg),kg
+BMX_D,BMXHT,Standing Height (cm),cm
+BMX_D,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_D,BMXWAIST,Waist Circumference (cm),cm
+BMX_F,BMXWT,Weight (kg),kg
+BMX_F,BMXHT,Standing Height (cm),cm
+BMX_F,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_F,BMXWAIST,Waist Circumference (cm),cm
+BMX_G,BMXWT,Weight (kg),kg
+BMX_G,BMXHT,Standing Height (cm),cm
+BMX_G,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_G,BMXWAIST,Waist Circumference (cm),cm
+BMX_H,BMXWT,Weight (kg),kg
+BMX_H,BMXHT,Standing Height (cm),cm
+BMX_H,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_H,BMXWAIST,Waist Circumference (cm),cm
+BMX_I,BMXWT,Weight (kg),kg
+BMX_I,BMXHT,Standing Height (cm),cm
+BMX_I,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_I,BMXWAIST,Waist Circumference (cm),cm
+BMX_J,BMXWT,Weight (kg),kg
+BMX_J,BMXHT,Standing Height (cm),cm
+BMX_J,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_J,BMXWAIST,Waist Circumference (cm),cm
+BMX_L,BMXWT,Weight (kg),kg
+BMX_L,BMXHT,Standing Height (cm),cm
+BMX_L,BMXBMI,Body Mass Index (kg/m**2),kg/m**2
+BMX_L,BMXWAIST,Waist Circumference (cm),cm
+WHQ_C,WHD010,Current self-reported height (inches),inches
+WHQ_C,WHD020,Current self-reported weight (pounds),pounds
+WHQ_C,WHQ030,How do you consider your weight,""
+WHQ_C,WHD050,Self-reported weight-1 yr ago (pounds),pounds
+WHQ_D,WHD010,Current self-reported height (inches),inches
+WHQ_D,WHD020,Current self-reported weight (pounds),pounds
+WHQ_D,WHQ030,How do you consider your weight,""
+WHQ_D,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_F,WHD010,Current self-reported height (inches),inches
+WHQ_F,WHD020,Current self-reported weight (pounds),pounds
+WHQ_F,WHQ030,How do you consider your weight,""
+WHQ_F,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_G,WHD010,Current self-reported height (inches),inches
+WHQ_G,WHD020,Current self-reported weight (pounds),pounds
+WHQ_G,WHQ030,How do you consider your weight,""
+WHQ_G,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_H,WHD010,Current self-reported height (inches),inches
+WHQ_H,WHD020,Current self-reported weight (pounds),pounds
+WHQ_H,WHQ030,How do you consider your weight,""
+WHQ_H,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_I,WHD010,Current self-reported height (inches),inches
+WHQ_I,WHD020,Current self-reported weight (pounds),pounds
+WHQ_I,WHQ030,How do you consider your weight,""
+WHQ_I,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_J,WHD010,Current self-reported height (inches),inches
+WHQ_J,WHD020,Current self-reported weight (pounds),pounds
+WHQ_J,WHQ030,How do you consider your weight,""
+WHQ_J,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
+WHQ_L,WHD010,Current self-reported height (inches),inches
+WHQ_L,WHD020,Current self-reported weight (pounds),pounds
+WHQ_L,WHD050,Self-reported weight - 1 yr ago (pounds),pounds
