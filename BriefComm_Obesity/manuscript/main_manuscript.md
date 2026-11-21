@@ -16,7 +16,7 @@
 
 **Ethics:** Secondary analysis of de-identified, publicly available data; exempt from ethics review.
 
-**Data availability:** NHANES data are publicly available from the US National Center for Health Statistics. All analytic code, derived datasets and the 256-row verification ledger linking each reported estimate to its source file are available from the corresponding author, and will be deposited in a public repository on acceptance.
+**Data availability:** NHANES data are publicly available from the US National Center for Health Statistics. All analytic code, the derived tables used here, the 256-row verification ledger linking each reported estimate to its source file, and the numbered evidence pack are openly available at https://github.com/YuAn-alt608/-Obesity26.11.11.
 
 **Word count:** abstract 196; main text 1,386; 18 references; 2 figures; 1 table.
 
