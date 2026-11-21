@@ -1,0 +1,57 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+分析域 N = 12806 ; dw10 非缺 = 7683 
+符号核对：dw1>0 = 体重下降；w5==1 时 dw1 中位 = 9 
+
+=== ① 轨迹分型 ===
+                        traj     N   geo   med
+                      <fctr> <int> <num> <num>
+1:                never_lost  1970  37.6  38.7
+2: long_past_loss_now_stable   774  34.1  36.4
+3:               recent_loss   306  31.5  32.7
+4:            sustained_loss   753  31.0  32.1
+5:           loss_after_gain   478  29.8  31.7
+
+调整后（参照 = never_lost，n = 1970 ）
+                       group n_group    pct            ci      p
+                      <char>   <int> <char>        <char>  <num>
+1: long_past_loss_now_stable     774 -4.79% -10.74, +1.56 0.1360
+2:               recent_loss     306 -3.68% -11.54, +4.88 0.3880
+3:            sustained_loss     753 -7.94% -13.77, -1.72 0.0132
+4:           loss_after_gain     478 -2.06%  -8.71, +5.07 0.5610
+
+=== ①b 与 R6 同口径（w5 二分，参照 = 全样本未减重）===
+    group n_group    pct           ci     p
+   <char>   <int> <char>       <char> <num>
+1:  lost5    2528 -1.24% -4.13, +1.73 0.409
+
+=== ② 意图（WHQ060；参照 = 全样本未减重）===
+  intentional      n_lost   pct           ci     p
+    <int> <num>       <char> <num>
+1:   1242  3.57 -0.41, +7.71 0.079
+  unintentional    n_lost   pct           ci      p
+    <int> <num>       <char>  <num>
+1:    734 -5.05 -9.92, +0.08 0.0534
+
+=== ③ 参照组：当前未减重（现行）vs 十年与一年都未减重 ===
+         group n_group    pct           ci      p
+        <char>   <int> <char>       <char>  <num>
+1: lost5_clean    1537 -5.31% -9.95, -0.43 0.0332
+
+=== ④ 一次释放脉冲的残留分数（按报告半衰期，年）===
+   congener t_half    m1    m3    m6   m12   m18   m24   m36
+     <char>  <num> <num> <num> <num> <num> <num> <num> <num>
+1:     PFOA    3.5  98.4  95.2  90.6  82.0  74.3  67.3  55.2
+2:     PFOS    5.4  98.9  96.8  93.8  88.0  82.5  77.4  68.0
+3:    PFHxS    8.5  99.3  98.0  96.0  92.2  88.5  85.0  78.3
+4:     PFNA    3.5  98.4  95.2  90.6  82.0  74.3  67.3  55.2
+5:     PFDA    6.0  99.0  97.2  94.4  89.1  84.1  79.4  70.7
+6:   PFUnDA    7.0  99.2  97.6  95.2  90.6  86.2  82.0  74.3
+
+敏感性（PFOA，12 个月残留）：  t1/2=1.75y -> 67%;  t1/2=3.50y -> 82%;  t1/2=7.00y -> 91%;
+✅ R8 完成

@@ -196,3 +196,33 @@ Two of twelve screened for any androgen-suppressing medication; none screened fo
 ## S8. Tissue-level observation
 
 In GSE199063 (18 libraries: obese, weight-loss, lean; six each), weight loss reduced macrophage abundance from 25.3% to 13.5% of nuclei (−46.5%, Welch P=0.0099, BH-adjusted P=0.035) with a reciprocal rise in adipocyte fraction (+40.7%), consistent with a denominator effect. A senescence module remained above the lean group (difference +0.023, P=0.024), and the inflammatory module did not differ from obese controls (+0.022, P=0.165). These data are descriptive and come from a different population from the NHANES sample.
+
+---
+
+## S9. Timing of the weight loss
+
+A single examination cannot date a weight change. Two available variables bound it: self-reported weight one year earlier (dw1) and ten years earlier (dw10). Crossing them separates a loss confined to the past year from one that has been sustained over a decade, and from one that followed a decade of gain. All models use the same covariate set as the main analysis; reference is adults with neither a one-year nor a ten-year change.
+
+| Trajectory | n | Geometric mean, nmol/L | Adjusted difference (95% CI) | P |
+|---|---|---|---|---|
+| No loss in either window (reference) | 1,970 | 37.6 | — | — |
+| Loss ≥5% over ten years, stable now | 774 | 34.1 | −4.8% (−10.7 to 1.6) | 0.14 |
+| Loss ≥5% confined to the past year | 306 | 31.5 | −3.7% (−11.5 to 4.9) | 0.39 |
+| Loss ≥5% sustained over ten years | 753 | 31.0 | −7.9% (−13.8 to −1.7) | 0.013 |
+| Loss ≥5% after a decade of gain | 478 | 29.8 | −2.1% (−8.7 to 5.1) | 0.56 |
+
+If a release were transient, the group whose loss fell inside the past year should carry the largest elevation. It carries none, and the decade-long losers carry a deficit.
+
+Restricting the reference group to adults stable over both windows strengthens the association: against those 1,970, the pooled ≥5% loss group is −5.3% (−9.9 to −0.4, P=0.033), against −1.2% when all currently stable adults serve as the reference. Prior losers therefore dilute the conventional contrast rather than create it.
+
+**Clearance.** A release pulse decays as 0.5^(t/t½). At reported half-lives of 3.5 (PFOA, PFNA), 5.4 (PFOS), 6.0 (PFDA), 7.0 (PFUnDA) and 8.5 (PFHxS) years, the fraction remaining is:
+
+| Months after release | 1 | 3 | 6 | 12 | 18 | 24 | 36 |
+|---|---|---|---|---|---|---|---|
+| PFOA / PFNA (%) | 98.4 | 95.2 | 90.6 | 82.0 | 74.3 | 67.3 | 55.2 |
+| PFOS (%) | 98.9 | 96.8 | 93.8 | 88.0 | 82.5 | 77.4 | 68.0 |
+| PFHxS (%) | 99.3 | 98.0 | 96.0 | 92.2 | 88.5 | 85.0 | 78.3 |
+
+Halving the assumed half-life of PFOA to 1.75 years still leaves 67% at twelve months. A release within the past year should therefore remain visible at the examination; for it to be invisible, the loss would have to predate the window by three half-lives or more.
+
+**Intent.** Intentionality (WHQ060) does not modify the association: 1,242 intentional losers show +3.6% (−0.4 to 7.7) and 734 unintentional losers −5.1% (−9.9 to 0.1), but the weight-loss × intent interaction is P=0.82, so the split is not evidence of a difference. It is reported because an earlier draft considered it.
