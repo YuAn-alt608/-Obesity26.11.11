@@ -1,0 +1,10 @@
+class,flag,n_all,n_treated,pct_all
+Opioid analgesic,opioid,131,37,5.84
+5-alpha reductase inhibitor,fiveari,54,7,2.41
+Glucocorticoid,glucoc,39,8,1.74
+GnRH agonist (ADT),adt,1,1,0.04
+Antiandrogen,antiand,2,0,0.09
+Ketoconazole,ketoc,3,2,0.13
+Estrogen,estrogen,0,0,0
+Any of the 167 (castration OR suppress),anydrug,167,47,7.44
+Five-ARI (not in the 167),fiveari,54,7,2.41

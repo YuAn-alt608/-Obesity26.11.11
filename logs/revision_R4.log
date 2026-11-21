@@ -1,0 +1,54 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'grf' was built under R version 4.4.3 
+=== PhenoAge 森林 ===
+  AIPW forest, year linear (current) N= 9656  ATE = -0.329 (SE 0.200)  p = 0.1
+  AIPW forest, cycle fixed effects   N= 9656  ATE = -0.266 (SE 0.199)  p = 0.182
+
+=== 雄激素（清洁样本 N = 1245 , 周期 = H/I ）===
+周期分布:
+    cycle     N
+   <char> <int>
+1:      H   573
+2:      I   672
+  y_tt      现行 +3.94% (p=0.00075) | 周期FE +3.94% (p=0.00075) | 交互P 现行 0.411 → FE 0.411
+  y_shbg    现行 +4.70% (p=6.6e-09) | 周期FE +4.70% (p=6.6e-09) | 交互P 现行 0.562 → FE 0.562
+  y_ft      现行 +1.58% (p=0.17) | 周期FE +1.58% (p=0.17) | 交互P 现行 0.343 → FE 0.343
+  y_pctfree 现行 -2.27% (p=1.2e-06) | 周期FE -2.27% (p=1.2e-06) | 交互P 现行 0.460 → FE 0.460
+
+              model                                      spec     N    est
+             <char>                                    <char> <int>  <num>
+ 1:        PhenoAge                     crude (no covariates)  9656  1.877
+ 2:        PhenoAge adjusted, year entered linearly (current)  9656 -0.180
+ 3:        PhenoAge             adjusted, cycle fixed effects  9656 -0.197
+ 4: PhenoAge forest        AIPW forest, year linear (current)  9656 -0.329
+ 5: PhenoAge forest          AIPW forest, cycle fixed effects  9656 -0.266
+ 6:            y_tt             per 5%, year linear (current)  1245  3.944
+ 7:            y_tt               per 5%, cycle fixed effects  1245  3.944
+ 8:          y_shbg             per 5%, year linear (current)  1245  4.702
+ 9:          y_shbg               per 5%, cycle fixed effects  1245  4.702
+10:            y_ft             per 5%, year linear (current)  1245  1.580
+11:            y_ft               per 5%, cycle fixed effects  1245  1.580
+12:       y_pctfree             per 5%, year linear (current)  1245 -2.275
+13:       y_pctfree               per 5%, cycle fixed effects  1245 -2.275
+       se        p
+    <num>   <char>
+ 1: 0.230 3.05e-16
+ 2: 0.206  0.38194
+ 3: 0.204  0.33295
+ 4: 0.200  0.10003
+ 5: 0.199  0.18212
+ 6: 1.148  0.00075
+ 7: 1.148  0.00075
+ 8: 0.792 6.59e-09
+ 9: 0.792 6.59e-09
+10: 1.146  0.17126
+11: 1.146  0.17126
+12: 0.473 1.17e-06
+13: 0.473 1.17e-06
+✅ R4 完成

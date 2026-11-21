@@ -1,0 +1,32 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+清洁样本 N = 1245  处理组 = 247  聚类 = 60 
+
+=== fT vs TT：每 5% 减重的对数差 ===
+  β(TT) = +0.0387  → +3.94%
+  β(fT) = +0.0157  → +1.58%
+  差值  = -0.0230  → -2.27%  (SE 0.0047, z = -4.86, 双侧 P = 1.17e-06)
+  同名恒等式检查：β(%free) = -0.0230  vs  β(fT)-β(TT) = -0.0230
+
+=== SHBG vs TT ===
+  β(SHBG) = +0.0459 → +4.70% ; 差值 +0.0073 (+0.73%), SE 0.0108, P = 0.5
+
+=== PSU 自助法（1000 次有效）===
+  β(fT)-β(TT) 自助 95%CI: -0.0331 – -0.0144  (点估计 -0.0230)
+  自助 P(差值≥0) = 0.0000
+
+β(%free) = -0.0230 → -2.27% (P = 1.17e-06)
+    contrast         beta        pct          se            p     N treated
+      <char>        <num>      <num>       <num>        <num> <int>   <int>
+1:        TT  0.038686730  3.9444805 0.011479570 7.515444e-04  1245     247
+2:        fT  0.015678659  1.5802214 0.011462043 1.713507e-01  1245     247
+3:     %free -0.023008070 -2.2745403 0.004733282 1.168458e-06  1245     247
+4:      SHBG  0.045949729  4.7021775 0.007922679 6.640524e-09  1245     247
+5:   fT - TT -0.023008070 -2.2745403 0.004734233 1.174237e-06  1245     247
+6: SHBG - TT  0.007262999  0.7289439 0.010762808 4.997877e-01  1245     247
+✅ R2 完成

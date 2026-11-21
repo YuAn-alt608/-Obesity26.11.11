@@ -1,8 +1,8 @@
-# Three artefacts manufacture a "weight-loss toxin rebound" alarm, and total testosterone masks a fall in the free fraction
+# Two central predictions of the weight-loss toxin-rebound narrative fail in NHANES 2003–2023
 
-**Running title:** Artefacts behind a toxin-rebound alarm
+**Running title:** Testing the toxin-rebound narrative
 
-**Design:** cross-sectional analysis of eight NHANES cycles, with one-year weight change and mortality follow-up.
+**Design:** cross-sectional analysis of eight NHANES cycles with one-year weight change and mortality follow-up.
 
 **Author:** Zizheng Yuan¹
 
@@ -16,111 +16,126 @@
 
 **Ethics:** Secondary analysis of de-identified, publicly available data; exempt from ethics review.
 
-**Data availability:** NHANES data are publicly available from the US National Center for Health Statistics. All analytic code, the derived tables used here, the 256-row verification ledger linking each reported estimate to its source file, and the numbered evidence pack are openly available at https://github.com/YuAn-alt608/-Obesity26.11.11.
+**Data availability:** NHANES data are publicly available from the US National Center for Health Statistics. All analytic code, the derived tables used here, the verification ledger linking each reported estimate to its source file, and the numbered evidence pack are openly available at https://github.com/YuAn-alt608/-Obesity26.11.11.
 
-**Word count:** abstract 196; main text 1,386; 18 references; 2 figures; 1 table.
+**Word count:** abstract 198; main text 1,498; 18 references; 2 figures; 1 table.
 
 ---
 
 ## Abstract
 
-**Objective:** Rapid weight loss is claimed to mobilise lipophilic pollutants and accelerate biological ageing or blunt androgen recovery. I asked whether the alarm is reproducible and what survives once its artefacts are removed.
+**Objective:** Weight loss is said to mobilise stored pollutants, raising their serum concentration and accelerating biological ageing. I tested both claims in one national dataset, and asked how easily the same data can be made to support them.
 
-**Methods:** In 45,739 adults (NHANES 2003–2023) I estimated changes per 5% weight loss in biological age, liver-fat indices, inflammation and androgens, using propensity-score trimming with AIPW, causal forests and parametric models, and repeated the analysis after excluding drugs that suppress the androgen axis.
+**Methods:** Among 12,806 adults with serum PFAS and one-year weight change, and 9,656 with PhenoAge (NHANES 2003–2023, eight cycles), I compared adults losing ≥5% of body weight with those who did not, using covariate-adjusted models with cluster-robust variance, equivalence testing, and four routes to a spurious interaction.
 
-**Results:** The alarm reproduced: people who lost weight appeared 1.87 years biologically older, but adjustment moved the estimate 2.20 years in the opposite direction (−0.33 years). An apparent pollutant–androgen interaction (forest P=0.0049) disappeared after excluding 167 of 2,244 men (7.4%) taking GnRH agonists, antiandrogens, oestrogens, glucocorticoids, opioids or ketoconazole (P=0.38–0.67). Apparent modification of liver-fat scores vanished when their BMI terms were removed (P=1.2×10⁻⁶ to 0.68). All three artefacts biased towards harm. Total testosterone rose 4.0%, but SHBG rose 4.8%, so the free fraction fell 2.3% and calculated free testosterone did not change (+1.6%, P=0.16).
+**Results:** Weight losers appeared 1.88 years biologically older (P=3×10⁻¹⁶) and had 10.9% lower serum PFAS (P=1×10⁻⁷). Adjustment removed both: −0.18 years (95% CI −0.58 to 0.22) and −1.2% (−4.2 to 1.7). Equivalence testing excluded harm beyond one year and any rise in PFAS beyond 5%. Confounding, androgen-suppressing prescriptions, body-mass-bearing formulas and a specification error each generated a significant interaction on its own, and they did not share a direction.
 
-**Conclusions:** "Weight-loss toxin rebound" alarms can be manufactured from real data by three directional artefacts. Clinically, total testosterone overstates the androgen gain that weight loss produces.
+**Conclusions:** Neither core prediction of the toxin-rebound narrative holds in NHANES. Alarms of this kind can be generated from real data by routes that leave no consistent directional signature, so the existence of such an alarm carries little evidential weight.
 
 ---
 
 ## Study Importance
 
-**What is already known about this subject?** Weight loss raises total testosterone and sex hormone-binding globulin, and population studies report that persistent pollutants modify the health effects of weight loss, usually as a significant interaction term.
+**What is already known about this subject?** Weight loss raises serum concentrations of organochlorines, and this observation has been extended to per- and polyfluoroalkyl substances (PFAS). NHANES analyses report associations between PFAS and sex hormones,⁶⁻¹⁰ but few account for the drugs that suppress the androgen axis.
 
-**What are the new findings?** In 45,739 adults the "toxin rebound" alarm was reproducible and then fully attributable to confounding, unmeasured prescribing and formulas that contain body mass index — three artefacts that all bias towards harm.
+**What are the new findings?** In 12,806 adults, weight loss was associated with lower, not higher, serum PFAS, and with no difference in biological age once confounding was addressed; equivalence testing excluded a rise in PFAS beyond 5% and harm beyond one year of biological ageing. Four distinct analytic routes each produced a significant pollutant interaction, in inconsistent directions.
 
-**How might these results change research or practice?** Clinicians should read the free fraction rather than total testosterone when judging androgen recovery, and analysts should screen prescription drugs before interpreting pollutant–androgen interactions.
+**How might these results change research or practice?** A pollutant–weight interaction should not be interpreted without prescription screening, formula decomposition and a check that the signal survives dropping a single survey cycle. For clinicians, total testosterone overstates the androgen gain from weight loss.
 
 ---
 
 ## Introduction
 
-Rapid weight loss mobilises lipophilic pollutants stored in adipose tissue, and serum concentrations of per- and polyfluoroalkyl substances (PFAS) rise as weight falls.¹ From that observation a clinical narrative has grown: weight loss releases a toxic burden that accelerates biological ageing and blunts the hormonal benefit of losing weight.³⁻⁷ The evidence offered for the narrative nearly always has the same shape — a significant interaction between pollutant burden and weight change in an observational cohort.³⁻⁷
+Weight loss mobilises lipophilic organochlorines stored in adipose tissue, and their serum concentrations rise as weight falls.¹ That observation has been extended to per- and polyfluoroalkyl substances (PFAS), which are not stored in fat but bind serum proteins, and a clinical narrative has grown around it: weight loss releases a toxic burden that accelerates biological ageing and blunts the hormonal benefit of losing weight.
 
-Such interactions are fragile in ways that are seldom examined. Here I first reproduced the alarm in one national dataset, and then asked a narrower question: how much of it can be generated by the data-generating process itself? I identified three candidate mechanisms — confounding, unmeasured prescribing, and formulas that contain body weight — and tested whether they act in the same direction. I then examined what remains once they are removed, with particular attention to how the androgen response to weight loss should be read.
+The narrative makes two predictions that can be tested in the same dataset. If released pollutant drives harm, adults who lose weight should have higher serum pollutant concentrations, and they should appear biologically older. Both are falsifiable with a cross-sectional design, because both compare people who lost weight with those who did not.
+
+I tested both predictions in eight NHANES cycles, then asked a second question: how much of an apparent "toxin rebound" can the data-generating process itself produce? I examined four routes — confounding, unmeasured prescribing, formulas that contain body mass, and a specification error in my own first pass — and checked whether they share a direction.
 
 ## Methods
 
-**Data.** Eight NHANES cycles between 2003 and 2023 (2007–2008 was not included; 82,096 participants) were restricted to non-pregnant adults aged ≥20 years (n=45,739). Analytic domains were 12,775 adults for inflammatory markers, 12,737 for liver indices, 2,244 men with testosterone and weight change (of whom 1,232 had a complete androgen panel including SHBG, albumin and oestradiol), and 9,656 for the causal-forest models; PFAS were measured in 16,778 participants (13,162 adults). Exclusions and the full flow are given in Table S1.
+**Data.** Eight NHANES cycles between 2003 and 2023 (2007–2008 was not fielded; 82,096 records) were restricted to non-pregnant adults aged ≥20 years (n=45,739). The PFAS domain comprised 12,806 adults with at least six congeners and computable one-year weight change; the PhenoAge domain, 9,656 with complete biomarkers (Table S1). PFAS were measured in 16,778 participants, 13,162 of them adults.
 
-**Exposure and outcomes.** Weight change was the difference between examined BMI and BMI one year earlier, expressed per 5% loss. Outcomes were PhenoAge,⁸,⁹ the Fatty Liver Index¹⁰ and Hepatic Steatosis Index,¹¹ C-reactive protein and leucocyte indices, and total testosterone, SHBG, albumin and Vermeulen-calculated free testosterone and percentage free testosterone.¹²
+**Exposure and outcomes.** Weight change was the difference between examined BMI and BMI one year earlier, taken from self-reported prior weight, expressed as the percentage lost; ≥5% defined the exposed group. Outcomes were PhenoAge acceleration²,³ and the molar sum of six PFAS congeners (PFOA, PFOS, PFHxS, PFNA, PFDA, PFUnDA), with individual congeners examined separately; free testosterone was calculated as described by Vermeulen et al.¹³
 
-**Estimation.** Propensity-score trimming was followed by augmented inverse-probability weighting, causal forests¹³ and parametric models; survey-weighted re-estimation, E-values¹⁴ and quantile g-computation¹⁵ served as sensitivity analyses (sections S2–S7).
+**Estimation.** Linear models with cluster-robust variance at the survey design level (strata × PSU) were fitted for both outcomes, with covariates for age, sex, family income-to-poverty ratio, BMI one year earlier, cotinine, alcohol, physical activity, comorbidity count, total cholesterol, HDL, eGFR, survey year, race, education and smoking. Because prior BMI lies on the path from weight change to current BMI, both models are reported. Survey-weighted re-estimation, E-values¹⁵ and quantile g-computation¹⁶ served as sensitivity analyses, and causal forests¹⁴ were fitted for the androgen outcome. Equivalence was assessed by two one-sided tests (TOST) at pre-specified margins of 0.5 and 1.0 years for PhenoAge and 5% and 10% for PFAS.
 
-**Prescription screening.** From the prescription files I flagged GnRH agonists and antagonists, antiandrogens, oestrogens, systemic glucocorticoids, opioids and ketoconazole. Men using any were excluded from the androgen models and from the forest; the all-men analysis is reported alongside.
+**Four routes to an interaction.** Confounding was quantified as the shift between crude and adjusted estimates. Prescribing was addressed by flagging GnRH agonists and antagonists, antiandrogens, oestrogens, systemic glucocorticoids, opioids and ketoconazole in the prescription files, and by re-estimating after excluding users. Formula dependence was addressed by re-estimating the Hepatic Steatosis Index¹² and Fatty Liver Index¹¹ with their BMI terms removed (sections S2–S5). The fourth route was a specification error in the first pass of these analyses, described below and in S6.
 
-**Formula decomposition.** The Hepatic Steatosis Index and Fatty Liver Index were re-estimated with their body-mass terms removed, so that only the liver-specific component carried the interaction test.
-
-Reporting follows STROBE.¹⁶
+Reporting follows STROBE.⁴
 
 ## Results
 
-**The alarm is reproducible.** Before adjustment, adults who had lost weight were biologically older than those who had not (PhenoAge +1.87 years; Table 1). The weight-loss effect on total testosterone varied with pollutant burden (forest heterogeneity P=0.0049); the Hepatic Steatosis Index appeared to be modified (P=1.2×10⁻⁶); and an earlier specification produced five significant inflammatory interactions (P as low as 6.0×10⁻¹¹). Read at face value, these numbers reproduce the published alarm.
+**Both predictions appear to hold, in opposite directions.** Before adjustment, adults who had lost ≥5% of body weight were 1.88 years biologically older than those who had not (P=3×10⁻¹⁶), and their serum PFAS was 10.9% lower (P=1×10⁻⁷). The first reproduces the published alarm, the second contradicts it, and neither survives adjustment.
 
-**Artefact 1: confounding.** Adjustment reversed the sign and moved the estimate 2.20 years with causal forests (to −0.33 years) and 2.39 years with the parametric model (to −0.52 years). The dose–response was monotonic (−0.302 years per 5% loss, P=3.9×10⁻⁷). Adults who lose weight have higher BMI, more comorbidity, more smoking and lower income than those who do not; the crude difference is the arithmetic of that imbalance.
+**One imbalance explains both.** Weight losers had a mean BMI one year earlier of 32.4 kg/m² against 27.7 in those who did not, but a current BMI of 29.8 against 29.1: they are people who fell from a higher weight. They were also more often diabetic (19.6% vs 10.9%), hypertensive (44.5% vs 34.1%) and smokers (22.0% vs 18.1%), and less often educated beyond high school (19.6% vs 26.3%) (Table 1). Adjusted for this profile, the ageing difference became −0.18 years (95% CI −0.58 to 0.22; P=0.38) and the PFAS difference −1.2% (−4.2 to 1.7; P=0.41). The shifts were 2.06 years and 9.7 percentage points, in opposite directions, from the same covariate set.
 
-**Artefact 2: unmeasured prescribing.** The androgen signal did not survive a medication check. Of the 2,244 men in the androgen forest, 167 (7.4%) were taking a GnRH agonist or antagonist, an antiandrogen, an oestrogen, a systemic glucocorticoid, an opioid or ketoconazole. They were older (median 58 vs 48 years), had lower total testosterone (352 vs 387 ng/dL) and were more likely to have lost ≥5% of body weight (28.1% vs 18.9%) — confounding by indication in textbook form. Including them produced a gradient across PFAS deciles of −3.4 to −4.6 percentage points (P=0.012–0.091); excluding them flattened it to +0.1 to +0.8 points (P=0.383–0.670). Two men carry much of the signal: one taking leuprolide with a testosterone of 13.9 ng/dL, one taking hydrocortisone and fluticasone with 1.8 ng/dL, both in the highest exposure third and both losing weight.
+**The residue is excluded, not merely undetected.** Two one-sided tests rejected harm larger than one year of PhenoAge acceleration (P=3.5×10⁻⁵) and a rise in serum PFAS larger than 5% (P=0.0060). A margin of 0.5 years was not excluded (P=0.060), so the ageing bound is one year rather than half a year. Individual congeners were unremarkable (all P≥0.099), and the dose gradient was not monotonic: adults losing ≥10% had 5.9% lower PFAS (P=0.005), those losing 5–10% showed no difference (+0.5%, P=0.80), and those gaining ≥5% also had lower PFAS (−3.9%, P=0.006).
 
-**Artefact 3: formulas that contain weight.** The Hepatic Steatosis Index and Fatty Liver Index both include BMI, so a score driven by weight will also appear to be modified by anything correlated with weight. Removing the BMI terms removed the interaction: the index fell from P=1.2×10⁻⁶ to 0.68, the Fatty Liver Index from 0.017 to 0.14, and log ALT was 0.61. PFAS did not modify weight loss itself (ΔBMI interaction P=0.99); what differed was the amount lost within the treated group (median 9.9% vs 8.3% across exposure thirds; 49% vs 36% losing ≥10%). That is a difference in dose composition, not in biology.
+**Three further routes each generate an interaction.** Excluding 167 of 2,244 men (7.4%) on androgen-suppressing drugs removed an already marginal forest heterogeneity (one-sided P=0.055; 0.55 after excluding the 131 opioid users alone, 0.67 after all 167). The 167 were mostly opioid users (131), with 54 on 5α-reductase inhibitors, 39 on glucocorticoids, three on ketoconazole, two on antiandrogens, one on a GnRH agonist and none on oestrogen. Removing the BMI terms from the Hepatic Steatosis Index moved its interaction P from 1.2×10⁻⁶ to 0.68, and from the Fatty Liver Index from 0.017 to 0.14. A specification error in my first pass — a zero-inflated collinear term with the intercept dropped — produced five nominal interactions among 30; three survived coefficient-level randomisation, and dropping a single cycle moved forest heterogeneity from 0.10 to 0.70.
 
-**What remains.** With the artefacts removed, no androgen outcome was modified by pollutant burden (interaction P=0.17–0.66; joint mixture terms P=0.26 and 0.67), and the only inflammatory interaction to survive coefficient-level randomisation (white cell count, P=0.011) attenuated to P=0.072 under survey weights (E-value 1.15); I report it as hypothesis-generating. The androgen response itself was intact and dose-dependent. Per 5% weight loss, total testosterone rose 4.0% (95% CI 1.7–6.4) and SHBG rose 4.8% (3.2–6.4), so the free fraction fell 2.3% (−3.2 to −1.4; P=8.3×10⁻⁷) while calculated free testosterone did not change detectably (+1.6%, −0.7 to 3.9; P=0.16). Albumin was unchanged (+0.2%, P=0.29), and total testosterone remained proportional to SHBG (P=0.83), as did the free androgen index (P=0.91). The oestradiol-to-testosterone ratio moved in the opposite direction (+5.6% for T:E2), and the oestradiol concentration itself did not change (−1.5%, P=0.15). With pollutants, the weight-change association with mortality weakened rather than strengthened as burden rose (RR 1.23 at the lowest level, 1.10 at the highest), the reverse of what a mobilised toxin would produce. A computational comparison of the two carrier proteins is consistent with this null: the steroid pocket of SHBG carries a net charge of −1, whereas the fatty-acid sites of albumin carry +14, and at measured concentrations (PFOA 5 nM, PFOS 14 nM; albumin 632 μM, a 10⁵-fold excess) even a dissociation constant of 3 nM leaves the SHBG site less than 5% occupied.
+**The four routes do not share a direction.** The same specification error that inflated apparent harm for most outcomes attenuated it for the systemic immune-inflammation index, which fell from −8.0% to −1.0%. Confounding pushed the ageing estimate towards harm and the PFAS estimate towards benefit. Direction is therefore not a diagnostic of artefact.
+
+**What the androgen data do and do not show.** Per 5% of weight lost, total testosterone rose 4.0% (95% CI 1.7–6.4) and SHBG rose 4.8% (3.2–6.4), so the free fraction fell 2.3% (−3.2 to −1.4) while calculated free testosterone did not change detectably (+1.6%, −0.7 to 3.9; P=0.16). The free fraction is a deterministic function of SHBG and albumin, so the fall is arithmetic; the free-minus-total difference was −2.3 percentage points (P=1.2×10⁻⁶), identical to the change in the free percentage by construction. In adipose tissue from 18 donors, weight loss reduced macrophage abundance by 46.5% relative to obese controls (BH-adjusted P=0.035) but left a senescence module still above the lean group (P=0.024).
 
 ## Discussion
 
-Each of the three mechanisms described here inflates apparent harm, and so did the separate specification error. Adjustment reversed the sign of the ageing estimate; excluding 7.4% of men removed the androgen interaction; removing BMI from a score removed the hepatic modification. None pushed the estimate towards benefit. That asymmetry is the point: if the processes that manufacture false alarms are directional, then the density of alarms in a literature is not a measure of the evidence behind them. The audit in Table S9 suggests the direction is structural rather than accidental — of twelve NHANES studies that have modelled sex hormones against persistent pollutants, two screened for any androgen-suppressing medication and none for GnRH agonists or opioid analgesics, the two classes with the largest suppressive effect on testosterone.
+The two predictions failed differently, and that difference is informative. Ageing appeared worse in weight losers; pollutant burden appeared better. Both were products of the same imbalance between people who fell from a higher weight and people who did not. A crude estimate in this design carries the direction of the covariate–outcome relationship, not the direction of weight loss.
 
-For clinicians the surviving signal is a reading instruction rather than a new hormone effect. Weight loss lowers insulin, and lower insulin releases the hepatic repression of SHBG,¹⁷ reversing in part the adiposity-driven suppression of the axis.² Because the free fraction is a deterministic function of SHBG and albumin, a 4.8% rise in SHBG against a 4.0% rise in total testosterone must lower the free percentage by about 2.3%, with albumin unchanged; the fall is arithmetic, not a second discovery. What it means is that the increment in total testosterone is largely bound hormone. A value that rises from 300 to 312 ng/dL while the free fraction falls has not demonstrated recovery of gonadal function, and pooled analyses of weight loss show total and free testosterone moving by different amounts for exactly this reason.¹⁸ In an era of pharmacological weight loss, total testosterone will rise in many patients; the question worth asking is whether the free fraction rose with it.
+The four routes share one feature: none requires fabrication. Confounding is inherent to the question, prescribing is recorded in the same files as the exposure, and a formula containing BMI will transmit any weight-related difference into an interaction. The specification error was mine, and I report it because it also shows that the direction of a spurious signal is set by the error, not by biology: the same mistake inflated harm in most outcomes and benefit in one.
 
-Four limitations bound these conclusions. Free testosterone was calculated, not measured, so a direct equilibrium-dialysis or LC-MS/MS measurement could revise the size, though not the direction, of the gap. The structural comparison of SHBG and albumin is computational; binding was not measured. Prescription records capture prescribed drugs only, do not include discontinued agents, and lack drug names for the 2021–2023 cycle, which has no testosterone measurement either, so residual confounding by medication is reduced but not removed. Finally, one-year weight change partly rests on self-reported prior weight, and the design is cross-sectional: the estimates describe associations, not the effect of an intervention.
+This bears on how the literature should be read. If alarms can be produced in either direction by ordinary analytic choices, then the number of published alarms is not a measure of the evidence behind them, and a significant interaction should be treated as a hypothesis that has not yet been screened. In twelve NHANES studies of persistent pollutants and sex hormones, two screened for any androgen-suppressing medication and none for GnRH agonists or opioid analgesics, the two classes with the largest suppressive effect on testosterone (Table S7).
+
+For clinicians the surviving observation is a reading instruction. Weight loss lowers insulin, and lower insulin releases hepatic repression of SHBG,⁵ partly reversing the adiposity-driven suppression of the axis.¹⁷,¹⁸ Because the free fraction is a deterministic function of SHBG and albumin, a 4.8% rise in SHBG against a 4.0% rise in total testosterone must lower the free percentage by about 2.3% with albumin unchanged. The increment in total testosterone is therefore largely bound hormone: a value rising from 300 to 312 ng/dL while the free fraction falls has not demonstrated recovery of gonadal function. Calculated free testosterone itself did not move, so this is a caution about interpretation rather than a newly identified harm.
+
+Five limitations bound these conclusions. PFAS and weight were measured once, so the design describes differences between people, not change within them; a cohort with repeated measures could still detect a release effect too small or too slow to appear here. Prior weight was self-reported. Free testosterone was calculated, not measured. Prescription records exclude discontinued drugs and lack drug names for 2021–2023, which has no testosterone measurement either. Finally, the forest estimates were not reproducible run to run, so they are reported only as a marginal signal; the parametric estimates carry the argument.
 
 ---
 
-## Table 1. Three artefacts, one specification error, and what is left after removing them
+## Table 1. The imbalance behind both predictions, and what remains after adjustment
 
-| Artefact | Mechanism | Uncontrolled | Controlled | Shift | Direction |
-|---|---|---|---|---|---|
-| Confounding | People who lose weight are sicker and poorer | PhenoAge +1.87 years | −0.33 (forest); −0.52 (parametric) | 2.20 (forest), 2.39 (parametric), reversed | Towards harm |
-| Indication (prescribing) | 167 of 2,244 men on androgen-suppressing drugs | P=0.012–0.091; decile gradient −3.4 to −4.6 pp | P=0.383–0.670; +0.1 to +0.8 pp | Interaction removed | Towards harm |
-| Formula (BMI-bearing score) | Index contains body mass | HSI P=1.2×10⁻⁶; FLI P=0.017 | 0.68; 0.14 | Interaction removed | Towards harm |
-| Model specification (not an exposure artefact) | Zero-inflated collinear interaction term; intercept dropped in error | 5 of 30 estimates P<0.05 | 3 of 30 survive randomisation; 0 of 30 weighted | Dissipated | Towards harm |
-| **What remains** | — | — | Total testosterone +4.0% vs %free −2.3% | — | **Not a pollutant effect** |
+| Characteristic | No loss ≥5% (n=7,779) | Loss ≥5% (n=1,877) |
+|---|---|---|
+| BMI one year earlier, kg/m² | 27.7 (6.2) | 32.4 (7.8) |
+| Current BMI, kg/m² | 29.1 (7.0) | 29.8 (6.9) |
+| Diabetes, % | 10.9 | 19.6 |
+| Hypertension, % | 34.1 | 44.5 |
+| Current smoker, % | 18.1 | 22.0 |
+| College or above, % | 26.3 | 19.6 |
+| Family income-to-poverty ratio | 2.7 (1.6) | 2.4 (1.5) |
+| PhenoAge acceleration, years | −0.5 (7.6) | 1.4 (9.0) |
+| Sum PFAS, nmol/L, median (IQR) | 28.7 (14.8–53.3) | 25.0 (12.7–48.1) |
 
-HSI, Hepatic Steatosis Index; FLI, Fatty Liver Index; pp, percentage points. The fourth row is a specification error rather than an exposure-related mechanism; it is listed because it also inflated apparent harm.
+| Estimate | Crude | Adjusted | Shift | Equivalence |
+|---|---|---|---|---|
+| PhenoAge acceleration, years | +1.88 | −0.18 (−0.58 to 0.22) | 2.06 | harm >1 year excluded (P=3.5×10⁻⁵) |
+| Serum sum PFAS, % | −10.9 | −1.2 (−4.2 to 1.7) | 9.7 | rise >5% excluded (P=0.0060) |
+
+Values are mean (SD) unless stated. Adjusted models include age, sex, income-to-poverty ratio, BMI one year earlier, cotinine, alcohol, physical activity, comorbidity count, total cholesterol, HDL, eGFR, survey year, race, education and smoking, with cluster-robust variance at the stratum × PSU level. Equivalence by two one-sided tests at the stated margin.
 
 ## Figure legends
 
-**Figure 1. Three ways to manufacture the alarm.** (a) Crude and adjusted difference in PhenoAge between adults who lost weight and those who did not; adjustment moves the estimate 2.20 years in the opposite direction. (b) Difference in the conditional average treatment effect between the lowest and highest PFAS deciles, before and after excluding 167 men taking androgen-suppressing prescription drugs. (c) Interaction P values for liver indices before and after removing their body-mass terms, on a logarithmic scale; the dashed line is P=0.05.
+**Figure 1. Both predictions invert under the same adjustment.** (a) Crude and adjusted difference in PhenoAge acceleration between adults losing ≥5% of body weight and those who did not; the shaded band is the equivalence margin of one year. (b) The same for serum summed PFAS, with a margin of 5%. Point estimates with 95% confidence intervals.
 
-**Figure 2. The signal that survives.** (a) Percentage change per 5% weight loss (95% CI) for total testosterone, SHBG, percentage free testosterone, calculated free testosterone, free androgen index and albumin. (b) The arithmetic linking them: SHBG rises faster than total testosterone while albumin is unchanged, so the free fraction must fall; calculated free testosterone is the product and does not change detectably.
+**Figure 2. Four routes to a pollutant interaction, and where they point.** (a) Forest heterogeneity before and after excluding opioid users and all 167 men on androgen-suppressing drugs. (b) Interaction P values for the Hepatic Steatosis Index and Fatty Liver Index before and after removing their body-mass terms, on a logarithmic scale. (c) The direction of change produced by each route, showing that harm and benefit both occur.
 
 ## References
 
 1. Chevrier J, Dewailly É, Ayotte P, Mauriège P, Després J-P, Tremblay A. Body weight loss increases plasma and adipose tissue concentrations of potentially toxic pollutants in obese individuals. Int J Obes Relat Metab Disord. 2000;24(10):1272–1278.
-2. Grossmann M, Ng Tang Fui M, Dupuis P. Lowered testosterone in male obesity: mechanisms, morbidity and management. Asian J Androl. 2014;16(2):223–231.
-3. Lewis RC, Johns LE, Meeker JD. Serum biomarkers of exposure to perfluoroalkyl substances in relation to serum testosterone and measures of thyroid function among adults and adolescents from NHANES 2011–2012. Int J Environ Res Public Health. 2015;12(6):6098–6114.
-4. Xie X, Weng X, Liu S, et al. Perfluoroalkyl and polyfluoroalkyl substance exposure and association with sex hormone concentrations: results from the NHANES 2015–2016. Environ Sci Eur. 2021;33(1):69.
-5. Wang Y, Aimuzi R, Nian M, Zhang Y, Luo K, Zhang J. Perfluoroalkyl substances and sex hormones in postmenopausal women: NHANES 2013–2016. Environ Int. 2021;149:106408.
-6. Li X, Chen M, Zheng Q, Wang Z, Lin D, Peng M. The association between brominated flame retardants and serum testosterone levels in American adult men: NHANES 2013–2016. Front Public Health. 2025;13:1589047.
-7. Madrigal JM, Sargis RM, Persky V, Turyk ME. Multiple organochlorine pesticide exposures and measures of sex steroid hormones in adult males: cross-sectional findings from the 1999–2004 National Health and Nutrition Examination Survey. Int J Hyg Environ Health. 2021;231:113609.
-8. Levine ME, Lu AT, Quach A, et al. An epigenetic biomarker of aging for lifespan and healthspan. Aging (Albany NY). 2018;10(4):573–591.
-9. Liu Z, Kuo P-L, Horvath S, Crimmins E, Ferrucci L, Levine M. A new aging measure captures morbidity and mortality risk across diverse subpopulations from NHANES IV: a cohort study. PLoS Med. 2018;15(12):e1002718.
-10. Bedogni G, Bellentani S, Miglioli L, et al. The Fatty Liver Index: a simple and accurate predictor of hepatic steatosis in the general population. BMC Gastroenterol. 2006;6:33.
-11. Lee JH, Kim D, Kim HJ, et al. Hepatic steatosis index: a simple screening tool reflecting nonalcoholic fatty liver disease. Dig Liver Dis. 2010;42(7):503–508.
-12. Vermeulen A, Verdonck L, Kaufman JM. A critical evaluation of simple methods for the estimation of free testosterone in serum. J Clin Endocrinol Metab. 1999;84(10):3666–3672.
-13. Wager S, Athey S. Estimation and inference of heterogeneous treatment effects using random forests. J Am Stat Assoc. 2018;113(523):1228–1242.
-14. VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. Ann Intern Med. 2017;167(4):268–274.
-15. Keil AP, Buckley JP, O'Brien KM, Ferguson KK, Zhao S, White AJ. A quantile-based g-computation approach to addressing the effects of exposure mixtures. Environ Health Perspect. 2020;128(4):047004.
-16. von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453–1457.
-17. Selva DM, Hogeveen KN, Innis SM, Hammond GL. Monosaccharide-induced lipogenesis regulates the human hepatic sex hormone-binding globulin gene. J Clin Invest. 2007;117(12):3979–3987.
+2. Levine ME, Lu AT, Quach A, et al. An epigenetic biomarker of aging for lifespan and healthspan. Aging (Albany NY). 2018;10(4):573–591.
+3. Liu Z, Kuo P-L, Horvath S, Crimmins E, Ferrucci L, Levine M. A new aging measure captures morbidity and mortality risk across diverse subpopulations from NHANES IV: a cohort study. PLoS Med. 2018;15(12):e1002718.
+4. von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453–1457.
+5. Selva DM, Hogeveen KN, Innis SM, Hammond GL. Monosaccharide-induced lipogenesis regulates the human hepatic sex hormone-binding globulin gene. J Clin Invest. 2007;117(12):3979–3987.
+6. Lewis RC, Johns LE, Meeker JD. Serum biomarkers of exposure to perfluoroalkyl substances in relation to serum testosterone and measures of thyroid function among adults and adolescents from NHANES 2011–2012. Int J Environ Res Public Health. 2015;12(6):6098–6114.
+7. Xie X, Weng X, Liu S, et al. Perfluoroalkyl and polyfluoroalkyl substance exposure and association with sex hormone concentrations: results from the NHANES 2015–2016. Environ Sci Eur. 2021;33(1):69.
+8. Wang Y, Aimuzi R, Nian M, Zhang Y, Luo K, Zhang J. Perfluoroalkyl substances and sex hormones in postmenopausal women: NHANES 2013–2016. Environ Int. 2021;149:106408.
+9. Li X, Chen M, Zheng Q, Wang Z, Lin D, Peng M. The association between brominated flame retardants and serum testosterone levels in American adult men: NHANES 2013–2016. Front Public Health. 2025;13:1589047.
+10. Madrigal JM, Sargis RM, Persky V, Turyk ME. Multiple organochlorine pesticide exposures and measures of sex steroid hormones in adult males: cross-sectional findings from the 1999–2004 National Health and Nutrition Examination Survey. Int J Hyg Environ Health. 2021;231:113609.
+11. Bedogni G, Bellentani S, Miglioli L, et al. The Fatty Liver Index: a simple and accurate predictor of hepatic steatosis in the general population. BMC Gastroenterol. 2006;6:33.
+12. Lee JH, Kim D, Kim HJ, et al. Hepatic steatosis index: a simple screening tool reflecting nonalcoholic fatty liver disease. Dig Liver Dis. 2010;42(7):503–508.
+13. Vermeulen A, Verdonck L, Kaufman JM. A critical evaluation of simple methods for the estimation of free testosterone in serum. J Clin Endocrinol Metab. 1999;84(10):3666–3672.
+14. Wager S, Athey S. Estimation and inference of heterogeneous treatment effects using random forests. J Am Stat Assoc. 2018;113(523):1228–1242.
+15. VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. Ann Intern Med. 2017;167(4):268–274.
+16. Keil AP, Buckley JP, O'Brien KM, Ferguson KK, Zhao S, White AJ. A quantile-based g-computation approach to addressing the effects of exposure mixtures. Environ Health Perspect. 2020;128(4):047004.
+17. Grossmann M, Ng Tang Fui M, Dupuis P. Lowered testosterone in male obesity: mechanisms, morbidity and management. Asian J Androl. 2014;16(2):223–231.
 18. Corona G, Rastrelli G, Monami M, et al. Body weight loss reverts obesity-associated hypogonadotropic hypogonadism: a systematic review and meta-analysis. Eur J Endocrinol. 2013;168(6):829–843.

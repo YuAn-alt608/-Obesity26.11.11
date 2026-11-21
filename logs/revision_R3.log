@@ -1,0 +1,38 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning messages:
+1: package 'data.table' was built under R version 4.4.3 
+2: package 'grf' was built under R version 4.4.3 
+                                     class     flag n_all n_treated pct_all
+                                    <char>   <char> <int>     <int>   <num>
+1:                        Opioid analgesic   opioid   131        37    5.84
+2:             5-alpha reductase inhibitor  fiveari    54         7    2.41
+3:                          Glucocorticoid   glucoc    39         8    1.74
+4:                      GnRH agonist (ADT)      adt     1         1    0.04
+5:                            Antiandrogen  antiand     2         0    0.09
+6:                            Ketoconazole    ketoc     3         2    0.13
+7:                                Estrogen estrogen     0         0    0.00
+8: Any of the 167 (castration OR suppress)  anydrug   167        47    7.44
+9:               Five-ARI (not in the 167)  fiveari    54         7    2.41
+                        tag     N   per5   p_per5  p_int
+                     <char> <int> <char>   <char> <char>
+1:  none excluded (N=2,244)  2244 +4.28% 1.88e-05  0.671
+2:           exclude opioid  2113 +4.19% 0.000141  0.977
+3:          exclude fiveari  2190 +4.31% 2.09e-05  0.663
+4:           exclude glucoc  2205 +4.44% 8.92e-07  0.720
+5:              exclude adt  2243 +4.37% 1.26e-05  0.696
+6:          exclude antiand  2242 +4.24% 2.31e-05  0.672
+7:            exclude ketoc  2241 +4.26% 1.57e-05  0.687
+8:          exclude the 167  2077 +4.46% 3.11e-06  0.617
+9: exclude any of 7 classes  2029 +4.56% 2.40e-06  0.659
+               tag     N       p_1s      p_2s     p_blp
+            <char> <int>      <num>     <num>     <num>
+1:   none excluded  2243 0.05545244 0.1109049 0.1366290
+2:  exclude opioid  2113 0.54801700 1.0000000 0.5616512
+3:  exclude glucoc  2203 0.16758508 0.3351702 0.2618199
+4: exclude fiveari  2183 0.06881000 0.1376200 0.2393521
+5: exclude the 167  2077 0.67283665 1.0000000 0.9331770
+✅ R3 完成

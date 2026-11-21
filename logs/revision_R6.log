@@ -1,0 +1,53 @@
+During startup - Warning messages:
+1: Setting LC_COLLATE=C.UTF-8 failed 
+2: Setting LC_CTYPE=C.UTF-8 failed 
+3: Setting LC_MONETARY=C.UTF-8 failed 
+4: Setting LC_TIME=C.UTF-8 failed 
+Warning message:
+package 'data.table' was built under R version 4.4.3 
+分析域 N = 12806  减重组 = 2528 
+dw1 符号检查：w5==1 时 dw1 中位 = 9 ；w5==0 时 = 0 
+
+=== ⓿ 逐步加协变量 ===
+  raw                                             -10.90% (SE 2.17) p=1e-07
+  + race_f                                        -11.54% (SE 2.16) p=1.4e-08
+  + edu_f                                         -11.35% (SE 2.14) p=1.9e-08
+  + smk                                           -11.33% (SE 2.16) p=2.7e-08
+  + age                                           -11.74% (SE 2.12) p=3.6e-09
+  + female                                         -8.76% (SE 2.12) p=1.6e-05
+  + pir                                            -9.93% (SE 2.15) p=1.2e-06
+  + bmi_p                                          -5.83% (SE 2.07) p=0.0037
+  full CONF                                        -1.24% (SE 1.51) p=0.41
+
+=== ① log(ΣPFAS molar) ~ 减重≥5% ===
+  crude    crude                                                                    -12.09% (-15.70,  -8.33) p=1.69e-09
+  full     adjusted: age, sex, PIR, prior BMI, cotinine, alcohol, activity, comorbi  -1.24% ( -4.13,  +1.73) p=0.409
+  noprior  adjusted WITHOUT prior BMI                                                -3.48% ( -6.24,  -0.65) p=0.0164
+  nowbmi   adjusted WITH current BMI (collider on the w5 path; shown for transparen  -3.29% ( -6.05,  -0.45) p=0.0236
+
+=== ② 各同系物 ~ 减重≥5%（全协变量）===
+  PFOA     -2.28% ( -5.31,  +0.85)  p=0.151
+  PFOS     -2.57% ( -5.85,  +0.82)  p=0.135
+  PFHxS    +3.21% ( -0.59,  +7.14)  p=0.0985
+  PFNA     -2.94% ( -6.46,  +0.70)  p=0.112
+  PFDA     -1.97% ( -5.27,  +1.44)  p=0.254
+  PFUnDA   -0.69% ( -3.71,  +2.43)  p=0.66
+
+=== ③ 剂量关系（参照组：体重稳定 −5%~+5%）===
+分档计数:
+            band     N
+          <fctr> <int>
+1: stable (+-5%)  7853
+2:    >=10% loss  1080
+3:     >=5% gain  2425
+4:    5-10% loss  1448
+         band     N       pct        lo        hi           p
+       <char> <int>     <num>     <num>     <num>       <num>
+1: 5-10% loss  1448  0.484754 -3.151476  4.257508 0.797058310
+2: >=10% loss  1080 -5.881782 -9.802094 -1.791080 0.005228612
+3:  >=5% gain  2425 -3.940960 -6.637932 -1.166080 0.005652702
+
+=== ④ log(ΣPFAS) 与当前 BMI、一年前 BMI 的偏相关（同协变量集）===
+  bmi   : 每 +1 kg/m2 → -0.317% (SE 0.188, p=0.0916)
+  bmi_p : 每 +1 kg/m2 → -0.559% (SE 0.098, p=9.49e-09)
+✅ R6 完成

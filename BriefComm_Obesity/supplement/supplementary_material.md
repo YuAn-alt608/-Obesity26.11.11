@@ -1,145 +1,198 @@
 # Supplementary Material
 
-**Three artefacts manufacture a "weight-loss toxin rebound" alarm, and total testosterone masks a fall in the free fraction**
+**Two central predictions of the weight-loss toxin-rebound narrative fail in NHANES 2003–2023**
+
+All estimates below were recomputed from the derived datasets in this project. Scripts are in `code/revision/R1`–`R7`; the verification ledger links each number to its source file.
 
 ---
 
-## Note on scope
+## Table S1. Sample flow
 
-This Brief Communication reports the analyses needed to attribute the "toxin rebound" alarm to its sources, and to describe the androgen read-out that remains. Three bodies of work are reported here in full but barely appear in the main text, because they do not bear on the attribution question:
-
-- the pre-specified design deviations forced by data availability (S1);
-- the adipose single-nucleus RNA-sequencing arm (S5);
-- the structural comparison of SHBG and albumin (S4, one sentence in the main text).
-
-They are included so that the full evidence base is auditable, not because they support the main claim.
-
----
-
-## S1. Design deviations from the pre-specified protocol
-
-| Pre-specified assumption | What the data showed | Consequence |
+| Stage | n | Note |
 |---|---|---|
-| NHANES carries a DNA-methylation clock | No DNAm in any cycle; PhenoAge is a composite of nine clinical biomarkers | Biological age is a constructed score, validated against mortality (S6) |
-| Weight history is measured longitudinally | Weight one year earlier is self-reported; no examination-based prior weight | Exposure is a one-year difference, not an incident trajectory |
-| Single-cell data carry exposure measurements | GSE295708 has no PFAS measurement and no weight-loss metadata | The single-cell arm cannot be stratified by exposure; see S5 |
+| All records, eight cycles 2003–2023 | 82,096 | 2007–2008 was not fielded |
+| Non-pregnant adults aged ≥20 years | 45,739 | sampling frame, not an analytic sample |
+| With serum PFAS (≥6 congeners) | 16,778 | of whom 13,162 are adults |
+| PFAS domain: PFAS and one-year weight change | 12,806 | 2,528 losing ≥5% |
+| PhenoAge domain: complete biomarkers | 9,656 | 1,877 losing ≥5% |
+| Androgen domain: men, 2013–2016, complete panel | 1,232 | 245 losing ≥5%; SHBG not measured in 2011–2012 |
+| Adipose tissue (GSE199063) | 18 libraries | obese, weight-loss and lean, six each |
 
-These deviations were documented before analysis and are listed here rather than in the main text, which is restricted to 1,500 words.
-
----
-
-## S2. Statistical audit of the interaction models
-
-The version of this analysis that preceded the present one reported significant pollutant-by-weight-change interactions for five outcomes: white cell count, neutrophils, the systemic immune-inflammation index, monocyte percentage and the platelet-to-lymphocyte ratio. Three of the five did not survive re-analysis.
-
-**What was wrong.** The interaction was specified as `w5*pfas + dw5*pfas`, where `dw5` is the change in treatment status. In the control group `dw5` is identically zero, so the term is zero-inflated and collinear with `w5`; the design matrix additionally dropped the intercept. The combination produces interaction estimates that are not identified by the data but by the parameterisation.
-
-**What was done.** Three non-collinear specifications were fitted — a tertile difference-in-differences, a continuous term per SD of pollutant, and a dose–response term (per 5% weight loss × per SD) — and inference was moved to coefficient-level randomisation: pollutant values were permuted within cycle-by-sex strata, so that the null distribution never passes through the variance estimator. One thousand permutations were run for each of the 30 outcome–specification cells.
-
-**What happened.**
-
-| Stage | Tests reaching P<0.05 |
-|---|---|
-| Original specification | 5 of 30 |
-| Coefficient-level randomisation | 3 of 30, all from two outcomes (white cell count P=0.011; neutrophils 0.031–0.066) |
-| Survey-weighted re-estimation | 0 of 30 (white cell count P=0.072) |
-
-The three retracted interactions (systemic immune-inflammation index, monocyte percentage, platelet-to-lymphocyte ratio) are reported in Table S2 with their original and revised estimates. The effect size of the surviving signal is roughly one order of magnitude smaller than originally reported.
+The 45,739 figure is the sampling frame and is not used as a denominator for any estimate.
 
 ---
 
-## S3. Survey weighting
+## S2. Modelling details and equivalence margins
 
-All main effects were re-estimated with the NHANES primary sampling unit, strata and examination weights (`svydesign` + `svyglm`). Design effects were 3.0 (Fatty Liver Index), 3.1 (white cell count), 3.8 (C-reactive protein) and 4.6 (SHBG), so the effective sample was 22–33% of the nominal N (979 to 4,452 participants).
+Both outcomes were fitted with linear models and cluster-robust variance at the stratum × PSU level, using the small-sample correction G/(G−1) × (n−1)/(n−k). Covariates: age, sex, family income-to-poverty ratio, BMI one year earlier, log cotinine, alcohol, physical activity, comorbidity count, total cholesterol, HDL, eGFR, survey year, race, education and smoking.
 
-Across 27 main-effect estimates the median absolute difference between weighted and unweighted estimates was 0.12 percentage points and the maximum was 0.75 points. No estimate changed direction. One estimate crossed the significance threshold (bilirubin, P=0.061 to 0.002), a coefficient close to zero on a scale where a percentage change is unstable. Ratios of weighted to unweighted estimates ranged from 0.41 to 2.22, but the extremes occurred only where the estimate was near zero; ratios are therefore not a useful summary for these quantities and absolute differences are reported instead.
+Prior BMI is on the path from weight change to current BMI: current BMI = prior BMI × (1 − loss). Models are therefore reported with and without it, and a model conditioning on current BMI is shown only for transparency.
 
-For the interaction of interest, weighting attenuated the white cell count interaction from P=0.011 to P=0.072, with an E-value of 1.15 (Table S3). It is therefore described as hypothesis-generating.
+Equivalence was assessed by two one-sided tests. For an estimate θ̂ with standard error s and margin m:
 
----
+p_TOST = max{ Φ((θ̂ − m)/s), 1 − Φ((θ̂ + m)/s) }
 
-## S4. Structural comparison of the two carrier proteins
+| Outcome | Estimate | SE | Margin | 90% CI | p_TOST | Equivalent |
+|---|---|---|---|---|---|---|
+| PhenoAge acceleration, years | −0.180 | 0.206 | 0.5 | −0.519 to 0.159 | 0.060 | No |
+| PhenoAge acceleration, years | −0.180 | 0.206 | 1.0 | −0.519 to 0.159 | 3.5×10⁻⁵ | Yes |
+| Serum ΣPFAS, % | −1.24 | 1.50 | 5 | −3.70 to 1.22 | 0.0060 | Yes |
+| Serum ΣPFAS, % | −1.24 | 1.50 | 10 | −3.70 to 1.22 | 2.4×10⁻⁹ | Yes |
 
-The main text states one sentence. The supporting analysis is summarised here.
-
-**Structures.** Human SHBG with 5α-dihydrotestosterone (PDB 1D2S, 1.95 Å) and human serum albumin with stearate (PDB 1E7I). Ligand geometries for PFOA, PFOS, PFHxS and PFBS were taken from PubChem 3D conformers.
-
-**Steric fit.** The narrowest usable radius of the SHBG steroid pocket, measured over 20 slices along the long axis, is 4.17 Å. The maximum cross-sectional radii of the ligands are 3.90 Å (dihydrotestosterone), 3.64 Å (PFOA) and 3.59 Å (PFOS): all fit. The van der Waals volume of PFOA (221 Å³) is smaller than that of dihydrotestosterone (237 Å³). The steric objection to occupancy therefore fails; the obstacle lies elsewhere.
-
-**Electrostatics.** Within 4.5 Å of the bound steroid, the SHBG pocket contains one charged side chain (Asp65, net −1), which makes a bidentate contact with the 17β-hydroxyl of dihydrotestosterone (2.72 and 2.73 Å) and with Asn82 (2.93 Å). The fatty-acid sites of albumin (FA1–FA7) contain 16 arginine and lysine side chains against 2 acidic residues, a net charge of +14. A perfluoroalkyl acid carries −1 at physiological pH. Occupying the steroid site would therefore place a carboxylate against Asp65, giving a repulsive term of +3.1 to +12.3 kcal/mol across dielectric constants of 40 to 10.
-
-**Occupancy.** With measured concentrations (median PFOA 5.0 nM, PFOS 13.6 nM; SHBG 46 nM monomer, approximately 23 nM dimeric steroid sites; albumin 632 μM), occupancy of the SHBG site is 1.6% for PFOA and 4.3% for PFOS at a dissociation constant of 3 nM, 0.50% and 1.3% at 10 nM, and 0.05% and 0.14% at 100 nM. Reaching 4% for PFOA would require a dissociation constant of about 1 nM, which is at or beyond the affinity of testosterone itself and is not attainable for a same-charge anion.
-
-**What this does and does not show.** It shows that the observed population null is the expected result, not a power failure. It does not measure binding; no PFAS–SHBG complex structure or affinity has been determined here.
+The 0.5-year margin is not excluded (P=0.060); the paper therefore claims exclusion of harm beyond one year, not beyond half a year.
 
 ---
 
-## S5. Adipose single-nucleus RNA sequencing
+## Table S3. The imbalance, and how much of each estimate it accounts for
 
-Reported in full because it belongs to the same project; not summarised in the main text because it cannot be stratified by exposure.
-
-**Data.** GSE295708, human abdominal subcutaneous adipose tissue, 18 pools (6 with obesity, 6 after weight loss, 6 lean), 186,221 nuclei after quality control.
-
-**Composition.** Across seven cell classes, only the macrophage fraction fell significantly: 25.3% with obesity to 13.5% after weight loss (−46.5%, Welch P=0.010, BH-adjusted P=0.035, Cohen's d=−2.07). The post-weight-loss value is close to the lean value (14.4%). Five of the remaining six classes were not significant; the adipocyte fraction rose (+40.7%, BH-adjusted P=0.019) but reflects a denominator effect and should not be read as adipocyte hyperplasia.
-
-**Function.** Per-cell inflammatory score rose (0.133 to 0.291, P=0.0003), but transcript-level output fell: IL6 −86%, NLRP3 −84%, and the IL6→IL6R ligand–receptor pair −66.8% (q=0.0074). Net inflammatory burden (fraction × per-cell score) was unchanged (0.032 vs 0.039, P=0.19). In an independent paired bulk cohort (GSE199063, Roux-en-Y gastric bypass, 2 and 5 years) the macrophage signature fell by 1.18 and 1.58 SD, while net burden fell by only 0.70 and 0.94 SD — 41.0% and 40.2% less than the change in the macrophage signature.
-
-**Why it is not in the main text.** The dataset carries no exposure measurement, so it cannot show what high-pollutant adipose tissue looks like. It can only exclude adipose inflammation as a necessary mediator, and that exclusion is not needed for the attribution argument in the main text.
-
----
-
-## S6. Verification and data integrity
-
-- Each reported estimate is linked to a source file in a 256-row ledger (`verification/ledger.csv`), with the generating script in a separate column.
-- All 200 analysed NHANES files were compared byte-for-byte with the CDC distribution: 200/200 identical.
-- Two genuine errors were found and corrected during the audit: a CRP unit conversion, and the dropped intercept described in S2. Both are documented with before/after estimates.
-- PhenoAge was validated against mortality in the full adult sample (RR 1.032 per year; AUC 0.857).
-- The imputation of values below the limit of detection is documented congener by congener in S7.
-
----
-
-## S7. Sensitivity analyses
-
-**Limit of detection.** PFAS values below the limit were replaced with LOD/√2. Re-estimating under LOD (upper bound), LOD/2 (lower bound) and a restricted four-congener panel changed the coefficient by −1.1% to +0.9%; using PFOA alone, the least censored congener (≤1% below LOD), changed it by −5.3%. Percentage below LOD by cycle and congener, and the substitution values used, are listed in Table S7.
-
-**Exposure mixtures.** Quantile g-computation with four to six congeners gave mixture weights dominated by PFNA and PFHxS for white cell count and by PFNA for C-reactive protein; the mixture interaction terms were null for the androgen outcomes (P=0.26 and 0.67).
-
-**Seeds and specification.** The original androgen heterogeneity result (P=0.0049) drifted between P=0.012 and P=0.091 across five random seeds in the all-men sample (2,244), and between 0.383 and 0.670 after drug exclusion (2,077). The same code applied to PhenoAge in 9,656 participants returned P=1.2×10⁻⁷ to 1.0×10⁻⁴ across three seeds, so the instability is specific to the small androgen sample, not to the estimator.
-
-**Power.** In the most sensitive subgroup (n=56) the minimum detectable effect was ±35.7%; point estimates smaller than this are not interpreted. All subgroup estimates are reported in Table S7 regardless of significance.
-
----
-
-## S8. Directionality audit of the artefacts
-
-Table S8 lists each artefact with its uncontrolled and controlled estimates, the size of the shift, and the direction of the shift. All four — the three exposure-related artefacts and the separate specification error — shifted the estimate towards harm. The arithmetic of the "alarm yield" is: 5 of 30 estimates significant under the original specification, 3 of 30 after coefficient-level randomisation, 0 of 30 after survey weighting.
-
----
-
-## S9. Literature audit: prescription screening in NHANES pollutant–hormone studies
-
-PubMed was searched on 21 November 2026 (Title/Abstract) for NHANES studies of persistent organic pollutants with a sex-hormone outcome; 19 records were returned and 12 met the inclusion criteria (PFAS 10, polybrominated diphenyl ethers 1, organochlorine pesticides 1). Full texts were checked for the four studies that modelled testosterone in adult men; the remaining eight were assessed from abstracts, and this limitation is stated.
-
-| Screening for androgen-suppressing medication | Studies |
-|---|---|
-| Excluded named classes (antiandrogens, 5α-reductase inhibitors, adrenal corticosteroids) | 1 (Madrigal 2021) |
-| Excluded "hormone therapy" without naming classes | 1 (Li 2025, n=34) |
-| Adjusted for contraceptives in women only | 1 (Xie 2021) |
-| No medication handling reported | 9 |
-| **Screened for GnRH agonists** | **0** |
-| **Screened for opioid analgesics** | **0** |
-
-This is a scoping audit, not a systematic review: only PubMed was searched, no PRISMA flow was applied, and eight studies were judged from abstracts.
-
----
-
-## Supplementary tables (separate files)
-
-| Table | File | Content |
+| Characteristic | No loss ≥5% (n=7,779) | Loss ≥5% (n=1,877) |
 |---|---|---|
-| S1 | `TableS1_cohort_flow.csv` | Cohort flow and analytic domains |
-| S2 | `TableS2_statistical_audit.csv` | 30 interaction tests, original vs randomised vs weighted |
-| S3 | `TableS3_survey_weighted.csv` | Weighted vs unweighted estimates, design effects |
-| S7 | `TableS7_sensitivity.csv` | LOD substitution, mixtures, seeds, power |
-| S8 | `TableS8_artifact_audit.csv` | Directionality audit |
-| S9 | `TableS9_literature_audit.csv` | The 12 studies and their medication handling |
+| Age, years | 51.2 (17.9) | 52.1 (18.2) |
+| Female, % | 50.3 | 56.3 |
+| NH Black, % | 18.2 | 21.4 |
+| College or above, % | 26.3 | 19.6 |
+| Family income-to-poverty ratio | 2.7 (1.6) | 2.4 (1.5) |
+| BMI one year earlier, kg/m² | 27.7 (6.2) | 32.4 (7.8) |
+| Current BMI, kg/m² | 29.1 (7.0) | 29.8 (6.9) |
+| Diabetes, % | 10.9 | 19.6 |
+| Hypertension, % | 34.1 | 44.5 |
+| Current smoker, % | 18.1 | 22.0 |
+| PhenoAge acceleration, years | −0.5 (7.6) | 1.4 (9.0) |
+| Sum PFAS, nmol/L, median (IQR) | 28.7 (14.8–53.3) | 25.0 (12.7–48.1) |
+
+Stepwise adjustment, serum ΣPFAS (percentage difference per ≥5% weight loss):
+
+| Model | Estimate, % | SE | P |
+|---|---|---|---|
+| Unadjusted | −10.90 | 2.17 | 1×10⁻⁷ |
+| + race | −11.54 | 2.16 | 1.4×10⁻⁸ |
+| + education | −11.35 | 2.14 | 1.9×10⁻⁸ |
+| + smoking | −11.33 | 2.16 | 2.7×10⁻⁸ |
+| + age | −11.74 | 2.12 | 3.6×10⁻⁹ |
+| + sex | −8.76 | 2.12 | 1.6×10⁻⁵ |
+| + income-to-poverty ratio | −9.93 | 2.15 | 1.2×10⁻⁶ |
+| + BMI one year earlier | −5.83 | 2.07 | 0.0037 |
+| Full covariate set | −1.24 | 1.50 | 0.41 |
+
+PhenoAge acceleration, alternative specifications:
+
+| Specification | Estimate, years | SE | P |
+|---|---|---|---|
+| Crude | +1.877 | 0.230 | 3×10⁻¹⁶ |
+| Adjusted, year linear | −0.180 | 0.206 | 0.382 |
+| Adjusted, cycle fixed effects | −0.197 | 0.204 | 0.333 |
+| AIPW forest, year linear | −0.329 | 0.200 | 0.100 |
+| AIPW forest, cycle fixed effects | −0.266 | 0.199 | 0.182 |
+
+Direction reversal is stable across specifications; the adjusted estimate is not distinguishable from zero in any of them.
+
+Dose gradient (reference: weight stable within ±5%):
+
+| Band | n | Change in ΣPFAS, % (95% CI) | P |
+|---|---|---|---|
+| Stable ±5% | 7,853 | reference | — |
+| Loss 5–10% | 1,448 | +0.5 (−3.2 to 4.3) | 0.80 |
+| Loss ≥10% | 1,080 | −5.9 (−9.8 to −1.8) | 0.005 |
+| Gain ≥5% | 2,425 | −3.9 (−6.6 to −1.2) | 0.006 |
+
+The gradient is not monotonic, so it is not presented as a dose–response.
+
+---
+
+## Table S4. Composition of the 167 men on androgen-suppressing drugs
+
+| Class | All (n=2,244) | Losing ≥5% (n=439) | % of all |
+|---|---|---|---|
+| Opioid analgesic | 131 | 37 | 5.84 |
+| 5α-reductase inhibitor | 54 | 7 | 2.41 |
+| Systemic glucocorticoid | 39 | 8 | 1.74 |
+| GnRH agonist (ADT) | 1 | 1 | 0.04 |
+| Antiandrogen | 2 | 0 | 0.09 |
+| Ketoconazole | 3 | 2 | 0.13 |
+| Oestrogen | 0 | 0 | 0 |
+| Any of the above | 167 | 47 | 7.44 |
+
+Forest heterogeneity, one-sided P, 4,000 trees:
+
+| Exclusion | n | P (one-sided) | P (two-sided) |
+|---|---|---|---|
+| None | 2,243 | 0.0555 | 0.111 |
+| Opioid users | 2,113 | 0.5480 | 1.000 |
+| Glucocorticoid users | 2,203 | 0.1676 | 0.335 |
+| 5α-reductase inhibitor users | 2,183 | 0.0688 | 0.138 |
+| All 167 | 2,077 | 0.6728 | 1.000 |
+
+Parametric main effect per 5% weight loss, and the joint 2-df interaction:
+
+| Exclusion | n | Main effect, % | P | Interaction P |
+|---|---|---|---|---|
+| None | 2,244 | +4.28 | 1.9×10⁻⁵ | 0.671 |
+| Opioid users | 2,113 | +4.19 | 1.4×10⁻⁴ | 0.977 |
+| Glucocorticoid users | 2,205 | +4.44 | 8.9×10⁻⁷ | 0.720 |
+| 5α-reductase inhibitor users | 2,190 | +4.31 | 2.1×10⁻⁵ | 0.663 |
+| All 167 | 2,077 | +4.46 | 3.1×10⁻⁶ | 0.617 |
+| All seven classes | 2,029 | +4.56 | 2.4×10⁻⁶ | 0.659 |
+
+The main effect is unchanged; only the interaction moves. The pre-exclusion forest P was already 0.055, so the correct description is that an already marginal signal disappeared, not that the 167 carried it.
+
+---
+
+## S5. Formula decomposition
+
+| Index | Interaction P with BMI terms | Interaction P without BMI terms |
+|---|---|---|
+| Hepatic Steatosis Index (8 × ALT/AST) | 1.2×10⁻⁶ | 0.68 |
+| Fatty Liver Index | 0.017 | 0.14 |
+| log ALT (no BMI term to begin with) | 0.61 | 0.61 |
+
+Both indices contain BMI as a term. Removing it leaves the liver-specific component, and the interaction disappears. ALT, which never contained BMI, shows none.
+
+---
+
+## S6. The specification error, and why forest P is not reported as evidence
+
+In the first pass of these analyses, the interaction model was written as `y ~ w5*pfas_t + dw5*pfas_t`, where `dw5` is identically zero in the comparison group. This makes the design matrix collinear and zero-inflated; the intercept was also dropped when constant columns were removed, which rescales the interaction. The consequences:
+
+| Quantity | First pass | After correction |
+|---|---|---|
+| Nominal interactions with P<0.05, of 30 | 5 | 3 |
+| Surviving coefficient-level randomisation (1,000 permutations) | — | 3 |
+| Systemic immune-inflammation index, weight-loss effect | −8.0% | −1.0% |
+
+The systemic immune-inflammation index shows that the same error attenuated one association while inflating others: the error multiplies the design, it does not push in one direction.
+
+Forest heterogeneity is not used as evidence for three reasons, all reproducible:
+
+| Specification | n | One-sided P |
+|---|---|---|
+| Archived run (4,000 trees, seed 20261117) | 2,244 | 0.0048 |
+| Identical re-run, same seed, design matrix differing in no cell | 2,244 | 0.1030 |
+| Drop cycle G (2011–2012) | 1,480 | 0.7019 |
+| Drop cycle H (2013–2014) | 1,515 | 0.4785 |
+| Drop cycle I (2015–2016) | 1,493 | 0.1884 |
+| Drop two highest-Cook-distance men | 2,242 | 0.0926 |
+
+The archived P (0.0048) could not be reproduced with byte-identical inputs, which indicates run-level non-determinism in the tuning step rather than a data change. Dropping one cycle moves the same P from 0.10 to 0.70. The two Cook-distance points do not matter, so the instability is not driven by individuals.
+
+---
+
+## Table S7. Literature audit
+
+PubMed search, November 2026: NHANES AND (per- or polyfluoroalkyl OR organochlorine OR polychlorinated biphenyl) AND (testosterone OR sex hormone OR androgen). Nineteen records; twelve included after screening.
+
+| Study | Cycle | Exposure | Outcome | Screened for androgen-suppressing drugs |
+|---|---|---|---|---|
+| Lewis 2015 | 2011–2012 | PFAS | Testosterone, thyroid | Not reported |
+| Xie 2021 | 2015–2016 | PFAS | Sex hormones | Not reported |
+| Wang 2021 | 2013–2016 | PFAS | Sex hormones (women) | Not reported |
+| Li 2025 | 2013–2016 | Brominated flame retardants | Testosterone | Not reported |
+| Madrigal 2021 | 1999–2004 | Organochlorine pesticides | Sex steroids | Excluded antiandrogens and 5α-reductase inhibitors |
+| Eight further NHANES analyses | various | PFAS or organochlorines | Sex hormones | Not reported |
+
+Two of twelve screened for any androgen-suppressing medication; none screened for GnRH agonists or opioid analgesics. Four studies were read in full; the remaining eight were assessed from abstracts only, which is a limitation of this audit.
+
+---
+
+## S8. Tissue-level observation
+
+In GSE199063 (18 libraries: obese, weight-loss, lean; six each), weight loss reduced macrophage abundance from 25.3% to 13.5% of nuclei (−46.5%, Welch P=0.0099, BH-adjusted P=0.035) with a reciprocal rise in adipocyte fraction (+40.7%), consistent with a denominator effect. A senescence module remained above the lean group (difference +0.023, P=0.024), and the inflammatory module did not differ from obese controls (+0.022, P=0.165). These data are descriptive and come from a different population from the NHANES sample.
